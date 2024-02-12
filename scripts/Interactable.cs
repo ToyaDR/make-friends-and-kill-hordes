@@ -3,9 +3,8 @@ using Godot;
 
 public partial class Interactable : StaticBody3D
 {
-  public void Interact()
+  public virtual void Interact()
   {
-    // eventually would like this to set the interact message to the screen
     GD.Print("Interact");
   }
 }

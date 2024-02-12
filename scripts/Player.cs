@@ -48,9 +48,13 @@ public partial class Player : CharacterBody3D
 
 			if (interactable != null && interactable.HasMethod("Interact"))
 			{
-				GD.Print("See interactable");
+				// GD.Print("See interactable");
 				Interactable hitInteractable = interactable as Interactable;
-				hitInteractable.Interact();
+				// TODO set message on gui
+				if (Input.IsActionPressed("interact"))
+				{
+					hitInteractable.Interact();
+				}
 			}
 		}
 
@@ -58,27 +62,25 @@ public partial class Player : CharacterBody3D
 
 		if (Input.IsActionPressed("move_forward"))
 		{
-			GD.Print(Position);
 			direction.Z += 1.0f;
 		}
 
 		if (Input.IsActionPressed("move_backward"))
 		{
-			GD.Print(Position);
 			direction.Z -= 1.0f;
 		}
 
 		if (Input.IsActionPressed("move_left"))
 		{
-			GD.Print(Position);
 			direction.X += 1.0f;
 		}
 
 		if (Input.IsActionPressed("move_right"))
 		{
-			GD.Print(Position);
 			direction.X -= 1.0f;
 		}
+
+		// GD.Print(Position);
 
 		MoveAndSlide();
 		Velocity = direction * Speed;

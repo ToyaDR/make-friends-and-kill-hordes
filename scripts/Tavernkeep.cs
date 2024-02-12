@@ -11,9 +11,10 @@ public partial class Tavernkeep : Interactable
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		if (Input.IsActionPressed("interact"))
-		{
-			GD.Print("Interact with Tavernkeep");
-		}
+	}
+
+	public override void Interact()
+	{
+		GD.Print("Interact with Tavernkeep");
 	}
 }
