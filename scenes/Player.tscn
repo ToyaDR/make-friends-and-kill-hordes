@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://wc06lxol7jq8"]
+
+[ext_resource type="PackedScene" uid="uid://baqbuxb70x0a3" path="res://assets/Adventurer.gltf" id="1_b1gdw"]
+[ext_resource type="Script" path="res://scripts/Player.cs" id="1_tigpn"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fdxus"]
+
+[node name="CharacterBody3D" type="CharacterBody3D"]
+script = ExtResource("1_tigpn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.830541, 0)
+shape = SubResource("CapsuleShape3D_fdxus")
+
+[node name="Adventurer" parent="." instance=ExtResource("1_b1gdw")]
+
+[node name="Camera3D" type="Camera3D" parent="Adventurer"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.60461, 0.237169)
