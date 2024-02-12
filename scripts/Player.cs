@@ -3,16 +3,22 @@ using System;
 
 public partial class Player : CharacterBody3D
 {
+	public RayCast3D InteractionRaycast;
 	public const float Speed = 5.0f;
 	public const float JumpVelocity = 4.5f;
 
 	// Get the gravity from the project settings to be synced with RigidBody nodes.
 	public float gravity = ProjectSettings.GetSetting("physics/3d/default_gravity").AsSingle();
 
+	public override void _Ready()
+	{
+		base._Ready();
+		RayCast3D interactionRayCast = GetNode("Adventurer/Camera3D/RayCast3D") as RayCast3D;
+		InteractionRaycast = interactionRayCast;
+	}
+
 	public override void _PhysicsProcess(double delta)
 	{
-		Vector3 velocity = Velocity;
-
 		// Add the gravity.
 		// if (!IsOnFloor())
 		// 	velocity.Y -= gravity * (float)delta;
@@ -35,6 +41,18 @@ public partial class Player : CharacterBody3D
 		// 	velocity.X = Mathf.MoveToward(Velocity.X, 0, Speed);
 		// 	velocity.Z = Mathf.MoveToward(Velocity.Z, 0, Speed);
 		// }
+
+		if (InteractionRaycast.IsColliding())
+		{
+			GodotObject interactable = InteractionRaycast.GetCollider();
+
+			if (interactable != null && interactable.HasMethod("Interact"))
+			{
+				GD.Print("See interactable");
+				Interactable hitInteractable = interactable as Interactable;
+				hitInteractable.Interact();
+			}
+		}
 
 		Vector3 direction = Vector3.Zero;
 
@@ -65,7 +83,5 @@ public partial class Player : CharacterBody3D
 		MoveAndSlide();
 		Velocity = direction * Speed;
 		MoveAndSlide();
-
-
 	}
 }
