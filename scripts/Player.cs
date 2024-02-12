@@ -4,17 +4,33 @@ using System;
 public partial class Player : CharacterBody3D
 {
 	public RayCast3D InteractionRaycast;
+	public Camera3D Camera;
 	public const float Speed = 5.0f;
 	public const float JumpVelocity = 4.5f;
 
 	// Get the gravity from the project settings to be synced with RigidBody nodes.
 	public float gravity = ProjectSettings.GetSetting("physics/3d/default_gravity").AsSingle();
 
+	public float mouseSensitivity = 0.3f;
 	public override void _Ready()
 	{
 		base._Ready();
 		RayCast3D interactionRayCast = GetNode("Adventurer/Camera3D/RayCast3D") as RayCast3D;
 		InteractionRaycast = interactionRayCast;
+
+		Camera3D camera = GetNode("Adventurer/Camera3D") as Camera3D;
+		Camera = camera;
+	}
+
+	public override void _Input(InputEvent @event)
+	{
+		base._Input(@event);
+		if (@event is InputEventMouseMotion)
+		{
+			InputEventMouseMotion mouseEvent = @event as InputEventMouseMotion;
+
+			RotateY(Mathf.DegToRad(-mouseEvent.Relative.X * mouseSensitivity));
+		}
 	}
 
 	public override void _PhysicsProcess(double delta)
