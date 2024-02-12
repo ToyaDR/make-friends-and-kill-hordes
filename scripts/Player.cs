@@ -35,12 +35,31 @@ public partial class Player : CharacterBody3D
 		// 	velocity.X = Mathf.MoveToward(Velocity.X, 0, Speed);
 		// 	velocity.Z = Mathf.MoveToward(Velocity.Z, 0, Speed);
 		// }
+
 		Vector3 direction = Vector3.Zero;
 
 		if (Input.IsActionPressed("move_forward"))
 		{
 			GD.Print(Position);
 			direction.Z += 1.0f;
+		}
+
+		if (Input.IsActionPressed("move_backward"))
+		{
+			GD.Print(Position);
+			direction.Z -= 1.0f;
+		}
+
+		if (Input.IsActionPressed("move_left"))
+		{
+			GD.Print(Position);
+			direction.X += 1.0f;
+		}
+
+		if (Input.IsActionPressed("move_right"))
+		{
+			GD.Print(Position);
+			direction.X -= 1.0f;
 		}
 
 		MoveAndSlide();
