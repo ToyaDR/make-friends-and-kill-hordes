@@ -35,9 +35,11 @@ public partial class Player : CharacterBody3D
 
 	public override void _PhysicsProcess(double delta)
 	{
+		Vector3 velocity = Vector3.Zero;
+
 		// Add the gravity.
-		// if (!IsOnFloor())
-		// 	velocity.Y -= gravity * (float)delta;
+		if (!IsOnFloor())
+			velocity.Y -= gravity * (float)delta;
 
 		// Handle Jump.
 		// if (Input.IsActionJustPressed("ui_accept") && IsOnFloor())
@@ -47,16 +49,7 @@ public partial class Player : CharacterBody3D
 		// // As good practice, you should replace UI actions with custom gameplay actions.
 		// Vector2 inputDir = Input.GetVector("ui_left", "ui_right", "ui_up", "ui_down");
 		// Vector3 direction = (Transform.Basis * new Vector3(inputDir.X, 0, inputDir.Y)).Normalized();
-		// if (direction != Vector3.Zero)
-		// {
-		// 	velocity.X = direction.X * Speed;
-		// 	velocity.Z = direction.Z * Speed;
-		// }
-		// else
-		// {
-		// 	velocity.X = Mathf.MoveToward(Velocity.X, 0, Speed);
-		// 	velocity.Z = Mathf.MoveToward(Velocity.Z, 0, Speed);
-		// }
+
 
 		if (InteractionRaycast.IsColliding())
 		{
@@ -75,31 +68,22 @@ public partial class Player : CharacterBody3D
 		}
 
 		Vector3 direction = Vector3.Zero;
+		Vector2 inputDirection = Input.GetVector("move_right", "move_left", "move_backward", "move_forward");
 
-		if (Input.IsActionPressed("move_forward"))
+		direction = (Transform.Basis * new Vector3(inputDirection.X, 0, inputDirection.Y)).Normalized();
+
+		if (direction != Vector3.Zero)
 		{
-			direction.Z += 1.0f;
+			velocity.X = direction.X * Speed;
+			velocity.Z = direction.Z * Speed;
 		}
-
-		if (Input.IsActionPressed("move_backward"))
+		else
 		{
-			direction.Z -= 1.0f;
+			velocity.X = Mathf.MoveToward(Velocity.X, 0, Speed);
+			velocity.Z = Mathf.MoveToward(Velocity.Z, 0, Speed);
 		}
-
-		if (Input.IsActionPressed("move_left"))
-		{
-			direction.X += 1.0f;
-		}
-
-		if (Input.IsActionPressed("move_right"))
-		{
-			direction.X -= 1.0f;
-		}
-
 		// GD.Print(Position);
-
-		MoveAndSlide();
-		Velocity = direction * Speed;
+		Velocity = velocity;
 		MoveAndSlide();
 	}
 }

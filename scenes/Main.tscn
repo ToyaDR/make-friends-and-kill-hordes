@@ -12,7 +12,7 @@
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(60, 0, 0, 0, 2, 0, 0, 0, 60, 0, 0, 0)
+transform = Transform3D(59.9983, -0.0147839, -0.0667642, 0.443474, 1.99994, -0.040194, 0.0670592, 0.00132333, 60, 0, 0, 0)
 shape = SubResource("BoxShape3D_o10pe")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
