@@ -11,7 +11,8 @@ public partial class Player : CharacterBody3D
 	// Get the gravity from the project settings to be synced with RigidBody nodes.
 	public float gravity = ProjectSettings.GetSetting("physics/3d/default_gravity").AsSingle();
 
-	public float mouseSensitivity = 0.3f;
+	public float mouseSensitivityY = 0.1f;
+	public float mouseSensitivityX = 0.3f;
 	public override void _Ready()
 	{
 		base._Ready();
@@ -29,7 +30,12 @@ public partial class Player : CharacterBody3D
 		{
 			InputEventMouseMotion mouseEvent = @event as InputEventMouseMotion;
 
-			RotateY(Mathf.DegToRad(-mouseEvent.Relative.X * mouseSensitivity));
+			float yRotation = Mathf.DegToRad(-mouseEvent.Relative.X * mouseSensitivityX);
+			RotateY(yRotation);
+
+			float xRotation = Mathf.DegToRad(mouseEvent.Relative.Y * mouseSensitivityY);
+			float clampedX = Mathf.Clamp(xRotation, Mathf.DegToRad(-30), Mathf.DegToRad(60));
+			Camera.RotateX(clampedX);
 		}
 	}
 
