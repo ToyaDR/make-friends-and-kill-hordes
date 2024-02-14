@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://r6mhon67ytox"]
+
+[ext_resource type="Script" path="res://scripts/Dialogue.cs" id="1_31tb4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ocu4e"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_vrs7t"]
+
+[node name="Dialogue" type="RigidBody3D"]
+gravity_scale = 0.0
+script = ExtResource("1_31tb4")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.637, 1.472, 0.06)
+text = "Placeholder text that is really long and i wonder if the wrapping functionality works"
+horizontal_alignment = 0
+vertical_alignment = 0
+autowrap_mode = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, 2, 0, 0, 0, 0.2, 0, 1, 0)
+shape = SubResource("BoxShape3D_ocu4e")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.5, 0, 0, 0, 1, 0, 0, 0, 0.1, 0, 1, 0)
+mesh = SubResource("BoxMesh_vrs7t")
+skeleton = NodePath("")

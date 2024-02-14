@@ -1,0 +1,10 @@
+[
+  {
+    "dialogue": "Well you're up bright and early!",
+    "next": 1
+  },
+  {
+    "prev": 0,
+    "dialogue": "What can I do you for?"
+  }
+]
