@@ -11,6 +11,8 @@ public partial class Player : CharacterBody3D
 	// Get the gravity from the project settings to be synced with RigidBody nodes.
 	public float gravity = ProjectSettings.GetSetting("physics/3d/default_gravity").AsSingle();
 
+	public CanvasLayer HUD;
+
 	public float mouseSensitivityY = 0.1f;
 	public float mouseSensitivityX = 0.3f;
 	public override void _Ready()
@@ -21,6 +23,9 @@ public partial class Player : CharacterBody3D
 
 		Camera3D camera = GetNode("Adventurer/Camera3D") as Camera3D;
 		Camera = camera;
+
+		HUD = GetNode("CanvasLayer") as CanvasLayer;
+		HUD.GetChild<Label>(0).Text = "";
 	}
 
 	public override void _Input(InputEvent @event)
@@ -63,14 +68,21 @@ public partial class Player : CharacterBody3D
 
 			if (interactable != null && interactable.HasMethod("Interact"))
 			{
-				// GD.Print("See interactable");
 				Interactable hitInteractable = interactable as Interactable;
-				// TODO set message on gui
+				HUD.GetChild<Label>(0).Text = "Press 'F' to Interact";
+
 				if (Input.IsActionPressed("interact"))
 				{
 					hitInteractable.Interact();
 				}
 			}
+
+
+		}
+
+		if (!InteractionRaycast.IsColliding())
+		{
+			HUD.GetChild<Label>(0).Text = "";
 		}
 
 		Vector3 direction = Vector3.Zero;
