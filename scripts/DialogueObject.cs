@@ -3,7 +3,7 @@
 using System;
 using Godot;
 
-public partial class DialogueObject : Node
+public partial class DialogueObject : Node3D
 {
 
   public bool canBePickedUp = false;

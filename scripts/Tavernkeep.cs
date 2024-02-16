@@ -8,6 +8,7 @@ public partial class Tavernkeep : Interactable
 	public override void _Ready()
 	{
 		dialogueBox = GetChild<Dialogue>(2);
+		dialogueBox.Visible = false;
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -19,5 +20,11 @@ public partial class Tavernkeep : Interactable
 	{
 		GD.Print("Interact with Tavernkeep");
 		dialogueBox.Talk();
+		dialogueBox.Visible = true;
+	}
+	public override void ExitInteraction()
+	{
+		GD.Print("ExitInteraction with Tavernkeep");
+		dialogueBox.Visible = false;
 	}
 }

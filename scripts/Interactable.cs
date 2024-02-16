@@ -7,4 +7,8 @@ public partial class Interactable : StaticBody3D
   {
     GD.Print("Interact");
   }
+  public virtual void ExitInteraction()
+  {
+    GD.Print("ExitInteraction");
+  }
 }
