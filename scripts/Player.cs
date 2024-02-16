@@ -15,6 +15,8 @@ public partial class Player : CharacterBody3D
 
 	public float mouseSensitivityY = 0.1f;
 	public float mouseSensitivityX = 0.3f;
+
+	public bool isInteracting = false;
 	public override void _Ready()
 	{
 		base._Ready();
@@ -26,6 +28,7 @@ public partial class Player : CharacterBody3D
 
 		HUD = GetNode("CanvasLayer") as CanvasLayer;
 		HUD.GetChild<Label>(0).Text = "";
+		isInteracting = false;
 	}
 
 	public override void _Input(InputEvent @event)
@@ -41,6 +44,23 @@ public partial class Player : CharacterBody3D
 			float xRotation = Mathf.DegToRad(mouseEvent.Relative.Y * mouseSensitivityY);
 			float clampedX = Mathf.Clamp(xRotation, Mathf.DegToRad(-30), Mathf.DegToRad(60));
 			Camera.RotateX(clampedX);
+		}
+	}
+
+	private void HandleInteraction()
+	{
+		GodotObject interactable = InteractionRaycast.GetCollider();
+
+		if (interactable != null && interactable.HasMethod("Interact"))
+		{
+			Interactable hitInteractable = interactable as Interactable;
+			HUD.GetChild<Label>(0).Text = "Press 'F' to Interact";
+
+			if (Input.IsActionPressed("interact"))
+			{
+				hitInteractable.Interact();
+				isInteracting = true;
+			}
 		}
 	}
 
@@ -64,20 +84,7 @@ public partial class Player : CharacterBody3D
 
 		if (InteractionRaycast.IsColliding())
 		{
-			GodotObject interactable = InteractionRaycast.GetCollider();
-
-			if (interactable != null && interactable.HasMethod("Interact"))
-			{
-				Interactable hitInteractable = interactable as Interactable;
-				HUD.GetChild<Label>(0).Text = "Press 'F' to Interact";
-
-				if (Input.IsActionPressed("interact"))
-				{
-					hitInteractable.Interact();
-				}
-			}
-
-
+			HandleInteraction();
 		}
 
 		if (!InteractionRaycast.IsColliding())
