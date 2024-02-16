@@ -1,13 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://6ed67wmlrh0w"]
+[gd_scene load_steps=6 format=3 uid="uid://6ed67wmlrh0w"]
 
 [ext_resource type="PackedScene" uid="uid://wc06lxol7jq8" path="res://scenes/Player.tscn" id="1_i8lry"]
 [ext_resource type="PackedScene" uid="uid://eo5pry0bgkm3" path="res://scenes/TavernkeepV2.tscn" id="2_dtldc"]
+[ext_resource type="PackedScene" uid="uid://bup01200g4iel" path="res://scenes/GameManager.tscn" id="3_y5lae"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_o10pe"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_rjmtg"]
 
 [node name="Node3D" type="Node3D"]
+
+[node name="GameManager" parent="." instance=ExtResource("3_y5lae")]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
