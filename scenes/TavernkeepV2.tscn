@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://eo5pry0bgkm3"]
 
 [ext_resource type="Script" path="res://scripts/Tavernkeep.cs" id="1_44xq3"]
-[ext_resource type="PackedScene" uid="uid://clnlw3t5ratfu" path="res://assets/testPerson.fbx" id="2_04j77"]
+[ext_resource type="PackedScene" uid="uid://oe3k07g6uuqb" path="res://assets/barkeep_03.fbx" id="3_7a4ij"]
 [ext_resource type="PackedScene" uid="uid://r6mhon67ytox" path="res://scenes/Dialogue.tscn" id="3_igpsw"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lp53s"]
@@ -11,12 +11,11 @@
 [node name="Tavernkeep" type="StaticBody3D" parent="."]
 script = ExtResource("1_44xq3")
 
+[node name="Root Scene" parent="Tavernkeep" instance=ExtResource("3_7a4ij")]
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Tavernkeep"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.820227, 0)
 shape = SubResource("CapsuleShape3D_lp53s")
-
-[node name="Root Scene" parent="Tavernkeep" instance=ExtResource("2_04j77")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00393783, 0, 0.0208102)
 
 [node name="Dialogue" parent="Tavernkeep" instance=ExtResource("3_igpsw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.28239, 0.84241, 0)
