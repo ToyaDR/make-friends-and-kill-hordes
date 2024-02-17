@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://oe3k07g6uuqb"
-path="res://.godot/imported/barkeep_03.fbx-a8c4402802a889f1f6b2349cc8c4a2dd.scn"
+uid="uid://d2pd1s0f4kj2i"
+path="res://.godot/imported/barkeep_04.fbx-edf660a30dcdd3dee0cfc01ca6be8e80.scn"
 
 [deps]
 
-source_file="res://assets/barkeep_03.fbx"
-dest_files=["res://.godot/imported/barkeep_03.fbx-a8c4402802a889f1f6b2349cc8c4a2dd.scn"]
+source_file="res://assets/barkeep_04.fbx"
+dest_files=["res://.godot/imported/barkeep_04.fbx-edf660a30dcdd3dee0cfc01ca6be8e80.scn"]
 
 [params]
 
