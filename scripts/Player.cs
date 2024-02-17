@@ -20,10 +20,10 @@ public partial class Player : CharacterBody3D
 	public override void _Ready()
 	{
 		base._Ready();
-		RayCast3D interactionRayCast = GetNode("Adventurer/Camera3D/RayCast3D") as RayCast3D;
+		RayCast3D interactionRayCast = GetNode("CollisionShape3D/Camera3D/RayCast3D") as RayCast3D;
 		InteractionRaycast = interactionRayCast;
 
-		Camera3D camera = GetNode("Adventurer/Camera3D") as Camera3D;
+		Camera3D camera = GetNode("CollisionShape3D/Camera3D") as Camera3D;
 		Camera = camera;
 
 		HUD = GetNode("CanvasLayer") as CanvasLayer;

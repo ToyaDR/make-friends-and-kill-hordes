@@ -5,7 +5,7 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fdxus"]
 
-[node name="CharacterBody3D" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 script = ExtResource("1_tigpn")
 
@@ -13,14 +13,14 @@ script = ExtResource("1_tigpn")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.830541, 0)
 shape = SubResource("CapsuleShape3D_fdxus")
 
-[node name="Adventurer" parent="." instance=ExtResource("1_b1gdw")]
+[node name="Camera3D" type="Camera3D" parent="CollisionShape3D"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.774069, 0.237169)
 
-[node name="Camera3D" type="Camera3D" parent="Adventurer"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.60461, 0.237169)
-
-[node name="RayCast3D" type="RayCast3D" parent="Adventurer/Camera3D"]
+[node name="RayCast3D" type="RayCast3D" parent="CollisionShape3D/Camera3D"]
 transform = Transform3D(1, 5.76607e-08, -2.77887e-15, 0, -3.96462e-08, -1, -6.3573e-08, 0.907, -4.37114e-08, 0, 0, 0)
 target_position = Vector3(0, -5, 0)
+
+[node name="Adventurer" parent="." instance=ExtResource("1_b1gdw")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 follow_viewport_enabled = true
