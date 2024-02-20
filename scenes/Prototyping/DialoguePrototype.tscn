@@ -1,0 +1,155 @@
+[gd_scene load_steps=8 format=3 uid="uid://bsnkvpkyykce3"]
+
+[ext_resource type="PackedScene" uid="uid://wc06lxol7jq8" path="res://scenes/Player.tscn" id="1_fo4ap"]
+[ext_resource type="ArrayMesh" uid="uid://q728rx4tnbyp" path="res://scenes/Prototyping/assets/Kitchen_1Drawers.obj" id="2_1jncn"]
+[ext_resource type="ArrayMesh" uid="uid://dvo1tmpcbelaw" path="res://scenes/Prototyping/assets/Stool.obj" id="3_jmdd1"]
+[ext_resource type="ArrayMesh" uid="uid://ltswo8wgk8kt" path="res://scenes/Prototyping/assets/Shelf_Large.obj" id="4_gsxa6"]
+[ext_resource type="ArrayMesh" uid="uid://ir3csd026d2y" path="res://scenes/Prototyping/assets/Light_Ceiling1.obj" id="5_ox40y"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2eda6"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_yc3jc"]
+
+[node name="DialoguePrototype" type="Node3D"]
+
+[node name="Floor" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+transform = Transform3D(59.9983, -0.0147839, -0.0667642, 0.443474, 1.99994, -0.040194, 0.0670592, 0.00132333, 60, 0, 0, 0)
+shape = SubResource("BoxShape3D_2eda6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+transform = Transform3D(60, 0, 0, 0, 2, 0, 0, 0, 60, 0, 0, 0)
+mesh = SubResource("BoxMesh_yc3jc")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.978846, 0.204599, 0, -0.204599, -0.978846, 0, 16.6192, 0)
+visible = false
+
+[node name="Player" parent="." instance=ExtResource("1_fo4ap")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1, 0)
+
+[node name="Bar" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.41697, 0, -3.34852)
+
+[node name="Lights" type="Node3D" parent="Bar"]
+
+[node name="LightCeiling1" type="MeshInstance3D" parent="Bar/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 5.5, 0)
+mesh = ExtResource("5_ox40y")
+skeleton = NodePath("../LightCeiling2")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Bar/Lights/LightCeiling1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.894313, 0)
+
+[node name="LightCeiling2" type="MeshInstance3D" parent="Bar/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 5.5, 0)
+mesh = ExtResource("5_ox40y")
+skeleton = NodePath("../../..")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Bar/Lights/LightCeiling2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.894313, 0)
+
+[node name="LightCeiling3" type="MeshInstance3D" parent="Bar/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 5.5, 0)
+mesh = ExtResource("5_ox40y")
+skeleton = NodePath("../..")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Bar/Lights/LightCeiling3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.894313, 0)
+
+[node name="LightCeiling4" type="MeshInstance3D" parent="Bar/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 5.5, 0)
+mesh = ExtResource("5_ox40y")
+skeleton = NodePath("../..")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Bar/Lights/LightCeiling4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.894313, 0)
+
+[node name="LightCeiling5" type="MeshInstance3D" parent="Bar/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 5.5, 0)
+mesh = ExtResource("5_ox40y")
+skeleton = NodePath("../..")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Bar/Lights/LightCeiling5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.894313, 0)
+
+[node name="ShelfLarge" type="MeshInstance3D" parent="Bar"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, -3)
+mesh = ExtResource("4_gsxa6")
+skeleton = NodePath("../..")
+
+[node name="ShelfLarge2" type="MeshInstance3D" parent="Bar"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.3, 1, -3)
+mesh = ExtResource("4_gsxa6")
+skeleton = NodePath("../..")
+
+[node name="ShelfLarge3" type="MeshInstance3D" parent="Bar"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.6, 1, -3)
+mesh = ExtResource("4_gsxa6")
+skeleton = NodePath("../..")
+
+[node name="Counter" type="Node3D" parent="Bar"]
+
+[node name="Kitchen1Drawers5" type="MeshInstance3D" parent="Bar/Counter"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 7, 1, 0)
+mesh = ExtResource("2_1jncn")
+skeleton = NodePath(".")
+
+[node name="Kitchen1Drawers6" type="MeshInstance3D" parent="Bar/Counter"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 6, 1, 0)
+mesh = ExtResource("2_1jncn")
+skeleton = NodePath("../..")
+
+[node name="Kitchen1Drawers7" type="MeshInstance3D" parent="Bar/Counter"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 5, 1, 0)
+mesh = ExtResource("2_1jncn")
+skeleton = NodePath(".")
+
+[node name="Kitchen1Drawers8" type="MeshInstance3D" parent="Bar/Counter"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 4, 1, 0)
+mesh = ExtResource("2_1jncn")
+skeleton = NodePath(".")
+
+[node name="Kitchen1Drawers2" type="MeshInstance3D" parent="Bar/Counter"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 1, 0)
+mesh = ExtResource("2_1jncn")
+skeleton = NodePath("../Kitchen1Drawers")
+
+[node name="Kitchen1Drawers" type="MeshInstance3D" parent="Bar/Counter"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 1, 1, 0)
+mesh = ExtResource("2_1jncn")
+skeleton = NodePath("../../..")
+
+[node name="Kitchen1Drawers3" type="MeshInstance3D" parent="Bar/Counter"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 2, 1, 0)
+mesh = ExtResource("2_1jncn")
+skeleton = NodePath(".")
+
+[node name="Kitchen1Drawers4" type="MeshInstance3D" parent="Bar/Counter"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 3, 1, 0)
+mesh = ExtResource("2_1jncn")
+skeleton = NodePath("../Kitchen1Drawers")
+
+[node name="Stool1" type="MeshInstance3D" parent="Bar"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, 1.5)
+mesh = ExtResource("3_jmdd1")
+
+[node name="Stool2" type="MeshInstance3D" parent="Bar"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, 1.5)
+mesh = ExtResource("3_jmdd1")
+skeleton = NodePath("../..")
+
+[node name="Stool3" type="MeshInstance3D" parent="Bar"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 1, 1.5)
+mesh = ExtResource("3_jmdd1")
+
+[node name="Stool4" type="MeshInstance3D" parent="Bar"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1, 1.5)
+mesh = ExtResource("3_jmdd1")
+skeleton = NodePath("../../..")
+
+[node name="Stool5" type="MeshInstance3D" parent="Bar"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 1, 1.5)
+mesh = ExtResource("3_jmdd1")
+skeleton = NodePath("../..")

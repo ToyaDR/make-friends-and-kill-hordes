@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://dnfbdcgpvak7o"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ia7e6"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_5o2cm"]
+
+[node name="RigidBody3D" type="RigidBody3D"]
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.455235, 1.22989, 0.06)
+text = "Really long placeholder text once again testing wrappping"
+horizontal_alignment = 0
+vertical_alignment = 0
+autowrap_mode = 2
+width = 400.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, 2, 0, 0, 0, 0.2, 0, 1, 0)
+shape = SubResource("BoxShape3D_ia7e6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 0.1, 0, 1, 0)
+mesh = SubResource("BoxMesh_5o2cm")
+skeleton = NodePath("")

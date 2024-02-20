@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://ir3csd026d2y"
+path="res://.godot/imported/Light_Ceiling1.obj-fc92618364c13a427be5804cf8b48ee7.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Light_Ceiling1.obj-fc92618364c13a427be5804cf8b48ee7.mesh"]
+
+source_file="res://scenes/Prototyping/assets/Light_Ceiling1.obj"
+dest_files=["res://.godot/imported/Light_Ceiling1.obj-fc92618364c13a427be5804cf8b48ee7.mesh", "res://.godot/imported/Light_Ceiling1.obj-fc92618364c13a427be5804cf8b48ee7.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
