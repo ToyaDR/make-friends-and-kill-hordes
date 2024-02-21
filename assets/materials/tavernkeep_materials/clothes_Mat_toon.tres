@@ -1,0 +1,29 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://d0xwdmk51je7u"]
+
+[ext_resource type="Shader" path="res://assets/shaders/botwToonShader_nekoto.gdshader" id="1_jg7g0"]
+[ext_resource type="Texture2D" uid="uid://b25qek2q1om7g" path="res://assets/textures/tavernkeep_textures/clothes_Base_color.png" id="2_s2i0k"]
+[ext_resource type="Texture2D" uid="uid://cewxgxdqg6dnl" path="res://assets/textures/tavernkeep_textures/clothes_Normal_DirectX.png" id="3_0nv7d"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_jg7g0")
+shader_parameter/tint = Color(1, 1, 1, 1)
+shader_parameter/metallic = 0.0
+shader_parameter/shadow_size = 0.365
+shader_parameter/shadow_blend = 0.206
+shader_parameter/shadow_extra_intensity = -0.005
+shader_parameter/shadow_color = Color(0.596078, 0.329412, 0.247059, 1)
+shader_parameter/light_tint = Color(1, 1, 1, 1)
+shader_parameter/rimlight_size = 0.921
+shader_parameter/rimlight_blend = 0.01
+shader_parameter/rimlight_color = Color(1, 1, 1, 1)
+shader_parameter/use_normalmap = true
+shader_parameter/animated = false
+shader_parameter/time_scale = 0.02
+shader_parameter/normal_bias = Vector3(0, 0, 0)
+shader_parameter/light_bias = Vector3(0, 0, 0)
+shader_parameter/use_view = false
+shader_parameter/view_bias = Color(1, 0, 1, 1)
+shader_parameter/view_multiplier = -1.0
+shader_parameter/albedo_texture = ExtResource("2_s2i0k")
+shader_parameter/normal_map = ExtResource("3_0nv7d")
