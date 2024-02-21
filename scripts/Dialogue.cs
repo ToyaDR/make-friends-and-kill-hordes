@@ -1,22 +1,26 @@
 using Godot;
 using System;
 
-public partial class Dialogue : DialogueObject
+public partial class Dialogue : Node3D
 {
-	// Called when the node enters the scene tree for the first time.
+	private Label3D NPCText;
+	private Label3D Option1Text;
+	private Label3D Option2Text;
 
 	public override void _Ready()
 	{
-		canBePickedUp = false;
-		text = GetChild<Label3D>(0);
+		NPCText = GetChild<RigidBody3D>(0).GetChild<Label3D>(0);
+		Option1Text = GetChild<RigidBody3D>(1).GetChild<Label3D>(0);
+		Option2Text = GetChild<RigidBody3D>(2).GetChild<Label3D>(0);
 	}
 
-	public void Talk(string talkText)
+	public void Talk(NPCDialogue npcText)
 	{
-		text.Text = talkText;
+		NPCText.Text = npcText.Text;
+		Option1Text.Text = npcText.Responses[0].Text;
+		Option2Text.Text = npcText.Responses[1].Text;
 	}
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
 	}
