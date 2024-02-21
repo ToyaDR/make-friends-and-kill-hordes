@@ -11,9 +11,9 @@ public partial class Dialogue : DialogueObject
 		text = GetChild<Label3D>(0);
 	}
 
-	public void Talk()
+	public void Talk(string talkText)
 	{
-		text.Text = "Placeholder until I get this json working";
+		text.Text = talkText;
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
