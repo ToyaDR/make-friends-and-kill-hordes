@@ -95,14 +95,16 @@ _data = {
 }
 
 [node name="Node3D2" type="Node3D"]
+transform = Transform3D(0.999997, 0.00224852, 0.000282198, -0.00224849, 0.999997, -0.000112345, -0.000282453, 0.000111702, 1, 0, 0, 0)
 
 [node name="barkeep_rig_10" parent="." instance=ExtResource("1_e6yvu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.124945, -0.00280875, 0.0724277)
+transform = Transform3D(1, -1.1806e-10, -2.91038e-11, -1.20668e-10, 1, 0, 0, 0, 1, 0.124945, -0.00280875, 0.0724277)
 
 [node name="tavernkeep_rig" parent="barkeep_rig_10" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.69497, 0.998773, 0)
+transform = Transform3D(0.988854, -0.00496405, -0.148806, 0.00510097, 0.999987, 0.000538471, 0.148802, -0.00129153, 0.988866, 0, 0, 0)
 
 [node name="Skeleton3D" parent="barkeep_rig_10/tavernkeep_rig" index="0"]
+transform = Transform3D(1, 4.36557e-11, -1.49012e-08, 1.30967e-10, 1, 0, 0, 1.16415e-10, 1, 0, 0, 0)
 bones/1/position = Vector3(-0.0432115, 0.00678201, 0.899464)
 bones/1/rotation = Quaternion(0.738883, 0.04758, -0.0902879, 0.66606)
 bones/2/rotation = Quaternion(-0.0640329, 0.00391098, 0.0603187, 0.996116)
@@ -161,18 +163,14 @@ bones/58/rotation = Quaternion(-0.619949, -0.0370671, 0.00117251, 0.783765)
 bones/58/scale = Vector3(1.00649, 1.0058, 0.987866)
 bones/59/rotation = Quaternion(-6.79296e-05, 0.979196, -0.202915, -0.000235502)
 bones/59/scale = Vector3(1.0001, 0.999841, 1.00005)
-bones/60/position = Vector3(0.195079, 0.0800256, 1.08182)
-bones/60/rotation = Quaternion(-0.0273316, 0.786683, 0.0321946, 0.615911)
-bones/60/scale = Vector3(1, 20.8589, 1)
-bones/61/position = Vector3(-0.238835, 0.138511, 1.05921)
-bones/61/rotation = Quaternion(0.21045, 0.59822, 0.161113, -0.756232)
-bones/61/scale = Vector3(1, 19.7837, 1)
-bones/62/position = Vector3(0.0753098, -0.0687796, 0.505857)
-bones/62/rotation = Quaternion(0.994157, -0.0734917, 0.0733207, 0.0295628)
-bones/62/scale = Vector3(1, 20.0217, 1)
-bones/63/position = Vector3(-0.124139, 0.0144869, 0.539951)
-bones/63/rotation = Quaternion(0.994758, -0.0690952, 0.0689237, 0.0305184)
-bones/63/scale = Vector3(1, 21.6854, 1)
+bones/60/rotation = Quaternion(-0.2766, 0.632729, -0.0113855, 0.723199)
+bones/60/scale = Vector3(1, 19.3771, 1)
+bones/61/rotation = Quaternion(0.2766, 0.632729, -0.0113855, -0.723199)
+bones/61/scale = Vector3(1, 19.3771, 1)
+bones/62/rotation = Quaternion(0.998438, 9.33743e-06, -0.000166776, -0.0558737)
+bones/62/scale = Vector3(1, 19.0538, 1)
+bones/63/rotation = Quaternion(0.998438, 9.35076e-06, -0.000167014, -0.0558737)
+bones/63/scale = Vector3(1, 19.0538, 1)
 bones/65/position = Vector3(0.00116062, -0.0343658, -0.0182475)
 bones/65/rotation = Quaternion(-0.0753416, -0.0208469, -0.00876852, 0.996901)
 bones/66/rotation = Quaternion(-0.000211602, 0.121566, 0.000176398, 0.992583)
@@ -263,7 +261,7 @@ bones/210/rotation = Quaternion(0.108683, 0.787615, -0.076377, 0.601679)
 bones/213/rotation = Quaternion(0.2082, 1.40551e-08, 1.15697e-08, 0.978086)
 bones/219/rotation = Quaternion(0.109967, 0.797735, -0.0745176, 0.588195)
 bones/220/rotation = Quaternion(-0.116987, -0.490538, -0.289526, 0.813549)
-bones/226/rotation = Quaternion(-0.00615841, -1.97428e-09, 0.999981, 1.42961e-08)
+bones/226/rotation = Quaternion(-0.00615841, 1.13372e-09, 0.999981, 1.12001e-09)
 bones/229/rotation = Quaternion(-0.128351, -0.522342, -0.284671, 0.793503)
 bones/232/rotation = Quaternion(-2.51843e-07, -0.0118034, -6.32461e-08, 0.99993)
 bones/235/rotation = Quaternion(3.44258e-08, -0.0847454, 1.22384e-07, 0.996403)
@@ -383,6 +381,7 @@ surface_material_override/0 = ExtResource("3_0tqtp")
 surface_material_override/0 = ExtResource("6_v4eqn")
 
 [node name="main_low" parent="barkeep_rig_10/tavernkeep_rig/Skeleton3D" index="13"]
+transform = Transform3D(1, -0.000987097, 0.000346258, 0.000987068, 1, 8.30323e-05, -0.000346333, -8.26915e-05, 1, 0, 0, 0)
 blend_shapes/brow_L_scrunch = 0.103704
 blend_shapes/brow_L_up = 0.17037
 blend_shapes/brow_R_down = 0.266667
@@ -395,6 +394,7 @@ blend_shapes/smile = 0.8
 surface_material_override/0 = ExtResource("5_3p1ym")
 
 [node name="noseRing_low" parent="barkeep_rig_10/tavernkeep_rig/Skeleton3D" index="14"]
+transform = Transform3D(1, -0.000974958, 5.58645e-05, 0.000974978, 1, -0.000378074, -5.54919e-05, 0.000378127, 1, 0, 0, 0)
 surface_material_override/0 = ExtResource("3_0tqtp")
 
 [node name="pants_low" parent="barkeep_rig_10/tavernkeep_rig/Skeleton3D" index="15"]
