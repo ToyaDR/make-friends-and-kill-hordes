@@ -30,3 +30,24 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="TavernkeepWithDialogue" parent="." instance=ExtResource("2_dtldc")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.28419, 1.01292, 3.2763)
+
+[node name="Skeleton3D" parent="TavernkeepWithDialogue/Tavernkeep/tavernkeep_rig/barkeep_rig_10/tavernkeep_rig" index="0"]
+bones/60/position = Vector3(0.297601, 0.060865, 1.14991)
+bones/60/rotation = Quaternion(-0.2766, 0.632729, -0.0113855, 0.723199)
+bones/60/scale = Vector3(1, 19.3771, 1)
+bones/61/position = Vector3(-0.297601, 0.060865, 1.14991)
+bones/61/rotation = Quaternion(0.2766, 0.632729, -0.0113855, -0.723199)
+bones/61/scale = Vector3(1, 19.3771, 1)
+bones/62/position = Vector3(0.103182, 0.00139999, 0.5318)
+bones/62/rotation = Quaternion(0.998438, 9.33742e-06, -0.000166776, -0.0558736)
+bones/62/scale = Vector3(1, 19.0538, 1)
+bones/63/position = Vector3(-0.103182, 0.00139999, 0.5318)
+bones/63/rotation = Quaternion(0.998438, 9.35074e-06, -0.000167014, -0.0558736)
+bones/63/scale = Vector3(1, 19.0538, 1)
+bones/226/rotation = Quaternion(-0.00615841, 1.13372e-09, 0.999981, 1.12001e-09)
+bones/370/rotation = Quaternion(4.07453e-10, -6.35275e-21, 1, -2.89513e-24)
+bones/384/rotation = Quaternion(4.07453e-10, -1.76707e-27, 1, -2.89513e-24)
+
+[editable path="TavernkeepWithDialogue"]
+[editable path="TavernkeepWithDialogue/Tavernkeep/tavernkeep_rig"]
+[editable path="TavernkeepWithDialogue/Tavernkeep/tavernkeep_rig/barkeep_rig_10"]

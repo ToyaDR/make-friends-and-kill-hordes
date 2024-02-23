@@ -1,13 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://eo5pry0bgkm3"]
+[gd_scene load_steps=5 format=3 uid="uid://eo5pry0bgkm3"]
 
 [ext_resource type="Script" path="res://scripts/Tavernkeep.cs" id="1_44xq3"]
-[ext_resource type="PackedScene" uid="uid://d2pd1s0f4kj2i" path="res://assets/barkeep_04.fbx" id="2_c5k5x"]
-[ext_resource type="Material" uid="uid://d0xwdmk51je7u" path="res://assets/materials/tavernkeep_materials/clothes_Mat_toon.tres" id="3_6jke4"]
+[ext_resource type="PackedScene" uid="uid://b7nomvliru3od" path="res://tavernkeep_rig.tscn" id="2_c3fhb"]
 [ext_resource type="PackedScene" uid="uid://r6mhon67ytox" path="res://scenes/Dialogue.tscn" id="3_igpsw"]
-[ext_resource type="Material" uid="uid://lprwijn444ia" path="res://assets/materials/tavernkeep_materials/boots_Mat_toon.tres" id="4_c421r"]
-[ext_resource type="Material" uid="uid://bclwayr0uwwcc" path="res://assets/materials/tavernkeep_materials/main_Mat_toon.tres" id="4_tuf6e"]
-[ext_resource type="Material" uid="uid://urrimqwhmmx7" path="res://assets/materials/tavernkeep_materials/hair_Mat_toon.tres" id="5_1dvas"]
-[ext_resource type="Material" uid="uid://bogulhcwpojrf" path="res://assets/materials/tavernkeep_materials/eye_Mat_toon.tres" id="6_nskc4"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lp53s"]
 
@@ -16,85 +11,24 @@
 [node name="Tavernkeep" type="StaticBody3D" parent="."]
 script = ExtResource("1_44xq3")
 
-[node name="tavernkeep_Mesh" parent="Tavernkeep" instance=ExtResource("2_c5k5x")]
+[node name="tavernkeep_rig" parent="Tavernkeep" instance=ExtResource("2_c3fhb")]
 
-[node name="belt1_low" parent="Tavernkeep/tavernkeep_Mesh/RootNode" index="0"]
-surface_material_override/0 = ExtResource("3_6jke4")
-
-[node name="belt2_low" parent="Tavernkeep/tavernkeep_Mesh/RootNode" index="1"]
-surface_material_override/0 = ExtResource("3_6jke4")
-
-[node name="bootMain_low" parent="Tavernkeep/tavernkeep_Mesh/RootNode" index="2"]
-surface_material_override/0 = ExtResource("4_c421r")
-
-[node name="spatterdashes_low" parent="Tavernkeep/tavernkeep_Mesh/RootNode" index="3"]
-surface_material_override/0 = ExtResource("4_c421r")
-
-[node name="bootBottom_low" parent="Tavernkeep/tavernkeep_Mesh/RootNode" index="4"]
-surface_material_override/0 = ExtResource("4_c421r")
-
-[node name="pants_low" parent="Tavernkeep/tavernkeep_Mesh/RootNode" index="5"]
-surface_material_override/0 = ExtResource("3_6jke4")
-
-[node name="apron_low" parent="Tavernkeep/tavernkeep_Mesh/RootNode" index="6"]
-surface_material_override/0 = ExtResource("3_6jke4")
-
-[node name="rag_low" parent="Tavernkeep/tavernkeep_Mesh/RootNode" index="7"]
-surface_material_override/0 = ExtResource("3_6jke4")
-
-[node name="vest_low" parent="Tavernkeep/tavernkeep_Mesh/RootNode" index="8"]
-surface_material_override/0 = ExtResource("3_6jke4")
-
-[node name="teeth_low" parent="Tavernkeep/tavernkeep_Mesh/RootNode" index="9"]
-surface_material_override/0 = ExtResource("4_tuf6e")
-
-[node name="tusks_low" parent="Tavernkeep/tavernkeep_Mesh/RootNode" index="10"]
-surface_material_override/0 = ExtResource("4_tuf6e")
-
-[node name="brows_low" parent="Tavernkeep/tavernkeep_Mesh/RootNode" index="11"]
-surface_material_override/0 = ExtResource("5_1dvas")
-
-[node name="eyelashes_low" parent="Tavernkeep/tavernkeep_Mesh/RootNode" index="12"]
-surface_material_override/0 = ExtResource("5_1dvas")
-
-[node name="noseRing_low" parent="Tavernkeep/tavernkeep_Mesh/RootNode" index="13"]
-surface_material_override/0 = ExtResource("3_6jke4")
-
-[node name="straps_low" parent="Tavernkeep/tavernkeep_Mesh/RootNode" index="14"]
-surface_material_override/0 = ExtResource("3_6jke4")
-
-[node name="main_low" parent="Tavernkeep/tavernkeep_Mesh/RootNode" index="15"]
-surface_material_override/0 = ExtResource("4_tuf6e")
-
-[node name="bootStrap_low" parent="Tavernkeep/tavernkeep_Mesh/RootNode" index="16"]
-surface_material_override/0 = ExtResource("4_c421r")
-
-[node name="shirt_low" parent="Tavernkeep/tavernkeep_Mesh/RootNode" index="17"]
-surface_material_override/0 = ExtResource("3_6jke4")
-
-[node name="spatterdashStrap_low" parent="Tavernkeep/tavernkeep_Mesh/RootNode" index="18"]
-surface_material_override/0 = ExtResource("4_c421r")
-
-[node name="bootBuckle1_low" parent="Tavernkeep/tavernkeep_Mesh/RootNode" index="19"]
-surface_material_override/0 = ExtResource("4_c421r")
-
-[node name="bootBuckle2_low" parent="Tavernkeep/tavernkeep_Mesh/RootNode" index="20"]
-surface_material_override/0 = ExtResource("4_c421r")
-
-[node name="beltBuckle_low" parent="Tavernkeep/tavernkeep_Mesh/RootNode" index="21"]
-surface_material_override/0 = ExtResource("3_6jke4")
-
-[node name="earrings_low" parent="Tavernkeep/tavernkeep_Mesh/RootNode" index="22"]
-surface_material_override/0 = ExtResource("3_6jke4")
-
-[node name="hair_low" parent="Tavernkeep/tavernkeep_Mesh/RootNode" index="23"]
-surface_material_override/0 = ExtResource("5_1dvas")
-
-[node name="eyeL_low" parent="Tavernkeep/tavernkeep_Mesh/RootNode" index="24"]
-surface_material_override/0 = ExtResource("6_nskc4")
-
-[node name="eyeR_low" parent="Tavernkeep/tavernkeep_Mesh/RootNode" index="25"]
-surface_material_override/0 = ExtResource("6_nskc4")
+[node name="Skeleton3D" parent="Tavernkeep/tavernkeep_rig/barkeep_rig_10/tavernkeep_rig" index="0"]
+bones/60/position = Vector3(0.297601, 0.060865, 1.14991)
+bones/60/rotation = Quaternion(-0.2766, 0.632729, -0.0113855, 0.723199)
+bones/60/scale = Vector3(1, 19.3771, 1)
+bones/61/position = Vector3(-0.297601, 0.060865, 1.14991)
+bones/61/rotation = Quaternion(0.2766, 0.632729, -0.0113855, -0.723199)
+bones/61/scale = Vector3(1, 19.3771, 1)
+bones/62/position = Vector3(0.103182, 0.00139999, 0.5318)
+bones/62/rotation = Quaternion(0.998438, 9.33742e-06, -0.000166776, -0.0558736)
+bones/62/scale = Vector3(1, 19.0538, 1)
+bones/63/position = Vector3(-0.103182, 0.00139999, 0.5318)
+bones/63/rotation = Quaternion(0.998438, 9.35074e-06, -0.000167014, -0.0558736)
+bones/63/scale = Vector3(1, 19.0538, 1)
+bones/226/rotation = Quaternion(-0.00615841, 1.13372e-09, 0.999981, 1.12001e-09)
+bones/370/rotation = Quaternion(4.07453e-10, -6.35275e-21, 1, -2.89513e-24)
+bones/384/rotation = Quaternion(4.07453e-10, -1.76707e-27, 1, -2.89513e-24)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Tavernkeep"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.820227, 0)
@@ -103,4 +37,5 @@ shape = SubResource("CapsuleShape3D_lp53s")
 [node name="Dialogue" parent="Tavernkeep" instance=ExtResource("3_igpsw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.04092, 1.00682, 0)
 
-[editable path="Tavernkeep/tavernkeep_Mesh"]
+[editable path="Tavernkeep/tavernkeep_rig"]
+[editable path="Tavernkeep/tavernkeep_rig/barkeep_rig_10"]
