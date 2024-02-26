@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://eo5pry0bgkm3"]
 
 [ext_resource type="Script" path="res://scripts/Tavernkeep.cs" id="1_44xq3"]
-[ext_resource type="PackedScene" uid="uid://b7nomvliru3od" path="res://tavernkeep_rig.tscn" id="2_c3fhb"]
+[ext_resource type="PackedScene" uid="uid://bws187iddtb2g" path="res://tavernkeep_rig.tscn" id="2_c3fhb"]
 [ext_resource type="PackedScene" uid="uid://r6mhon67ytox" path="res://scenes/Dialogue.tscn" id="3_igpsw"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lp53s"]
@@ -28,7 +28,12 @@ bones/63/rotation = Quaternion(0.998438, 9.35074e-06, -0.000167014, -0.0558736)
 bones/63/scale = Vector3(1, 19.0538, 1)
 bones/226/rotation = Quaternion(-0.00615841, 1.13372e-09, 0.999981, 1.12001e-09)
 bones/370/rotation = Quaternion(4.07453e-10, -6.35275e-21, 1, -2.89513e-24)
-bones/384/rotation = Quaternion(4.07453e-10, -1.76707e-27, 1, -2.89513e-24)
+
+[node name="eyeL" parent="Tavernkeep/tavernkeep_rig/barkeep_rig_10/tavernkeep_rig/Skeleton3D" index="0"]
+transform = Transform3D(0.998977, -0.0206246, 0.0402434, 0.0405719, 0.0157683, -0.999052, 0.0199705, 0.999663, 0.0165889, 0.0223464, 1.56461, 0.0122378)
+
+[node name="eyeR" parent="Tavernkeep/tavernkeep_rig/barkeep_rig_10/tavernkeep_rig/Skeleton3D" index="1"]
+transform = Transform3D(0.998977, -0.0206244, 0.0402425, 0.0405711, 0.0157687, -0.999052, 0.0199703, 0.999663, 0.0165893, -0.071309, 1.56081, 0.0103655)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Tavernkeep"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.820227, 0)

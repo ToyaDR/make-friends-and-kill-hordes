@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dolecfvsdco2s"]
+
+[ext_resource type="PackedScene" uid="uid://baqbuxb70x0a3" path="res://assets/Adventurer.gltf" id="1_wklx4"]
+
+[node name="PlayerMini" type="Node3D"]
+
+[node name="Adventurer" parent="." instance=ExtResource("1_wklx4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00253344, 1.19209e-07, -0.114777)
