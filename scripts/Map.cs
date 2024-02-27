@@ -3,12 +3,14 @@ using System;
 
 public partial class Map : Node3D
 {
-	// Called when the node enters the scene tree for the first time.
+
+	private Camera3D camera;
+
 	public override void _Ready()
 	{
+		camera = GetNode<Camera3D>("Camera3D");
 	}
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
 	}

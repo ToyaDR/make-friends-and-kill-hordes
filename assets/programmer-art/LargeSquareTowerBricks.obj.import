@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://8n8xnr4nb6ei"
+path="res://.godot/imported/LargeSquareTowerBricks.obj-4378b76e689516d3e1471f71085c8f2c.mesh"
+
+[deps]
+
+files=["res://.godot/imported/LargeSquareTowerBricks.obj-4378b76e689516d3e1471f71085c8f2c.mesh"]
+
+source_file="res://assets/programmer-art/LargeSquareTowerBricks.obj"
+dest_files=["res://.godot/imported/LargeSquareTowerBricks.obj-4378b76e689516d3e1471f71085c8f2c.mesh", "res://.godot/imported/LargeSquareTowerBricks.obj-4378b76e689516d3e1471f71085c8f2c.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

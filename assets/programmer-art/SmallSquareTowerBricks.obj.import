@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://d107mrfrv5ins"
+path="res://.godot/imported/SmallSquareTowerBricks.obj-eb3a1eceb74e4414c90d7892d8561b5a.mesh"
+
+[deps]
+
+files=["res://.godot/imported/SmallSquareTowerBricks.obj-eb3a1eceb74e4414c90d7892d8561b5a.mesh"]
+
+source_file="res://assets/programmer-art/SmallSquareTowerBricks.obj"
+dest_files=["res://.godot/imported/SmallSquareTowerBricks.obj-eb3a1eceb74e4414c90d7892d8561b5a.mesh", "res://.godot/imported/SmallSquareTowerBricks.obj-eb3a1eceb74e4414c90d7892d8561b5a.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

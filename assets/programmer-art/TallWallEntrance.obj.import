@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bthsijjt5mis6"
+path="res://.godot/imported/TallWallEntrance.obj-93adaa3e327b5a7ee7122fe7db50dfd2.mesh"
+
+[deps]
+
+files=["res://.godot/imported/TallWallEntrance.obj-93adaa3e327b5a7ee7122fe7db50dfd2.mesh"]
+
+source_file="res://assets/programmer-art/TallWallEntrance.obj"
+dest_files=["res://.godot/imported/TallWallEntrance.obj-93adaa3e327b5a7ee7122fe7db50dfd2.mesh", "res://.godot/imported/TallWallEntrance.obj-93adaa3e327b5a7ee7122fe7db50dfd2.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
