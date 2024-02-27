@@ -551,13 +551,13 @@ bones/385/rotation = Quaternion(-0.753747, 0.0585637, -0.0835826, 0.649192)
 bones/386/rotation = Quaternion(0.0558735, 0, 0, 0.998438)
 
 [node name="eyeL" parent="barkeep_rig_10/tavernkeep_rig/Skeleton3D" index="0"]
-transform = Transform3D(0.998977, -0.0206242, 0.0402439, 0.0405722, 0.0157686, -0.999052, 0.0199699, 0.999663, 0.0165892, 0.0223464, 1.56461, 0.012238)
+transform = Transform3D(0.998977, -0.0206246, 0.0402434, 0.0405719, 0.0157683, -0.999052, 0.0199705, 0.999663, 0.0165889, 0.0223464, 1.56461, 0.0122378)
 
 [node name="eyeL" parent="barkeep_rig_10/tavernkeep_rig/Skeleton3D/eyeL" index="0"]
 surface_material_override/0 = ExtResource("2_esvf3")
 
 [node name="eyeR" parent="barkeep_rig_10/tavernkeep_rig/Skeleton3D" index="1"]
-transform = Transform3D(0.998977, -0.0206238, 0.040243, 0.0405717, 0.0157687, -0.999052, 0.0199697, 0.999663, 0.0165892, -0.071309, 1.56081, 0.0103658)
+transform = Transform3D(0.998977, -0.0206244, 0.0402425, 0.0405711, 0.0157687, -0.999052, 0.0199703, 0.999663, 0.0165893, -0.071309, 1.56081, 0.0103655)
 
 [node name="eyeR" parent="barkeep_rig_10/tavernkeep_rig/Skeleton3D/eyeR" index="0"]
 surface_material_override/0 = ExtResource("2_esvf3")
