@@ -1,10 +1,10 @@
 [gd_scene load_steps=21 format=3 uid="uid://dtn0a50nt6n0y"]
 
-[ext_resource type="Script" path="res://scripts/Map.cs" id="1_ibm62"]
 [ext_resource type="Material" uid="uid://wpxwwskbm8wc" path="res://references/mapRef.tres" id="1_sgybe"]
 [ext_resource type="ArrayMesh" uid="uid://t0d3pcth0dvt" path="res://assets/programmer-art/WallEntrance.obj" id="2_nywom"]
 [ext_resource type="PackedScene" uid="uid://dolecfvsdco2s" path="res://scenes/PlayerMini.tscn" id="3_5p0y3"]
 [ext_resource type="ArrayMesh" uid="uid://c11qy2ynknegm" path="res://assets/programmer-art/WallBricks.obj" id="3_m68gg"]
+[ext_resource type="Script" path="res://scripts/map/Location.cs" id="4_l36ne"]
 [ext_resource type="ArrayMesh" uid="uid://ddlwe4cs8pi2d" path="res://assets/programmer-art/PointyTower.obj" id="4_yesx8"]
 [ext_resource type="ArrayMesh" uid="uid://dkaxwqr1bqb8p" path="res://assets/programmer-art/WatchTowerWRoof.obj" id="7_f811r"]
 [ext_resource type="PackedScene" uid="uid://dmig0wfm1k8tm" path="res://assets/programmer-art/Rock_5.gltf" id="8_xfpwf"]
@@ -14,13 +14,11 @@
 [ext_resource type="PackedScene" uid="uid://bxwdbbtlrfefb" path="res://assets/programmer-art/Rock_2.gltf" id="12_7ob2e"]
 [ext_resource type="ArrayMesh" uid="uid://bayo4vl2rmb35" path="res://assets/programmer-art/Bridge.obj" id="13_7t1a6"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_kh6ky"]
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_6p45x"]
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_ubcui"]
 
 [sub_resource type="PrismMesh" id="PrismMesh_xjudr"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kh6ky"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_36cou"]
 
@@ -28,36 +26,118 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kohkc"]
 
+[sub_resource type="CylinderMesh" id="CylinderMesh_6p45x"]
+
 [node name="Map" type="Node3D"]
-script = ExtResource("1_ibm62")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, -1.71454, 15.3379, 13.9433)
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, -0.131949, 5.50567, 4.74156)
 projection = 1
 size = 12.381
-near = 10.0
+near = 1.0
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.999739, -0.0225801, -0.00356117, 0.0211305, 0.85342, 0.520795, -0.00872044, -0.520734, 0.853674, 0, 0, 0)
 
-[node name="Library" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.00486, 1.37769, 3.31807)
+[node name="CampCoastTent" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.05063, 0.66256, 5.5426)
+script = ExtResource("4_l36ne")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CampCoastTent"]
+transform = Transform3D(2.45435, 0, 1.89602, 0, 1.39368, 0, -2.45435, 0, 1.89602, 0, 0, 0)
+rotation_edit_mode = 1
+shape = SubResource("BoxShape3D_ubcui")
+
+[node name="Label3D" type="Label3D" parent="CampCoastTent"]
+transform = Transform3D(0.999999, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 1.01367, -0.299674)
+text = "Camp"
+font_size = 200
+
+[node name="Tent" type="MeshInstance3D" parent="CampCoastTent"]
+transform = Transform3D(1.32583, 0, 0.883884, 0, 1.25, 0, -1.32583, 0, 0.883884, 0, 0, 0)
+mesh = SubResource("PrismMesh_xjudr")
+skeleton = NodePath("../..")
+
+[node name="Library" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.443828, 0, 0.612725)
+script = ExtResource("4_l36ne")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Library"]
-transform = Transform3D(1.5, 0, 0, 0, 1, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(3.64739, 0, 0, 0, 3.35788, 0, 0, 0, 1.94598, 1.00486, 1.37769, 3.31807)
 shape = SubResource("BoxShape3D_kh6ky")
 
+[node name="Label3D" type="Label3D" parent="Library"]
+transform = Transform3D(0.999999, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0.62767, 2.96217, 2.72156)
+text = "Library"
+font_size = 200
+
 [node name="WallEntrance" type="MeshInstance3D" parent="Library"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.019, -1, 0.569628)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.98586, 0.37769, 3.8877)
 mesh = ExtResource("2_nywom")
 skeleton = NodePath("../..")
 
 [node name="WallBricks2" type="MeshInstance3D" parent="Library"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.430432, -1, -0.101731)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.43529, 0.37769, 3.21634)
 mesh = ExtResource("3_m68gg")
+skeleton = NodePath("")
 
 [node name="WallBricks" type="MeshInstance3D" parent="Library"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.544, -1, -0.0953724)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.46086, 0.37769, 3.2227)
+mesh = ExtResource("3_m68gg")
+skeleton = NodePath("../..")
+
+[node name="Temple" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.53551, 5.13279, -1.98485)
+script = ExtResource("4_l36ne")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Temple"]
+transform = Transform3D(4.24782, 0, 0, 0, 2.499, 0, 0, 0, 3.50277, -0.539151, 0, 0.12514)
+shape = SubResource("CylinderShape3D_36cou")
+
+[node name="Label3D" type="Label3D" parent="Temple"]
+transform = Transform3D(1, 0, 0, 0, 0.707106, 0.707106, 0, -0.707107, 0.707107, -0.566297, -2.15209, 1.12107)
+text = "Temple"
+font_size = 200
+
+[node name="PointyTower" type="MeshInstance3D" parent="Temple"]
+transform = Transform3D(1, 0, 0, 0, 0.999999, 0, 0, 0, 1, -0.551127, -2.66543, 0.234843)
+mesh = ExtResource("4_yesx8")
+skeleton = NodePath("../..")
+
+[node name="MapReference" type="MeshInstance3D" parent="."]
+transform = Transform3D(13.375, 0, 0, 0, 0.25, 0, 0, 0, 7.5, 0, 0, 0)
+mesh = SubResource("PlaneMesh_lr4g4")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("1_sgybe")
+
+[node name="PlayerMini" parent="." instance=ExtResource("3_5p0y3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.47698, 0.883813, 2.72805)
+
+[node name="Tavern" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.01093, 1.88014, 2.1819)
+script = ExtResource("4_l36ne")
+
+[node name="Label3D" type="Label3D" parent="Tavern"]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0.530668, 1.73222, -0.0443559)
+text = "Tavern"
+font_size = 200
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Tavern"]
+transform = Transform3D(2.38865, 0, 2.41464, 0, 2, 0, -2.38865, 0, 2.41464, 0.385549, 0, -0.354367)
+shape = SubResource("BoxShape3D_kohkc")
+
+[node name="WatchTowerWRoof" type="MeshInstance3D" parent="Tavern"]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0.450973, -1.88014, 0.039063)
+mesh = ExtResource("7_f811r")
+skeleton = NodePath("../..")
+
+[node name="WallBricks" type="MeshInstance3D" parent="Tavern"]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -0.484406, -0.397854, -0.161869)
+mesh = ExtResource("3_m68gg")
+skeleton = NodePath("../..")
+
+[node name="WallBricks2" type="MeshInstance3D" parent="Tavern"]
+transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, 0.802612, -0.328726, -0.993535)
 mesh = ExtResource("3_m68gg")
 skeleton = NodePath("../..")
 
@@ -74,85 +154,6 @@ skeleton = NodePath("../..")
 transform = Transform3D(0.5, 0, 0, 0, 1, 0, -3.55271e-15, 0, 0.666667, -0.215445, 2, -0.153492)
 mesh = SubResource("CylinderMesh_6p45x")
 skeleton = NodePath("../../..")
-
-[node name="CampCoastTent" type="Area3D" parent="."]
-transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -5.93769, 0, 6.10641)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CampCoastTent"]
-transform = Transform3D(1, 0, 0, 0, 1.39368, 0, 0, 0, 1.27182, 0, 0.747613, 0)
-rotation_edit_mode = 1
-shape = SubResource("BoxShape3D_ubcui")
-
-[node name="CampCoastTent2" type="MeshInstance3D" parent="CampCoastTent"]
-transform = Transform3D(1.875, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, 0.670538, 0)
-mesh = SubResource("PrismMesh_xjudr")
-skeleton = NodePath("../..")
-
-[node name="Temple" type="Area3D" parent="."]
-transform = Transform3D(13.375, 0, 0, 0, 0.25, 0, 0, 0, 7.5, -7.53551, 5.13279, -1.98485)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Temple"]
-transform = Transform3D(0.093458, 0, 0, 0, 9.99723, 0, 0, 0, 0.204006, 0, 0, 0)
-shape = SubResource("CylinderShape3D_36cou")
-
-[node name="PointyTower" type="MeshInstance3D" parent="Temple"]
-transform = Transform3D(0.0747663, 0, 0, 0, 4, 0, 0, 0, 0.133333, -0.0412058, -10.6617, 0.0313123)
-mesh = ExtResource("4_yesx8")
-skeleton = NodePath("../..")
-
-[node name="MapReference" type="MeshInstance3D" parent="."]
-transform = Transform3D(13.375, 0, 0, 0, 0.25, 0, 0, 0, 7.5, 0, 0, 0)
-mesh = SubResource("PlaneMesh_lr4g4")
-skeleton = NodePath("")
-surface_material_override/0 = ExtResource("1_sgybe")
-
-[node name="PlayerMini" parent="." instance=ExtResource("3_5p0y3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.47698, 0.883813, 2.72805)
-
-[node name="Tavern" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.01093, 1.88014, 2.1819)
-
-[node name="WatchTowerWRoof" type="MeshInstance3D" parent="Tavern"]
-transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0.450973, -1.88014, 0.039063)
-mesh = ExtResource("7_f811r")
-skeleton = NodePath("../..")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Tavern"]
-transform = Transform3D(1.41421, 0, 1.41421, 0, 2, 0, -1.41421, 0, 1.41421, 0.403957, 0, 0.145389)
-shape = SubResource("BoxShape3D_kohkc")
-
-[node name="WallBricks" type="MeshInstance3D" parent="Tavern"]
-transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -0.484406, -0.397854, -0.161869)
-mesh = ExtResource("3_m68gg")
-skeleton = NodePath("../..")
-
-[node name="WallBricks2" type="MeshInstance3D" parent="Tavern"]
-transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, 0.802612, -0.328726, -0.993535)
-mesh = ExtResource("3_m68gg")
-skeleton = NodePath("../..")
-
-[node name="Labels" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, -8.41967, 2.9807, -0.601617)
-
-[node name="LibraryLabel" type="Label3D" parent="Labels"]
-transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 1, 9.04734, -2.36294, 2.33674)
-text = "Library"
-font_size = 200
-
-[node name="TempleLabel" type="Label3D" parent="Labels"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.03957, 0, 0)
-text = "Temple"
-font_size = 200
-
-[node name="TavernLabel" type="Label3D" parent="Labels"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.52368, -4.71953, 1.83466)
-text = "Tavern"
-font_size = 200
-
-[node name="CampLabel" type="Label3D" parent="Labels"]
-transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 1, -0.4386, -5.53902, 1.83466)
-text = "Camp"
-font_size = 200
 
 [node name="Foliage" type="Node3D" parent="."]
 
@@ -215,18 +216,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.50326, 0.163338, 1.99224)
 [node name="Rock_52" parent="Foliage/Rocks/EasternSide" instance=ExtResource("8_xfpwf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.60609, 0, 0.000711441)
 
+[node name="Rock_42" parent="Foliage/Rocks/EasternSide" instance=ExtResource("9_fpchu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.63705, 0, 2.54043)
+
+[node name="Rock_12" parent="Foliage/Rocks/EasternSide" instance=ExtResource("11_agbrr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.0687, 0, 3.08326)
+
+[node name="Rock_22" parent="Foliage/Rocks/EasternSide" instance=ExtResource("12_7ob2e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.70877, 0, 2.73113)
+
+[node name="Rock_13" parent="Foliage/Rocks/EasternSide" instance=ExtResource("11_agbrr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.33454, 0, 2.85883)
+
 [node name="Bridge" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.0910149, 0, 0.99585, 0, 1, 0, -0.99585, 0, -0.0910149, 6.89173, 0.5061, -2.19911)
 mesh = ExtResource("13_7t1a6")
-
-[node name="Rock_42" parent="." instance=ExtResource("9_fpchu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.63705, 0, 2.54043)
-
-[node name="Rock_12" parent="." instance=ExtResource("11_agbrr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.0687, 0, 3.08326)
-
-[node name="Rock_22" parent="." instance=ExtResource("12_7ob2e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.70877, 0, 2.73113)
-
-[node name="Rock_13" parent="." instance=ExtResource("11_agbrr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.33454, 0, 2.85883)
