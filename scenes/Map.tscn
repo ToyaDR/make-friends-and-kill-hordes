@@ -39,21 +39,21 @@ near = 1.0
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.999739, -0.0225801, -0.00356117, 0.0211305, 0.85342, 0.520795, -0.00872044, -0.520734, 0.853674, 0, 0, 0)
 
-[node name="CampCoastTent" type="StaticBody3D" parent="."]
+[node name="Camp" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.05063, 0.66256, 5.5426)
 script = ExtResource("4_l36ne")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CampCoastTent"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Camp"]
 transform = Transform3D(2.45435, 0, 1.89602, 0, 1.39368, 0, -2.45435, 0, 1.89602, 0, 0, 0)
 rotation_edit_mode = 1
 shape = SubResource("BoxShape3D_ubcui")
 
-[node name="Label3D" type="Label3D" parent="CampCoastTent"]
+[node name="Label3D" type="Label3D" parent="Camp"]
 transform = Transform3D(0.999999, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 1.01367, -0.299674)
 text = "Camp"
 font_size = 200
 
-[node name="Tent" type="MeshInstance3D" parent="CampCoastTent"]
+[node name="Tent" type="MeshInstance3D" parent="Camp"]
 transform = Transform3D(1.32583, 0, 0.883884, 0, 1.25, 0, -1.32583, 0, 0.883884, 0, 0, 0)
 mesh = SubResource("PrismMesh_xjudr")
 skeleton = NodePath("../..")

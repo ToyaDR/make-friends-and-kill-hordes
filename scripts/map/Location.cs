@@ -7,16 +7,16 @@ public partial class Location : StaticBody3D
 
   static Dictionary<string, string> locationToScene = new Dictionary<string, string>{
     {
-      "Temple", "res://scenes/Main.tscn"
+      "Temple", "res://scenes/locations/Temple.tscn"
     },
     {
-      "Tavern", "res://scenes/Main.tscn"
+      "Tavern", "res://scenes/locations/Tavern.tscn"
     },
     {
-      "Library", "res://scenes/Main.tscn"
+      "Library", "res://scenes/locations/Library.tscn"
     },
     {
-      "Camp", "res://scenes/Main.tscn"
+      "Camp", "res://scenes/locations/Camp.tscn"
     }
   };
   static Color hoverColor = new(255, 0, 236, 1);
