@@ -33,7 +33,6 @@ public partial class Player : CharacterBody3D
 
 	public override void _Input(InputEvent @event)
 	{
-		base._Input(@event);
 		if (@event is InputEventMouseMotion)
 		{
 			InputEventMouseMotion mouseEvent = @event as InputEventMouseMotion;
@@ -85,6 +84,12 @@ public partial class Player : CharacterBody3D
 		if (InteractionRaycast.IsColliding())
 		{
 			HandleInteraction();
+		}
+
+
+		if (Input.IsActionJustPressed("open_map"))
+		{
+			GetTree().ChangeSceneToFile("res://scenes/Map.tscn");
 		}
 
 		if (!InteractionRaycast.IsColliding())
