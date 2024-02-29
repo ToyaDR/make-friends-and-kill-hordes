@@ -12,14 +12,19 @@ public partial class Player : CharacterBody3D
 	public float gravity = ProjectSettings.GetSetting("physics/3d/default_gravity").AsSingle();
 
 	public CanvasLayer HUD;
+	public CanvasLayer Menu;
 
 	public float mouseSensitivityY = 0.1f;
 	public float mouseSensitivityX = 0.3f;
 
 	public bool isInteracting = false;
+	public bool isInMenu = false;
+
 	public override void _Ready()
 	{
-		base._Ready();
+		GD.Print("Set Mouse to captured");
+		Input.MouseMode = Input.MouseModeEnum.Captured;
+
 		RayCast3D interactionRayCast = GetNode("CollisionShape3D/Camera3D/RayCast3D") as RayCast3D;
 		InteractionRaycast = interactionRayCast;
 
@@ -29,10 +34,19 @@ public partial class Player : CharacterBody3D
 		HUD = GetNode("CanvasLayer") as CanvasLayer;
 		HUD.GetChild<Label>(0).Text = "";
 		isInteracting = false;
+
+		Menu = GetNode("Menu") as CanvasLayer;
+		Menu.Visible = false;
+		isInMenu = false;
 	}
 
 	public override void _Input(InputEvent @event)
 	{
+		if (isInteracting || isInMenu)
+		{
+			return;
+		}
+
 		if (@event is InputEventMouseMotion)
 		{
 			InputEventMouseMotion mouseEvent = @event as InputEventMouseMotion;
@@ -43,6 +57,36 @@ public partial class Player : CharacterBody3D
 			float xRotation = Mathf.DegToRad(mouseEvent.Relative.Y * mouseSensitivityY);
 			float clampedX = Mathf.Clamp(xRotation, Mathf.DegToRad(-30), Mathf.DegToRad(60));
 			Camera.RotateX(clampedX);
+		}
+	}
+
+	private void HandleEscape()
+	{
+		if (Input.IsActionJustPressed("exit"))
+		{
+			GodotObject interactable = InteractionRaycast.GetCollider();
+
+			if (isInteracting && interactable != null && interactable.HasMethod("ExitInteraction"))
+			{
+				Interactable hitInteractable = interactable as Interactable;
+				hitInteractable.ExitInteraction();
+				isInteracting = false;
+				return;
+			}
+
+			if (!isInteracting)
+			{
+				if (Menu.Visible)
+				{
+					Input.MouseMode = Input.MouseModeEnum.Captured;
+				}
+				else
+				{
+					Input.MouseMode = Input.MouseModeEnum.Visible;
+				}
+				Menu.Visible = !Menu.Visible;
+				isInMenu = Menu.Visible;
+			}
 		}
 	}
 
@@ -63,39 +107,13 @@ public partial class Player : CharacterBody3D
 		}
 	}
 
-	public override void _PhysicsProcess(double delta)
+	private void HandleMovement(double delta)
 	{
 		Vector3 velocity = Vector3.Zero;
 
 		// Add the gravity.
 		if (!IsOnFloor())
 			velocity.Y -= gravity * (float)delta;
-
-		// Handle Jump.
-		// if (Input.IsActionJustPressed("ui_accept") && IsOnFloor())
-		// 	velocity.Y = JumpVelocity;
-
-		// // Get the input direction and handle the movement/deceleration.
-		// // As good practice, you should replace UI actions with custom gameplay actions.
-		// Vector2 inputDir = Input.GetVector("ui_left", "ui_right", "ui_up", "ui_down");
-		// Vector3 direction = (Transform.Basis * new Vector3(inputDir.X, 0, inputDir.Y)).Normalized();
-
-
-		if (InteractionRaycast.IsColliding())
-		{
-			HandleInteraction();
-		}
-
-
-		if (Input.IsActionJustPressed("open_map"))
-		{
-			GetTree().ChangeSceneToFile("res://scenes/Map.tscn");
-		}
-
-		if (!InteractionRaycast.IsColliding())
-		{
-			HUD.GetChild<Label>(0).Text = "";
-		}
 
 		Vector3 direction = Vector3.Zero;
 		Vector2 inputDirection = Input.GetVector("move_right", "move_left", "move_backward", "move_forward");
@@ -115,5 +133,30 @@ public partial class Player : CharacterBody3D
 		// GD.Print(Position);
 		Velocity = velocity;
 		MoveAndSlide();
+	}
+
+	public override void _PhysicsProcess(double delta)
+	{
+		HandleEscape();
+
+		if (InteractionRaycast.IsColliding())
+		{
+			HandleInteraction();
+		}
+
+		if (Input.IsActionJustPressed("open_map"))
+		{
+			GetTree().ChangeSceneToFile("res://scenes/Map.tscn");
+		}
+
+		if (!InteractionRaycast.IsColliding())
+		{
+			HUD.GetChild<Label>(0).Text = "";
+		}
+
+		if (!isInteracting && !isInMenu)
+		{
+			HandleMovement(delta);
+		}
 	}
 }
