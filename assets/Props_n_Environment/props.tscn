@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://mi1bxq8edds0"]
+
+[ext_resource type="PackedScene" uid="uid://cpw5accl4oi83" path="res://assets/Props_n_Environment/tavernTable.fbx" id="1_yq0bx"]
+[ext_resource type="Material" uid="uid://dctakrlj6abrd" path="res://assets/materials/tavernTable.tres" id="2_8uliv"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Root Scene" parent="." instance=ExtResource("1_yq0bx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07855, 0, -0.125329)
+
+[node name="tavernTable" parent="Root Scene/RootNode" index="0"]
+material_override = ExtResource("2_8uliv")
+surface_material_override/0 = ExtResource("2_8uliv")
+
+[editable path="Root Scene"]
