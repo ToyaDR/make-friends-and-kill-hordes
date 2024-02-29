@@ -1,5 +1,6 @@
-[gd_scene load_steps=21 format=3 uid="uid://dtn0a50nt6n0y"]
+[gd_scene load_steps=22 format=3 uid="uid://dtn0a50nt6n0y"]
 
+[ext_resource type="Script" path="res://scripts/map/Map.cs" id="1_d1x51"]
 [ext_resource type="Material" uid="uid://wpxwwskbm8wc" path="res://references/mapRef.tres" id="1_sgybe"]
 [ext_resource type="ArrayMesh" uid="uid://t0d3pcth0dvt" path="res://assets/programmer-art/WallEntrance.obj" id="2_nywom"]
 [ext_resource type="PackedScene" uid="uid://dolecfvsdco2s" path="res://scenes/PlayerMini.tscn" id="3_5p0y3"]
@@ -30,6 +31,7 @@
 
 [node name="Map" type="Node3D"]
 transform = Transform3D(0.999572, -0.0170822, 0.0237498, 0.0170117, 0.99985, 0.00316538, -0.0238003, -0.00275998, 0.999713, 0, 0, 0)
+script = ExtResource("1_d1x51")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, -0.131949, 5.50567, 4.74156)

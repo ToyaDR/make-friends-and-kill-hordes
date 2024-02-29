@@ -22,9 +22,6 @@ public partial class Player : CharacterBody3D
 
 	public override void _Ready()
 	{
-		GD.Print("Set Mouse to captured");
-		Input.MouseMode = Input.MouseModeEnum.Captured;
-
 		RayCast3D interactionRayCast = GetNode("CollisionShape3D/Camera3D/RayCast3D") as RayCast3D;
 		InteractionRaycast = interactionRayCast;
 
@@ -142,11 +139,6 @@ public partial class Player : CharacterBody3D
 		if (InteractionRaycast.IsColliding())
 		{
 			HandleInteraction();
-		}
-
-		if (Input.IsActionJustPressed("open_map"))
-		{
-			GetTree().ChangeSceneToFile("res://scenes/Map.tscn");
 		}
 
 		if (!InteractionRaycast.IsColliding())

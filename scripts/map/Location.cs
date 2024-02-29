@@ -24,16 +24,19 @@ public partial class Location : StaticBody3D
   private Label3D label;
   private bool isHovering;
 
-  private string name;
+  private string name = "Placeholder";
 
   public override void _Ready()
   {
     label = GetNode<Label3D>("Label3D");
     isHovering = false;
 
-    string path = GetPath();
-    string[] splitPath = path.Split("/");
-    name = splitPath[splitPath.Length - 1];
+    if (label != null)
+    {
+      string path = GetPath();
+      string[] splitPath = path.Split("/");
+      name = splitPath[splitPath.Length - 1];
+    }
   }
 
   public override void _Input(InputEvent @event)

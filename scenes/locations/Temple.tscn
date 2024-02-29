@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://jsp244dmiki3"]
+[gd_scene load_steps=5 format=3 uid="uid://jsp244dmiki3"]
 
 [ext_resource type="PackedScene" uid="uid://wc06lxol7jq8" path="res://scenes/Player.tscn" id="1_r6i5n"]
+[ext_resource type="PackedScene" uid="uid://bup01200g4iel" path="res://scenes/GameManager.tscn" id="2_2m3a0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7e4r2"]
 
@@ -20,3 +21,5 @@ mesh = SubResource("BoxMesh_rrrvg")
 
 [node name="Player" parent="." instance=ExtResource("1_r6i5n")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.838741, 1.00443, 2.70968)
+
+[node name="GameManager" parent="." instance=ExtResource("2_2m3a0")]
