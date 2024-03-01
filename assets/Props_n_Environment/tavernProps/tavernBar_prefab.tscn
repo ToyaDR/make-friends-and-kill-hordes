@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://deidty8ocjhrh"]
+
+[ext_resource type="PackedScene" uid="uid://cv6mngiont1cc" path="res://assets/Props_n_Environment/tavernProps/bar.fbx" id="1_v880n"]
+[ext_resource type="Material" uid="uid://8qbequurt84i" path="res://assets/materials/tavernBar.tres" id="2_3m3kh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hh3hu"]
+size = Vector3(5.07593, 1.10034, 0.626343)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_oh6ow"]
+size = Vector3(0.719055, 1.10101, 1.72302)
+
+[node name="TavernBarPrefab" type="Node3D"]
+
+[node name="tavernBar" parent="." instance=ExtResource("1_v880n")]
+
+[node name="bar" parent="tavernBar/RootNode" index="0"]
+surface_material_override/0 = ExtResource("2_3m3kh")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="tavernBar"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.17101, 0.00565922, 1.30554)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="tavernBar/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.37732, 0.547974, -0.27179)
+shape = SubResource("BoxShape3D_hh3hu")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="tavernBar/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7291, 0.542145, -1.25421)
+shape = SubResource("BoxShape3D_oh6ow")
+
+[editable path="tavernBar"]

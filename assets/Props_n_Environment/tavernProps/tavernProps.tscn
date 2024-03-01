@@ -76,6 +76,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00146484, 0.471313, 0.0987
 shape = SubResource("BoxShape3D_hyu4r")
 
 [node name="tavernTable_small" parent="." instance=ExtResource("7_nhlyx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.50191, 0, 0)
 
 [node name="tavernTable_small" parent="tavernTable_small/RootNode" index="0"]
 surface_material_override/0 = ExtResource("2_s7ehk")
