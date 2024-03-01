@@ -1,12 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://cw4j4qqutv1jw"]
+[gd_scene load_steps=8 format=3 uid="uid://cw4j4qqutv1jw"]
 
 [ext_resource type="PackedScene" uid="uid://bws187iddtb2g" path="res://tavernkeep_rig.tscn" id="1_804du"]
 [ext_resource type="Material" uid="uid://bgpvrky3gajmm" path="res://references/renderite.tres" id="2_7rur7"]
 [ext_resource type="PackedScene" uid="uid://wc06lxol7jq8" path="res://scenes/Player.tscn" id="3_caakx"]
+[ext_resource type="Material" uid="uid://b0h3enej5x38l" path="res://assets/materials/cobblestone_shader.tres" id="4_e241v"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_00mrc"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_14kto"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_dw6vm"]
 
 [node name="TavernBlocking" type="Node3D"]
 
@@ -24,13 +27,20 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.056
 [node name="Camera3D" parent="Player/CollisionShape3D" index="0"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 7.45058e-09, 0.774069, 0.237169)
 
-[node name="SpotLight3D" type="SpotLight3D" parent="."]
-transform = Transform3D(-0.999996, -0.00262023, 0.00147604, 0.00173342, -0.101112, 0.994874, -0.00245755, 0.994872, 0.101116, 0.00511797, 3.42749, -0.464484)
-spot_range = 3.393
-spot_angle = 10.13
-
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(3.22623, 0, 0, 0, 1.1184, 0, 0, 0, 0.474755, 0, 0.509026, -0.299425)
 mesh = SubResource("BoxMesh_14kto")
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/StaticBody3D"]
+transform = Transform3D(14.07, 0, 0, 0, -6.15019e-07, 14.07, 0, -14.07, -6.15019e-07, 0, 0, 0)
+mesh = SubResource("QuadMesh_dw6vm")
+surface_material_override/0 = ExtResource("4_e241v")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.210634, 0.940011, -0.268351, 0.048839, 0.264048, 0.963272, 0.976344, -0.216004, 0.00970838, 1.33111, 2.62866, -0.0271046)
 
 [editable path="Player"]
