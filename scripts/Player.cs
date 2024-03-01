@@ -90,22 +90,36 @@ public partial class Player : CharacterBody3D
 
 	private void HandleInteraction()
 	{
-		GodotObject interactable = InteractionRaycast.GetCollider();
+		if (!InteractionRaycast.IsColliding())
+		{
+			if (hoveredOption != null)
+			{
+				hoveredOption.OnHoverExit();
+				hoveredOption = null;
+			}
+			return;
+		}
 
-		if (interactable == null && hoveredOption != null)
+		if (hoveredOption != null)
 		{
 			hoveredOption.OnHoverExit();
 			hoveredOption = null;
 		}
 
-		if (interactable != null && interactable is DialogueOptionBox)
+		GodotObject interactable = InteractionRaycast.GetCollider();
+		if (interactable == null)
+		{
+			return;
+		}
+
+		if (interactable is DialogueOptionBox)
 		{
 			DialogueOptionBox dialogueOptionBox = interactable as DialogueOptionBox;
 			dialogueOptionBox.OnHover();
 			hoveredOption = dialogueOptionBox;
 		}
 
-		if (interactable != null && interactable.HasMethod("Interact"))
+		if (interactable is Interactable)
 		{
 			Interactable hitInteractable = interactable as Interactable;
 			HUD.GetChild<Label>(0).Text = "Press 'F' to Interact";
@@ -150,10 +164,8 @@ public partial class Player : CharacterBody3D
 	{
 		HandleEscape();
 
-		if (InteractionRaycast.IsColliding())
-		{
-			HandleInteraction();
-		}
+
+		HandleInteraction();
 
 		if (!InteractionRaycast.IsColliding())
 		{

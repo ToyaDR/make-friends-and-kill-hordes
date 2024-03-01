@@ -15,14 +15,20 @@ public partial class DialogueOptionBox : StaticBody3D
 	public void OnHover()
 	{
 		GD.Print("MouseEnter");
-		label.OutlineModulate = hoverColor;
-		isHovering = true;
+		if (!isHovering)
+		{
+			label.OutlineModulate = hoverColor;
+			isHovering = true;
+		}
 	}
 
 	public void OnHoverExit()
 	{
 		GD.Print("MouseExit");
-		label.OutlineModulate = defaultColor;
-		isHovering = false;
+		if (isHovering)
+		{
+			label.OutlineModulate = defaultColor;
+			isHovering = false;
+		}
 	}
 }
