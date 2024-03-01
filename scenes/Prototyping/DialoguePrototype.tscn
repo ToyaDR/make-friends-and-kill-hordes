@@ -1,14 +1,116 @@
-[gd_scene load_steps=8 format=3 uid="uid://bsnkvpkyykce3"]
+[gd_scene load_steps=21 format=3 uid="uid://bsnkvpkyykce3"]
 
 [ext_resource type="PackedScene" uid="uid://wc06lxol7jq8" path="res://scenes/Player.tscn" id="1_fo4ap"]
 [ext_resource type="ArrayMesh" uid="uid://q728rx4tnbyp" path="res://scenes/Prototyping/assets/Kitchen_1Drawers.obj" id="2_1jncn"]
 [ext_resource type="ArrayMesh" uid="uid://dvo1tmpcbelaw" path="res://scenes/Prototyping/assets/Stool.obj" id="3_jmdd1"]
 [ext_resource type="ArrayMesh" uid="uid://ltswo8wgk8kt" path="res://scenes/Prototyping/assets/Shelf_Large.obj" id="4_gsxa6"]
 [ext_resource type="ArrayMesh" uid="uid://ir3csd026d2y" path="res://scenes/Prototyping/assets/Light_Ceiling1.obj" id="5_ox40y"]
+[ext_resource type="Script" path="res://scripts/Tavernkeep.cs" id="6_d11y1"]
+[ext_resource type="PackedScene" uid="uid://bup01200g4iel" path="res://scenes/GameManager.tscn" id="7_ql1ax"]
+[ext_resource type="PackedScene" uid="uid://bws187iddtb2g" path="res://tavernkeep_rig.tscn" id="7_vbyll"]
+[ext_resource type="AnimationLibrary" uid="uid://drf58xdmq5x1" path="res://assets/animations/barkeep_animidle_5.glb" id="8_81lnq"]
+[ext_resource type="Script" path="res://scripts/Dialogue.cs" id="9_por58"]
+[ext_resource type="Script" path="res://scripts/dialogue-tree/DialogueOptionBox.cs" id="10_uhuuj"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2eda6"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_yc3jc"]
+
+[sub_resource type="Animation" id="Animation_cuqqh"]
+resource_name = "godot_rigAction"
+length = 0.04
+tracks/0/type = "rotation_3d"
+tracks/0/imported = true
+tracks/0/enabled = true
+tracks/0/path = NodePath("tavernkeep_rig/Skeleton3D:VIS_upper_arm_ik_pole.L")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -0.2766, 0.632729, -0.0113855, 0.723199)
+tracks/1/type = "scale_3d"
+tracks/1/imported = true
+tracks/1/enabled = true
+tracks/1/path = NodePath("tavernkeep_rig/Skeleton3D:VIS_upper_arm_ik_pole.L")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 1, 19.3771, 1)
+tracks/2/type = "rotation_3d"
+tracks/2/imported = true
+tracks/2/enabled = true
+tracks/2/path = NodePath("tavernkeep_rig/Skeleton3D:VIS_upper_arm_ik_pole.R")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, -0.2766, -0.632729, 0.0113855, 0.723199)
+tracks/3/type = "scale_3d"
+tracks/3/imported = true
+tracks/3/enabled = true
+tracks/3/path = NodePath("tavernkeep_rig/Skeleton3D:VIS_upper_arm_ik_pole.R")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, 1, 19.3771, 1)
+tracks/4/type = "rotation_3d"
+tracks/4/imported = true
+tracks/4/enabled = true
+tracks/4/path = NodePath("tavernkeep_rig/Skeleton3D:VIS_thigh_ik_pole.L")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = PackedFloat32Array(0, 1, -0.998438, -9.33743e-06, 0.000166776, 0.0558736)
+tracks/5/type = "scale_3d"
+tracks/5/imported = true
+tracks/5/enabled = true
+tracks/5/path = NodePath("tavernkeep_rig/Skeleton3D:VIS_thigh_ik_pole.L")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = PackedFloat32Array(0, 1, 1, 19.0538, 1)
+tracks/6/type = "rotation_3d"
+tracks/6/imported = true
+tracks/6/enabled = true
+tracks/6/path = NodePath("tavernkeep_rig/Skeleton3D:VIS_thigh_ik_pole.R")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = PackedFloat32Array(0, 1, -0.998438, -9.35075e-06, 0.000167014, 0.0558736)
+tracks/7/type = "scale_3d"
+tracks/7/imported = true
+tracks/7/enabled = true
+tracks/7/path = NodePath("tavernkeep_rig/Skeleton3D:VIS_thigh_ik_pole.R")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = PackedFloat32Array(0, 1, 1, 19.0538, 1)
+tracks/8/type = "rotation_3d"
+tracks/8/imported = true
+tracks/8/enabled = true
+tracks/8/path = NodePath("tavernkeep_rig/Skeleton3D:thumb.01.L.001")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = PackedFloat32Array(0, 1, -0.00615841, 1.13372e-09, 0.999981, 1.12001e-09)
+tracks/9/type = "rotation_3d"
+tracks/9/imported = true
+tracks/9/enabled = true
+tracks/9/path = NodePath("tavernkeep_rig/Skeleton3D:toe_ik.L")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = PackedFloat32Array(0, 1, -4.07453e-10, 6.14099e-21, -1, 2.89513e-24)
+tracks/10/type = "rotation_3d"
+tracks/10/imported = true
+tracks/10/enabled = true
+tracks/10/path = NodePath("tavernkeep_rig/Skeleton3D:toe_ik.R")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = PackedFloat32Array(0, 1, -4.07453e-10, 0, -1, 2.89513e-24)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xc5mp"]
+_data = {
+"godot_rigAction": SubResource("Animation_cuqqh")
+}
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lp53s"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ocu4e"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_vrs7t"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ia7e6"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_5o2cm"]
 
 [node name="DialoguePrototype" type="Node3D"]
 
@@ -27,10 +129,10 @@ transform = Transform3D(1, 0, 0, 0, -0.978846, 0.204599, 0, -0.204599, -0.978846
 visible = false
 
 [node name="Player" parent="." instance=ExtResource("1_fo4ap")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1, 0)
+transform = Transform3D(-0.999987, 0, -0.00502661, 0, 1, 0, 0.00502661, 0, -0.999987, 1.329, 1, -2.09565)
 
 [node name="Bar" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.41697, 0, -3.34852)
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -1.41697, 0, -3.34852)
 
 [node name="Lights" type="Node3D" parent="Bar"]
 
@@ -153,3 +255,119 @@ skeleton = NodePath("../../..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 1, 1.5)
 mesh = ExtResource("3_jmdd1")
 skeleton = NodePath("../..")
+
+[node name="TavernkeepWithDialogue" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.47516, 0.992696, -4.17616)
+
+[node name="Tavernkeep" type="StaticBody3D" parent="TavernkeepWithDialogue"]
+script = ExtResource("6_d11y1")
+
+[node name="tavernkeep_rig" parent="TavernkeepWithDialogue/Tavernkeep" instance=ExtResource("7_vbyll")]
+
+[node name="barkeep_rig_10" parent="TavernkeepWithDialogue/Tavernkeep/tavernkeep_rig" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="tavernkeep_rig" parent="TavernkeepWithDialogue/Tavernkeep/tavernkeep_rig/barkeep_rig_10" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Skeleton3D" parent="TavernkeepWithDialogue/Tavernkeep/tavernkeep_rig/barkeep_rig_10/tavernkeep_rig" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="eyeL" parent="TavernkeepWithDialogue/Tavernkeep/tavernkeep_rig/barkeep_rig_10/tavernkeep_rig/Skeleton3D" index="0"]
+transform = Transform3D(0.998977, -0.0206246, 0.0402434, 0.0405719, 0.0157683, -0.999052, 0.0199705, 0.999663, 0.0165889, 0.0223464, 1.56461, 0.0122378)
+
+[node name="eyeR" parent="TavernkeepWithDialogue/Tavernkeep/tavernkeep_rig/barkeep_rig_10/tavernkeep_rig/Skeleton3D" index="1"]
+transform = Transform3D(0.998977, -0.0206244, 0.0402425, 0.0405711, 0.0157687, -0.999052, 0.0199703, 0.999663, 0.0165893, -0.071309, 1.56081, 0.0103655)
+
+[node name="main_low" parent="TavernkeepWithDialogue/Tavernkeep/tavernkeep_rig/barkeep_rig_10/tavernkeep_rig/Skeleton3D" index="13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+blend_shapes/brow_L_up = 0.00152351
+blend_shapes/brow_R_down = 0.428172
+blend_shapes/eyeL_lower_blink = 0.693779
+blend_shapes/eyeR_lower_blink = 0.708528
+blend_shapes/eye_L_uper_up = 0.99735
+blend_shapes/eye_R_upper_up = 0.997284
+
+[node name="noseRing_low" parent="TavernkeepWithDialogue/Tavernkeep/tavernkeep_rig/barkeep_rig_10/tavernkeep_rig/Skeleton3D" index="14"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="AnimationPlayer" parent="TavernkeepWithDialogue/Tavernkeep/tavernkeep_rig/barkeep_rig_10" index="1"]
+libraries = {
+"": SubResource("AnimationLibrary_xc5mp"),
+"barkeep_animidle_5": ExtResource("8_81lnq")
+}
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TavernkeepWithDialogue/Tavernkeep"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.820227, 0)
+shape = SubResource("CapsuleShape3D_lp53s")
+
+[node name="Dialogue" type="Node3D" parent="TavernkeepWithDialogue/Tavernkeep"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.04092, 1.00682, 0)
+script = ExtResource("9_por58")
+
+[node name="NPCDialogue" type="RigidBody3D" parent="TavernkeepWithDialogue/Tavernkeep/Dialogue"]
+collision_layer = 2
+gravity_scale = 0.0
+
+[node name="Label3D" type="Label3D" parent="TavernkeepWithDialogue/Tavernkeep/Dialogue/NPCDialogue"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.599929, 1.41759, 0.06)
+text = "Placeholder text that is really long and i wonder if the wrapping functionality works"
+horizontal_alignment = 0
+vertical_alignment = 0
+autowrap_mode = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TavernkeepWithDialogue/Tavernkeep/Dialogue/NPCDialogue"]
+transform = Transform3D(1.5, 0, 0, 0, 0.5, 0, 0, 0, 0.1, 0, 1.22158, 0)
+shape = SubResource("BoxShape3D_ocu4e")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TavernkeepWithDialogue/Tavernkeep/Dialogue/NPCDialogue"]
+transform = Transform3D(1.5, 0, 0, 0, 0.5, 0, 0, 0, 0.1, 0, 1.22158, 0)
+mesh = SubResource("BoxMesh_vrs7t")
+skeleton = NodePath("")
+
+[node name="Option1" type="StaticBody3D" parent="TavernkeepWithDialogue/Tavernkeep/Dialogue"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.5, 0)
+script = ExtResource("10_uhuuj")
+
+[node name="Label3D" type="Label3D" parent="TavernkeepWithDialogue/Tavernkeep/Dialogue/Option1"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.445211, 0.178777, 0.0555489)
+text = "Really long placeholder text once again testing wrappping"
+horizontal_alignment = 0
+vertical_alignment = 0
+autowrap_mode = 2
+width = 400.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TavernkeepWithDialogue/Tavernkeep/Dialogue/Option1"]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 0.1, 0, 0, 0)
+shape = SubResource("BoxShape3D_ia7e6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TavernkeepWithDialogue/Tavernkeep/Dialogue/Option1"]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 0.1, 0, 0, 0)
+mesh = SubResource("BoxMesh_5o2cm")
+skeleton = NodePath("")
+
+[node name="Option2" type="StaticBody3D" parent="TavernkeepWithDialogue/Tavernkeep/Dialogue"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.5, 0)
+script = ExtResource("10_uhuuj")
+
+[node name="Label3D" type="Label3D" parent="TavernkeepWithDialogue/Tavernkeep/Dialogue/Option2"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.445211, 0.178777, 0.0555489)
+text = "Really long placeholder text once again testing wrappping"
+horizontal_alignment = 0
+vertical_alignment = 0
+autowrap_mode = 2
+width = 400.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TavernkeepWithDialogue/Tavernkeep/Dialogue/Option2"]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 0.1, 0, 0, 0)
+shape = SubResource("BoxShape3D_ia7e6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TavernkeepWithDialogue/Tavernkeep/Dialogue/Option2"]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 0.1, 0, 0, 0)
+mesh = SubResource("BoxMesh_5o2cm")
+skeleton = NodePath("")
+
+[node name="GameManager" parent="." instance=ExtResource("7_ql1ax")]
+
+[editable path="TavernkeepWithDialogue/Tavernkeep/tavernkeep_rig"]
+[editable path="TavernkeepWithDialogue/Tavernkeep/tavernkeep_rig/barkeep_rig_10"]

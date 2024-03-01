@@ -20,6 +20,7 @@ public partial class Player : CharacterBody3D
 	public bool isInteracting = false;
 	public bool isInMenu = false;
 
+	private DialogueOptionBox hoveredOption;
 	public override void _Ready()
 	{
 		RayCast3D interactionRayCast = GetNode("CollisionShape3D/Camera3D/RayCast3D") as RayCast3D;
@@ -39,7 +40,7 @@ public partial class Player : CharacterBody3D
 
 	public override void _Input(InputEvent @event)
 	{
-		if (isInteracting || isInMenu)
+		if (isInMenu)
 		{
 			return;
 		}
@@ -90,6 +91,19 @@ public partial class Player : CharacterBody3D
 	private void HandleInteraction()
 	{
 		GodotObject interactable = InteractionRaycast.GetCollider();
+
+		if (interactable == null && hoveredOption != null)
+		{
+			hoveredOption.OnHoverExit();
+			hoveredOption = null;
+		}
+
+		if (interactable != null && interactable is DialogueOptionBox)
+		{
+			DialogueOptionBox dialogueOptionBox = interactable as DialogueOptionBox;
+			dialogueOptionBox.OnHover();
+			hoveredOption = dialogueOptionBox;
+		}
 
 		if (interactable != null && interactable.HasMethod("Interact"))
 		{

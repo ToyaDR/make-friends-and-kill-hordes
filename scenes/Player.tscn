@@ -19,7 +19,7 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.7
 
 [node name="RayCast3D" type="RayCast3D" parent="CollisionShape3D/Camera3D"]
 transform = Transform3D(1, 5.76607e-08, -2.77887e-15, 0, -3.96462e-08, -1, -6.3573e-08, 0.907, -4.37114e-08, 0, 0, 0)
-target_position = Vector3(0, -5, 0)
+target_position = Vector3(0, -10, 0)
 
 [node name="Adventurer" parent="." instance=ExtResource("1_b1gdw")]
 
