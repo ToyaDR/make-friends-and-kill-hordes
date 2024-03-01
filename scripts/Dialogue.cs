@@ -1,35 +1,56 @@
 using Godot;
 using System;
+using System.Transactions;
 
 public partial class Dialogue : Node3D
 {
 	private Label3D NPCText;
 
-	private StaticBody3D Option1Box;
+	private DialogueOptionBox Option1Box;
 	private Label3D Option1Text;
 
-	private StaticBody3D Option2Box;
+	private DialogueOptionBox Option2Box;
 	private Label3D Option2Text;
+	private NPCDialogue current;
 
 	public override void _Ready()
 	{
 		NPCText = GetChild<RigidBody3D>(0).GetChild<Label3D>(0);
 
-		Option1Box = GetChild<StaticBody3D>(1);
+		Option1Box = GetChild<DialogueOptionBox>(1);
 		Option1Text = Option1Box.GetChild<Label3D>(0);
 
-		Option2Box = GetChild<StaticBody3D>(2);
+		Option2Box = GetChild<DialogueOptionBox>(2);
 		Option2Text = Option2Box.GetChild<Label3D>(0);
 	}
 
 	public void Talk(NPCDialogue npcText)
 	{
+		current = npcText;
 		NPCText.Text = npcText.Text;
+		if (npcText.Responses == null)
+		{
+			Option1Box.Visible = false;
+			Option2Box.Visible = false;
+			return;
+		}
 		Option1Text.Text = npcText.Responses[0].Text;
 		Option2Text.Text = npcText.Responses[1].Text;
 	}
 
-	public override void _Process(double delta)
+
+	public override void _Input(InputEvent @event)
 	{
+		if (@event is InputEventMouseButton)
+		{
+			if (Option1Box.IsHovering)
+			{
+				Talk(current.Responses[0].Result);
+			}
+			if (Option2Box.IsHovering)
+			{
+				Talk(current.Responses[1].Result);
+			}
+		}
 	}
 }

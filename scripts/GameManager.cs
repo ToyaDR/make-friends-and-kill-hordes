@@ -6,7 +6,7 @@ public partial class GameManager : Node
   public override void _Ready()
   {
     GD.Print("Set Mouse to captured");
-    // Input.MouseMode = Input.MouseModeEnum.Captured;
+    Input.MouseMode = Input.MouseModeEnum.Captured;
   }
 
   public override void _Process(double delta)
