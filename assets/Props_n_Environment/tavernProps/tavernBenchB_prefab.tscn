@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://c4ln5ja3xqm1t"]
+
+[ext_resource type="PackedScene" uid="uid://dicojwaeuh3it" path="res://assets/Props_n_Environment/tavernProps/benchB.fbx" id="1_cn86l"]
+[ext_resource type="Material" uid="uid://dbsvgi3qcvgpv" path="res://assets/materials/tavernSeating.tres" id="2_ii2ct"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pi0wf"]
+size = Vector3(2.04156, 0.495972, 0.581299)
+
+[node name="benchB_prefab" type="Node3D"]
+
+[node name="benchB" parent="." instance=ExtResource("1_cn86l")]
+
+[node name="benchB" parent="benchB/RootNode" index="0"]
+surface_material_override/0 = ExtResource("2_ii2ct")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="benchB/RootNode" index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="benchB/RootNode/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00796509, 0.252014, 0.00183105)
+shape = SubResource("BoxShape3D_pi0wf")
+
+[editable path="benchB"]

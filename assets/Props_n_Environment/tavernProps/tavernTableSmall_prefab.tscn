@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dc3gvd15l1bwc"]
+
+[ext_resource type="PackedScene" uid="uid://ds64brjffu5uy" path="res://assets/Props_n_Environment/tavernProps/tavernTable_small.fbx" id="1_qgse4"]
+[ext_resource type="Material" uid="uid://dctakrlj6abrd" path="res://assets/materials/tavernTable.tres" id="2_0sct7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_n3bi0"]
+size = Vector3(1.20355, 0.806854, 1.18127)
+
+[node name="tavernTableSmall_prefab" type="Node3D"]
+
+[node name="tavernTable_small" parent="." instance=ExtResource("1_qgse4")]
+
+[node name="tavernTable_small" parent="tavernTable_small/RootNode" index="0"]
+surface_material_override/0 = ExtResource("2_0sct7")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="tavernTable_small/RootNode/tavernTable_small" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="tavernTable_small/RootNode/tavernTable_small/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00391197, 0.406784, -0.00799561)
+shape = SubResource("BoxShape3D_n3bi0")
+
+[editable path="tavernTable_small"]
