@@ -9,6 +9,8 @@ public class DialogueOption
     set { text = value; }
   }
 
+  public bool isExit;
+
   private NPCDialogue result;
   public NPCDialogue Result
   {
@@ -20,5 +22,12 @@ public class DialogueOption
   {
     text = OptionText;
     result = DialogueResult;
+    isExit = false;
+  }
+  public DialogueOption(string OptionText, NPCDialogue DialogueResult, bool ExitResponse)
+  {
+    text = OptionText;
+    result = DialogueResult;
+    isExit = ExitResponse;
   }
 }

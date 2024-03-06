@@ -8,9 +8,15 @@ public class DialogueTree
     get { return start; }
     set { start = value; }
   }
+  private string exitScene;
+  public string ExitScene
+  {
+    get { return exitScene; }
+  }
 
-  public DialogueTree(NPCDialogue startDialogue)
+  public DialogueTree(NPCDialogue startDialogue, string exit)
   {
     start = startDialogue;
+    exitScene = exit;
   }
 }

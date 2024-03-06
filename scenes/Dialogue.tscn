@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://r6mhon67ytox"]
+[gd_scene load_steps=7 format=3 uid="uid://r6mhon67ytox"]
 
 [ext_resource type="Script" path="res://scripts/Dialogue.cs" id="1_31tb4"]
+[ext_resource type="Script" path="res://scripts/dialogue-tree/DialogueOptionBox.cs" id="2_di7lr"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ocu4e"]
 
@@ -13,9 +14,8 @@
 [node name="Dialogue" type="Node3D"]
 script = ExtResource("1_31tb4")
 
-[node name="NPCDialogue" type="RigidBody3D" parent="."]
+[node name="NPCDialogue" type="StaticBody3D" parent="."]
 collision_layer = 2
-gravity_scale = 0.0
 
 [node name="Label3D" type="Label3D" parent="NPCDialogue"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.599929, 1.41759, 0.06)
@@ -33,10 +33,10 @@ transform = Transform3D(1.5, 0, 0, 0, 0.5, 0, 0, 0, 0.1, 0, 1.22158, 0)
 mesh = SubResource("BoxMesh_vrs7t")
 skeleton = NodePath("")
 
-[node name="Option1" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.5, 0)
+[node name="Option1" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.535958, 0.5, 0)
 collision_layer = 2
-gravity_scale = 0.0
+script = ExtResource("2_di7lr")
 
 [node name="Label3D" type="Label3D" parent="Option1"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.445211, 0.178777, 0.0555489)
@@ -55,10 +55,10 @@ transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 0.1, 0, 0, 0)
 mesh = SubResource("BoxMesh_5o2cm")
 skeleton = NodePath("")
 
-[node name="Option2" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.5, 0)
+[node name="Option2" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.589972, 0.5, 0)
 collision_layer = 2
-gravity_scale = 0.0
+script = ExtResource("2_di7lr")
 
 [node name="Label3D" type="Label3D" parent="Option2"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.445211, 0.178777, 0.0555489)

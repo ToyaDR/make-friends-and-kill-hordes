@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cishld48mfg2o"]
+
+[ext_resource type="Script" path="res://scripts/player/PlayerDialogue.cs" id="1_3u7us"]
+
+[node name="PlayerDialogue" type="Node3D"]
+script = ExtResource("1_3u7us")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+fov = 40.0

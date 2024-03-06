@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class Tavernkeep : Interactable
+public partial class Tavernkeep : StaticBody3D
 {
 	// Called when the node enters the scene tree for the first time.
 	private Dialogue DialogueBox;
@@ -10,24 +10,7 @@ public partial class Tavernkeep : Interactable
 	public override void _Ready()
 	{
 		DialogueBox = GetChild<Dialogue>(2);
-		DialogueBox.Visible = false;
 		TavernkeepDialogueTree = new TavernkeepDialogue().Tree; // TODO: save state in dialogue
-	}
-
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{
-	}
-
-	public override void Interact()
-	{
-		GD.Print("Interact with Tavernkeep");
 		DialogueBox.Talk(TavernkeepDialogueTree.Start);
-		DialogueBox.Visible = true;
-	}
-	public override void ExitInteraction()
-	{
-		GD.Print("ExitInteraction with Tavernkeep");
-		DialogueBox.Visible = false;
 	}
 }

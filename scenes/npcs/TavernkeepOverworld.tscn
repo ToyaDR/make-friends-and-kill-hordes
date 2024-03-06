@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://cngncr24mt2w6"]
+
+[ext_resource type="PackedScene" uid="uid://bws187iddtb2g" path="res://tavernkeep_rig.tscn" id="1_0mcqq"]
+[ext_resource type="Script" path="res://scripts/overworld-npcs/TavernkeepOverworld.cs" id="1_7gevp"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wb6ne"]
+
+[node name="TavernkeepOverworld" type="StaticBody3D"]
+script = ExtResource("1_7gevp")
+
+[node name="Rig" parent="." instance=ExtResource("1_0mcqq")]
+transform = Transform3D(0.999997, 0.00224852, 0.000282198, -0.00224849, 0.999997, -0.000112345, -0.000282453, 0.000111702, 1, -0.086485, 1.19209e-07, -0.0201995)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.766621, 0)
+shape = SubResource("CapsuleShape3D_wb6ne")
