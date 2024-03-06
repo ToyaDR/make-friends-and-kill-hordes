@@ -1,0 +1,104 @@
+[gd_scene load_steps=8 format=3 uid="uid://ccaasn2wwfgpi"]
+
+[ext_resource type="Script" path="res://scenes/Prototyping/DialoguePlayer.cs" id="2_f1aps"]
+[ext_resource type="ArrayMesh" uid="uid://ir3csd026d2y" path="res://scenes/Prototyping/assets/Light_Ceiling1.obj" id="3_fe5mr"]
+[ext_resource type="PackedScene" uid="uid://eo5pry0bgkm3" path="res://scenes/TavernkeepV2.tscn" id="3_vv10g"]
+[ext_resource type="PackedScene" path="res://assets/Props_n_Environment/tavernProps/tavernBar_prefab.tscn" id="4_it55c"]
+[ext_resource type="Script" path="res://scripts/dialogue-tree/DialogueOptionBox.cs" id="5_w25du"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0d372"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_iuwgh"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Lights" type="Node3D" parent="."]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -1.41697, 0, -3.34852)
+
+[node name="LightCeiling1" type="MeshInstance3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 5.5, 0)
+mesh = ExtResource("3_fe5mr")
+skeleton = NodePath("../LightCeiling2")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Lights/LightCeiling1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.894313, 0)
+
+[node name="LightCeiling2" type="MeshInstance3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 5.5, 0)
+mesh = ExtResource("3_fe5mr")
+skeleton = NodePath("../../Floor")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Lights/LightCeiling2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.894313, 0)
+
+[node name="LightCeiling3" type="MeshInstance3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 5.5, 0)
+mesh = ExtResource("3_fe5mr")
+skeleton = NodePath("")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Lights/LightCeiling3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.894313, 0)
+
+[node name="LightCeiling4" type="MeshInstance3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 5.5, 0)
+mesh = ExtResource("3_fe5mr")
+skeleton = NodePath("")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Lights/LightCeiling4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.894313, 0)
+
+[node name="LightCeiling5" type="MeshInstance3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 5.5, 0)
+mesh = ExtResource("3_fe5mr")
+skeleton = NodePath("")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Lights/LightCeiling5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.894313, 0)
+
+[node name="Floor" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+transform = Transform3D(59.9983, -0.0147839, -0.0667642, 0.443474, 1.99994, -0.040194, 0.0670592, 0.00132333, 60, 0, 0, 0)
+shape = SubResource("BoxShape3D_0d372")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+transform = Transform3D(60, 0, 0, 0, 2, 0, 0, 0, 60, 0, 0, 0)
+mesh = SubResource("BoxMesh_iuwgh")
+
+[node name="Node3D" type="Node3D" parent="."]
+script = ExtResource("2_f1aps")
+
+[node name="Camera3D" type="Camera3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.73309, 2.5142, -2.28943)
+fov = 40.0
+
+[node name="TavernBarPrefab" parent="." instance=ExtResource("4_it55c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.68317, 1, -4.376)
+
+[node name="TavernkeepWithDialogue" parent="." instance=ExtResource("3_vv10g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.78256, 1.00892, -4.94375)
+
+[node name="eyeL" parent="TavernkeepWithDialogue/Tavernkeep/tavernkeep_rig/barkeep_rig_10/tavernkeep_rig/Skeleton3D" index="0"]
+transform = Transform3D(0.998977, -0.0206246, 0.0402434, 0.0405719, 0.0157683, -0.999052, 0.0199705, 0.999663, 0.0165889, 0.0223464, 1.56461, 0.0122378)
+
+[node name="eyeR" parent="TavernkeepWithDialogue/Tavernkeep/tavernkeep_rig/barkeep_rig_10/tavernkeep_rig/Skeleton3D" index="1"]
+transform = Transform3D(0.998977, -0.0206244, 0.0402425, 0.0405711, 0.0157687, -0.999052, 0.0199703, 0.999663, 0.0165893, -0.071309, 1.56081, 0.0103655)
+
+[node name="Dialogue" parent="TavernkeepWithDialogue/Tavernkeep" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.10316, 0.879052, 0)
+
+[node name="NPCDialogue" parent="TavernkeepWithDialogue/Tavernkeep/Dialogue" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.206388, -0.0479169, 0)
+
+[node name="Option1" parent="TavernkeepWithDialogue/Tavernkeep/Dialogue" index="1"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.713997, 0.7861, 0)
+script = ExtResource("5_w25du")
+
+[node name="Option2" parent="TavernkeepWithDialogue/Tavernkeep/Dialogue" index="2"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.316978, 0.789398, 0)
+script = ExtResource("5_w25du")
+
+[editable path="TavernkeepWithDialogue"]
+[editable path="TavernkeepWithDialogue/Tavernkeep/tavernkeep_rig"]
+[editable path="TavernkeepWithDialogue/Tavernkeep/tavernkeep_rig/barkeep_rig_10"]
+[editable path="TavernkeepWithDialogue/Tavernkeep/Dialogue"]

@@ -14,7 +14,17 @@ public partial class DialogueOptionBox : StaticBody3D
 	{
 		label = GetNode<Label3D>("Label3D");
 	}
+	public override void _MouseEnter()
+	{
+		label.OutlineModulate = hoverColor;
+		isHovering = true;
+	}
 
+	public override void _MouseExit()
+	{
+		label.OutlineModulate = defaultColor;
+		isHovering = false;
+	}
 	public void OnHover()
 	{
 		if (!IsHovering)

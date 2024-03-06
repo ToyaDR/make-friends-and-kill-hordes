@@ -10,7 +10,7 @@ public partial class Tavernkeep : Interactable
 	public override void _Ready()
 	{
 		DialogueBox = GetChild<Dialogue>(2);
-		DialogueBox.Visible = false;
+		DialogueBox.Visible = true;
 		TavernkeepDialogueTree = new TavernkeepDialogue().Tree; // TODO: save state in dialogue
 	}
 

@@ -43,11 +43,11 @@ public partial class Dialogue : Node3D
 	{
 		if (@event is InputEventMouseButton)
 		{
-			if (Option1Box.IsHovering)
+			if (Option1Box != null && Option1Box.IsHovering)
 			{
 				Talk(current.Responses[0].Result);
 			}
-			if (Option2Box.IsHovering)
+			if (Option2Box != null && Option2Box.IsHovering)
 			{
 				Talk(current.Responses[1].Result);
 			}

@@ -1,16 +1,12 @@
-[gd_scene load_steps=21 format=3 uid="uid://bsnkvpkyykce3"]
+[gd_scene load_steps=13 format=3 uid="uid://bsnkvpkyykce3"]
 
 [ext_resource type="PackedScene" uid="uid://wc06lxol7jq8" path="res://scenes/Player.tscn" id="1_fo4ap"]
-[ext_resource type="ArrayMesh" uid="uid://q728rx4tnbyp" path="res://scenes/Prototyping/assets/Kitchen_1Drawers.obj" id="2_1jncn"]
-[ext_resource type="ArrayMesh" uid="uid://dvo1tmpcbelaw" path="res://scenes/Prototyping/assets/Stool.obj" id="3_jmdd1"]
-[ext_resource type="ArrayMesh" uid="uid://ltswo8wgk8kt" path="res://scenes/Prototyping/assets/Shelf_Large.obj" id="4_gsxa6"]
+[ext_resource type="Script" path="res://scenes/Prototyping/TavernkeepNoDialoguePrototype.cs" id="3_yq1pd"]
 [ext_resource type="ArrayMesh" uid="uid://ir3csd026d2y" path="res://scenes/Prototyping/assets/Light_Ceiling1.obj" id="5_ox40y"]
-[ext_resource type="Script" path="res://scripts/Tavernkeep.cs" id="6_d11y1"]
+[ext_resource type="PackedScene" path="res://assets/Props_n_Environment/tavernProps/tavernBar_prefab.tscn" id="6_tl4a2"]
 [ext_resource type="PackedScene" uid="uid://bup01200g4iel" path="res://scenes/GameManager.tscn" id="7_ql1ax"]
 [ext_resource type="PackedScene" uid="uid://bws187iddtb2g" path="res://tavernkeep_rig.tscn" id="7_vbyll"]
 [ext_resource type="AnimationLibrary" uid="uid://drf58xdmq5x1" path="res://assets/animations/barkeep_animidle_5.glb" id="8_81lnq"]
-[ext_resource type="Script" path="res://scripts/Dialogue.cs" id="9_por58"]
-[ext_resource type="Script" path="res://scripts/dialogue-tree/DialogueOptionBox.cs" id="10_uhuuj"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2eda6"]
 
@@ -104,14 +100,6 @@ _data = {
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lp53s"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_ocu4e"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_vrs7t"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_ia7e6"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_5o2cm"]
-
 [node name="DialoguePrototype" type="Node3D"]
 
 [node name="Floor" type="StaticBody3D" parent="."]
@@ -129,140 +117,59 @@ transform = Transform3D(1, 0, 0, 0, -0.978846, 0.204599, 0, -0.204599, -0.978846
 visible = false
 
 [node name="Player" parent="." instance=ExtResource("1_fo4ap")]
-transform = Transform3D(-0.999987, 0, -0.00502661, 0, 1, 0, 0.00502661, 0, -0.999987, 1.329, 1, -2.09565)
+transform = Transform3D(-0.999987, 0, -0.00502661, 0, 1, 0, 0.00502661, 0, -0.999987, 2.59024, 1, -2.09565)
 
-[node name="Bar" type="Node3D" parent="."]
-transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -1.41697, 0, -3.34852)
+[node name="Lights" type="Node3D" parent="."]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -0.842852, 0, -4.41723)
 
-[node name="Lights" type="Node3D" parent="Bar"]
-
-[node name="LightCeiling1" type="MeshInstance3D" parent="Bar/Lights"]
+[node name="LightCeiling1" type="MeshInstance3D" parent="Lights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 5.5, 0)
 mesh = ExtResource("5_ox40y")
 skeleton = NodePath("../LightCeiling2")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="Bar/Lights/LightCeiling1"]
+[node name="OmniLight3D" type="OmniLight3D" parent="Lights/LightCeiling1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.894313, 0)
 
-[node name="LightCeiling2" type="MeshInstance3D" parent="Bar/Lights"]
+[node name="LightCeiling2" type="MeshInstance3D" parent="Lights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 5.5, 0)
 mesh = ExtResource("5_ox40y")
-skeleton = NodePath("../../..")
+skeleton = NodePath("../..")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="Bar/Lights/LightCeiling2"]
+[node name="OmniLight3D" type="OmniLight3D" parent="Lights/LightCeiling2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.894313, 0)
 
-[node name="LightCeiling3" type="MeshInstance3D" parent="Bar/Lights"]
+[node name="LightCeiling3" type="MeshInstance3D" parent="Lights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 5.5, 0)
 mesh = ExtResource("5_ox40y")
-skeleton = NodePath("../..")
+skeleton = NodePath("")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="Bar/Lights/LightCeiling3"]
+[node name="OmniLight3D" type="OmniLight3D" parent="Lights/LightCeiling3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.894313, 0)
 
-[node name="LightCeiling4" type="MeshInstance3D" parent="Bar/Lights"]
+[node name="LightCeiling4" type="MeshInstance3D" parent="Lights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 5.5, 0)
 mesh = ExtResource("5_ox40y")
-skeleton = NodePath("../..")
+skeleton = NodePath("")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="Bar/Lights/LightCeiling4"]
+[node name="OmniLight3D" type="OmniLight3D" parent="Lights/LightCeiling4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.894313, 0)
 
-[node name="LightCeiling5" type="MeshInstance3D" parent="Bar/Lights"]
+[node name="LightCeiling5" type="MeshInstance3D" parent="Lights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 5.5, 0)
 mesh = ExtResource("5_ox40y")
-skeleton = NodePath("../..")
+skeleton = NodePath("")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="Bar/Lights/LightCeiling5"]
+[node name="OmniLight3D" type="OmniLight3D" parent="Lights/LightCeiling5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.894313, 0)
-
-[node name="ShelfLarge" type="MeshInstance3D" parent="Bar"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, -3)
-mesh = ExtResource("4_gsxa6")
-skeleton = NodePath("../..")
-
-[node name="ShelfLarge2" type="MeshInstance3D" parent="Bar"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.3, 1, -3)
-mesh = ExtResource("4_gsxa6")
-skeleton = NodePath("../..")
-
-[node name="ShelfLarge3" type="MeshInstance3D" parent="Bar"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.6, 1, -3)
-mesh = ExtResource("4_gsxa6")
-skeleton = NodePath("../..")
-
-[node name="Counter" type="Node3D" parent="Bar"]
-
-[node name="Kitchen1Drawers5" type="MeshInstance3D" parent="Bar/Counter"]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 7, 1, 0)
-mesh = ExtResource("2_1jncn")
-skeleton = NodePath(".")
-
-[node name="Kitchen1Drawers6" type="MeshInstance3D" parent="Bar/Counter"]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 6, 1, 0)
-mesh = ExtResource("2_1jncn")
-skeleton = NodePath("../..")
-
-[node name="Kitchen1Drawers7" type="MeshInstance3D" parent="Bar/Counter"]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 5, 1, 0)
-mesh = ExtResource("2_1jncn")
-skeleton = NodePath(".")
-
-[node name="Kitchen1Drawers8" type="MeshInstance3D" parent="Bar/Counter"]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 4, 1, 0)
-mesh = ExtResource("2_1jncn")
-skeleton = NodePath(".")
-
-[node name="Kitchen1Drawers2" type="MeshInstance3D" parent="Bar/Counter"]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 1, 0)
-mesh = ExtResource("2_1jncn")
-skeleton = NodePath("../Kitchen1Drawers")
-
-[node name="Kitchen1Drawers" type="MeshInstance3D" parent="Bar/Counter"]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 1, 1, 0)
-mesh = ExtResource("2_1jncn")
-skeleton = NodePath("../../..")
-
-[node name="Kitchen1Drawers3" type="MeshInstance3D" parent="Bar/Counter"]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 2, 1, 0)
-mesh = ExtResource("2_1jncn")
-skeleton = NodePath(".")
-
-[node name="Kitchen1Drawers4" type="MeshInstance3D" parent="Bar/Counter"]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 3, 1, 0)
-mesh = ExtResource("2_1jncn")
-skeleton = NodePath("../Kitchen1Drawers")
-
-[node name="Stool1" type="MeshInstance3D" parent="Bar"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, 1.5)
-mesh = ExtResource("3_jmdd1")
-
-[node name="Stool2" type="MeshInstance3D" parent="Bar"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, 1.5)
-mesh = ExtResource("3_jmdd1")
-skeleton = NodePath("../..")
-
-[node name="Stool3" type="MeshInstance3D" parent="Bar"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 1, 1.5)
-mesh = ExtResource("3_jmdd1")
-
-[node name="Stool4" type="MeshInstance3D" parent="Bar"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1, 1.5)
-mesh = ExtResource("3_jmdd1")
-skeleton = NodePath("../../..")
-
-[node name="Stool5" type="MeshInstance3D" parent="Bar"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 1, 1.5)
-mesh = ExtResource("3_jmdd1")
-skeleton = NodePath("../..")
 
 [node name="TavernkeepWithDialogue" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.47516, 0.992696, -4.17616)
 
 [node name="Tavernkeep" type="StaticBody3D" parent="TavernkeepWithDialogue"]
-script = ExtResource("6_d11y1")
+script = ExtResource("3_yq1pd")
 
 [node name="tavernkeep_rig" parent="TavernkeepWithDialogue/Tavernkeep" instance=ExtResource("7_vbyll")]
+transform = Transform3D(1.2, 0.00269823, 0.000338642, -0.00269819, 1.2, -0.000134804, -0.000338944, 0.000134042, 1.2, 0, 0, 0)
 
 [node name="barkeep_rig_10" parent="TavernkeepWithDialogue/Tavernkeep/tavernkeep_rig" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
@@ -301,73 +208,10 @@ libraries = {
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.820227, 0)
 shape = SubResource("CapsuleShape3D_lp53s")
 
-[node name="Dialogue" type="Node3D" parent="TavernkeepWithDialogue/Tavernkeep"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.04092, 1.00682, 0)
-script = ExtResource("9_por58")
-
-[node name="NPCDialogue" type="RigidBody3D" parent="TavernkeepWithDialogue/Tavernkeep/Dialogue"]
-collision_layer = 2
-gravity_scale = 0.0
-
-[node name="Label3D" type="Label3D" parent="TavernkeepWithDialogue/Tavernkeep/Dialogue/NPCDialogue"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.599929, 1.41759, 0.06)
-text = "Placeholder text that is really long and i wonder if the wrapping functionality works"
-horizontal_alignment = 0
-vertical_alignment = 0
-autowrap_mode = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TavernkeepWithDialogue/Tavernkeep/Dialogue/NPCDialogue"]
-transform = Transform3D(1.5, 0, 0, 0, 0.5, 0, 0, 0, 0.1, 0, 1.22158, 0)
-shape = SubResource("BoxShape3D_ocu4e")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="TavernkeepWithDialogue/Tavernkeep/Dialogue/NPCDialogue"]
-transform = Transform3D(1.5, 0, 0, 0, 0.5, 0, 0, 0, 0.1, 0, 1.22158, 0)
-mesh = SubResource("BoxMesh_vrs7t")
-skeleton = NodePath("")
-
-[node name="Option1" type="StaticBody3D" parent="TavernkeepWithDialogue/Tavernkeep/Dialogue"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.5, 0)
-script = ExtResource("10_uhuuj")
-
-[node name="Label3D" type="Label3D" parent="TavernkeepWithDialogue/Tavernkeep/Dialogue/Option1"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.445211, 0.178777, 0.0555489)
-text = "Really long placeholder text once again testing wrappping"
-horizontal_alignment = 0
-vertical_alignment = 0
-autowrap_mode = 2
-width = 400.0
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TavernkeepWithDialogue/Tavernkeep/Dialogue/Option1"]
-transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 0.1, 0, 0, 0)
-shape = SubResource("BoxShape3D_ia7e6")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="TavernkeepWithDialogue/Tavernkeep/Dialogue/Option1"]
-transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 0.1, 0, 0, 0)
-mesh = SubResource("BoxMesh_5o2cm")
-skeleton = NodePath("")
-
-[node name="Option2" type="StaticBody3D" parent="TavernkeepWithDialogue/Tavernkeep/Dialogue"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.5, 0)
-script = ExtResource("10_uhuuj")
-
-[node name="Label3D" type="Label3D" parent="TavernkeepWithDialogue/Tavernkeep/Dialogue/Option2"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.445211, 0.178777, 0.0555489)
-text = "Really long placeholder text once again testing wrappping"
-horizontal_alignment = 0
-vertical_alignment = 0
-autowrap_mode = 2
-width = 400.0
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TavernkeepWithDialogue/Tavernkeep/Dialogue/Option2"]
-transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 0.1, 0, 0, 0)
-shape = SubResource("BoxShape3D_ia7e6")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="TavernkeepWithDialogue/Tavernkeep/Dialogue/Option2"]
-transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 0.1, 0, 0, 0)
-mesh = SubResource("BoxMesh_5o2cm")
-skeleton = NodePath("")
-
 [node name="GameManager" parent="." instance=ExtResource("7_ql1ax")]
+
+[node name="TavernBarPrefab" parent="." instance=ExtResource("6_tl4a2")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 2.82872, 1.02911, -4.57869)
 
 [editable path="TavernkeepWithDialogue/Tavernkeep/tavernkeep_rig"]
 [editable path="TavernkeepWithDialogue/Tavernkeep/tavernkeep_rig/barkeep_rig_10"]
