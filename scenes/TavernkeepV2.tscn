@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://eo5pry0bgkm3"]
 
 [ext_resource type="Script" path="res://scripts/Tavernkeep.cs" id="1_44xq3"]
-[ext_resource type="PackedScene" uid="uid://bws187iddtb2g" path="res://tavernkeep_rig.tscn" id="2_c3fhb"]
+[ext_resource type="PackedScene" uid="uid://bws187iddtb2g" path="res://prefabs/characters/tavernkeep_rig.tscn" id="2_c3fhb"]
 [ext_resource type="AnimationLibrary" uid="uid://drf58xdmq5x1" path="res://assets/animations/barkeep_animidle_5.glb" id="3_f1ovm"]
 [ext_resource type="PackedScene" uid="uid://r6mhon67ytox" path="res://scenes/Dialogue.tscn" id="3_igpsw"]
 

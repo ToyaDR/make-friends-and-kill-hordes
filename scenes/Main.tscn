@@ -1,17 +1,17 @@
 [gd_scene load_steps=33 format=3 uid="uid://6ed67wmlrh0w"]
 
-[ext_resource type="Material" path="res://assets/materials/cobblestone_shader.tres" id="1_1myrw"]
+[ext_resource type="Material" uid="uid://b0h3enej5x38l" path="res://assets/materials/cobblestone_shader.tres" id="1_1myrw"]
 [ext_resource type="PackedScene" uid="uid://wc06lxol7jq8" path="res://scenes/Player.tscn" id="1_i8lry"]
-[ext_resource type="PackedScene" uid="uid://bup01200g4iel" path="res://scenes/GameManager.tscn" id="3_y5lae"]
+[ext_resource type="PackedScene" path="res://scenes/GameManager.tscn" id="3_y5lae"]
 [ext_resource type="PackedScene" uid="uid://cpw5accl4oi83" path="res://assets/Props_n_Environment/tavernProps/tavernTable.fbx" id="4_elhb8"]
 [ext_resource type="PackedScene" uid="uid://cngncr24mt2w6" path="res://scenes/npcs/TavernkeepOverworld.tscn" id="4_ihc1b"]
 [ext_resource type="Material" uid="uid://dctakrlj6abrd" path="res://assets/materials/tavernTable.tres" id="5_bpbm3"]
 [ext_resource type="PackedScene" uid="uid://csoflyx663nrg" path="res://assets/Props_n_Environment/tavernProps/benchA.fbx" id="6_gr7wy"]
-[ext_resource type="Material" path="res://assets/materials/tavernSeating.tres" id="7_ff7s7"]
+[ext_resource type="Material" uid="uid://dbsvgi3qcvgpv" path="res://assets/materials/tavernSeating.tres" id="7_ff7s7"]
 [ext_resource type="PackedScene" uid="uid://dicojwaeuh3it" path="res://assets/Props_n_Environment/tavernProps/benchB.fbx" id="8_lbwru"]
 [ext_resource type="PackedScene" uid="uid://c30l8kr4ih1fj" path="res://assets/Props_n_Environment/tavernProps/chair.fbx" id="9_2i7e1"]
 [ext_resource type="PackedScene" uid="uid://ds64brjffu5uy" path="res://assets/Props_n_Environment/tavernProps/tavernTable_small.fbx" id="10_beeeu"]
-[ext_resource type="PackedScene" path="res://assets/Props_n_Environment/tavernProps/tavernBar_prefab.tscn" id="12_jm0f5"]
+[ext_resource type="PackedScene" uid="uid://deidty8ocjhrh" path="res://prefabs/props_n_environments/tavernBar_prefab.tscn" id="12_jm0f5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_o10pe"]
 

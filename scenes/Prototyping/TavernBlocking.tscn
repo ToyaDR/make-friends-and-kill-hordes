@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://cw4j4qqutv1jw"]
 
-[ext_resource type="PackedScene" uid="uid://bws187iddtb2g" path="res://tavernkeep_rig.tscn" id="1_804du"]
+[ext_resource type="PackedScene" uid="uid://bws187iddtb2g" path="res://prefabs/characters/tavernkeep_rig.tscn" id="1_804du"]
 [ext_resource type="Material" uid="uid://bgpvrky3gajmm" path="res://references/renderite.tres" id="2_7rur7"]
 [ext_resource type="PackedScene" uid="uid://wc06lxol7jq8" path="res://scenes/Player.tscn" id="3_caakx"]
 [ext_resource type="Material" uid="uid://b0h3enej5x38l" path="res://assets/materials/cobblestone_shader.tres" id="4_e241v"]
