@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://eo5pry0bgkm3"]
+
+[ext_resource type="PackedScene" uid="uid://bws187iddtb2g" path="res://prefabs/characters/tavernkeep_rig.tscn" id="2_c3fhb"]
+[ext_resource type="PackedScene" uid="uid://r6mhon67ytox" path="res://scenes/Dialogue.tscn" id="3_igpsw"]
+
+[node name="TavernkeepWithDialogue" type="Node3D"]
+
+[node name="tavernkeep_rig" parent="." instance=ExtResource("2_c3fhb")]
+
+[node name="Dialogue" parent="." instance=ExtResource("3_igpsw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.53286, 1.00682, 0)

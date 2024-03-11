@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bws187iddtb2g"]
+[gd_scene load_steps=11 format=3 uid="uid://bws187iddtb2g"]
 
 [ext_resource type="PackedScene" uid="uid://bwajnxxafkerp" path="res://assets/rigs/barkeep_rig_10.glb" id="1_e6yvu"]
 [ext_resource type="Material" uid="uid://bogulhcwpojrf" path="res://assets/materials/tavernkeep_materials/eye_Mat_toon.tres" id="2_esvf3"]
@@ -94,11 +94,13 @@ _data = {
 "godot_rigAction": SubResource("Animation_6mvck")
 }
 
-[node name="Node3D2" type="Node3D"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_p10f2"]
+
+[node name="Node3D2" type="StaticBody3D"]
 transform = Transform3D(0.999997, 0.00224852, 0.000282198, -0.00224849, 0.999997, -0.000112345, -0.000282453, 0.000111702, 1, 0, 0, 0)
 
 [node name="barkeep_rig_10" parent="." instance=ExtResource("1_e6yvu")]
-transform = Transform3D(1, -1.1806e-10, -2.91038e-11, -1.20668e-10, 1, 0, 0, 0, 1, 0.124945, -0.00280875, 0.0724277)
+transform = Transform3D(1, -1.1806e-10, -2.91038e-11, -1.20668e-10, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="tavernkeep_rig" parent="barkeep_rig_10" index="0"]
 transform = Transform3D(0.988854, -0.00496405, -0.148806, 0.00510097, 0.999987, 0.000538471, 0.148802, -0.00129153, 0.988866, 0, 0, 0)
@@ -645,5 +647,9 @@ libraries = {
 "barkeep_animidle_5": ExtResource("7_d347e")
 }
 autoplay = "barkeep_animidle_5/animIdle"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.820227, 0)
+shape = SubResource("CapsuleShape3D_p10f2")
 
 [editable path="barkeep_rig_10"]
