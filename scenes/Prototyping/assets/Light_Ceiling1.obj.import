@@ -4,14 +4,14 @@ importer="wavefront_obj"
 importer_version=1
 type="Mesh"
 uid="uid://ir3csd026d2y"
-path="res://.godot/imported/Light_Ceiling1.obj-fc92618364c13a427be5804cf8b48ee7.mesh"
+path="res://.godot/imported/Light_Ceiling1.obj-011821184c94bf472fabc5c02195c790.mesh"
 
 [deps]
 
-files=["res://.godot/imported/Light_Ceiling1.obj-fc92618364c13a427be5804cf8b48ee7.mesh"]
+files=["res://.godot/imported/Light_Ceiling1.obj-011821184c94bf472fabc5c02195c790.mesh"]
 
-source_file="res://scenes/Prototyping/assets/Light_Ceiling1.obj"
-dest_files=["res://.godot/imported/Light_Ceiling1.obj-fc92618364c13a427be5804cf8b48ee7.mesh", "res://.godot/imported/Light_Ceiling1.obj-fc92618364c13a427be5804cf8b48ee7.mesh"]
+source_file="res://scenes/prototyping/assets/Light_Ceiling1.obj"
+dest_files=["res://.godot/imported/Light_Ceiling1.obj-011821184c94bf472fabc5c02195c790.mesh", "res://.godot/imported/Light_Ceiling1.obj-011821184c94bf472fabc5c02195c790.mesh"]
 
 [params]
 

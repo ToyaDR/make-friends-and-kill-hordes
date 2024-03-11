@@ -4,14 +4,14 @@ importer="wavefront_obj"
 importer_version=1
 type="Mesh"
 uid="uid://q728rx4tnbyp"
-path="res://.godot/imported/Kitchen_1Drawers.obj-8da45019f6ae6aa36baa251553899ea4.mesh"
+path="res://.godot/imported/Kitchen_1Drawers.obj-cbba8589c865bcb46deb340842dc9d15.mesh"
 
 [deps]
 
-files=["res://.godot/imported/Kitchen_1Drawers.obj-8da45019f6ae6aa36baa251553899ea4.mesh"]
+files=["res://.godot/imported/Kitchen_1Drawers.obj-cbba8589c865bcb46deb340842dc9d15.mesh"]
 
-source_file="res://scenes/Prototyping/assets/Kitchen_1Drawers.obj"
-dest_files=["res://.godot/imported/Kitchen_1Drawers.obj-8da45019f6ae6aa36baa251553899ea4.mesh", "res://.godot/imported/Kitchen_1Drawers.obj-8da45019f6ae6aa36baa251553899ea4.mesh"]
+source_file="res://scenes/prototyping/assets/Kitchen_1Drawers.obj"
+dest_files=["res://.godot/imported/Kitchen_1Drawers.obj-cbba8589c865bcb46deb340842dc9d15.mesh", "res://.godot/imported/Kitchen_1Drawers.obj-cbba8589c865bcb46deb340842dc9d15.mesh"]
 
 [params]
 

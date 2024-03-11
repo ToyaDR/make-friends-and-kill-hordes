@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=3 uid="uid://bsnkvpkyykce3"]
 
-[ext_resource type="PackedScene" uid="uid://wc06lxol7jq8" path="res://scenes/Player.tscn" id="1_fo4ap"]
-[ext_resource type="ArrayMesh" uid="uid://q728rx4tnbyp" path="res://scenes/Prototyping/assets/Kitchen_1Drawers.obj" id="2_1jncn"]
-[ext_resource type="ArrayMesh" uid="uid://dvo1tmpcbelaw" path="res://scenes/Prototyping/assets/Stool.obj" id="3_jmdd1"]
-[ext_resource type="ArrayMesh" uid="uid://ltswo8wgk8kt" path="res://scenes/Prototyping/assets/Shelf_Large.obj" id="4_gsxa6"]
-[ext_resource type="ArrayMesh" uid="uid://ir3csd026d2y" path="res://scenes/Prototyping/assets/Light_Ceiling1.obj" id="5_ox40y"]
+[ext_resource type="PackedScene" uid="uid://wc06lxol7jq8" path="res://scenes/player/Player.tscn" id="1_fo4ap"]
+[ext_resource type="ArrayMesh" uid="uid://q728rx4tnbyp" path="res://scenes/prototyping/assets/Kitchen_1Drawers.obj" id="2_1jncn"]
+[ext_resource type="ArrayMesh" uid="uid://dvo1tmpcbelaw" path="res://scenes/prototyping/assets/Stool.obj" id="3_jmdd1"]
+[ext_resource type="ArrayMesh" uid="uid://ltswo8wgk8kt" path="res://scenes/prototyping/assets/Shelf_Large.obj" id="4_gsxa6"]
+[ext_resource type="ArrayMesh" uid="uid://ir3csd026d2y" path="res://scenes/prototyping/assets/Light_Ceiling1.obj" id="5_ox40y"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2eda6"]
 

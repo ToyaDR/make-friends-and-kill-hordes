@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bwgblwvn05g4u"]
 
-[ext_resource type="PackedScene" uid="uid://wc06lxol7jq8" path="res://scenes/Player.tscn" id="1_j38kt"]
+[ext_resource type="PackedScene" uid="uid://wc06lxol7jq8" path="res://scenes/player/Player.tscn" id="1_j38kt"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7e4r2"]
 

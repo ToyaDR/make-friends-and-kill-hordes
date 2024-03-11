@@ -1,14 +1,14 @@
 [gd_scene load_steps=5 format=3 uid="uid://wc06lxol7jq8"]
 
-[ext_resource type="PackedScene" uid="uid://baqbuxb70x0a3" path="res://assets/Adventurer.gltf" id="1_b1gdw"]
-[ext_resource type="Script" path="res://scripts/Player.cs" id="1_tigpn"]
-[ext_resource type="Script" path="res://scenes/MenuButton.cs" id="3_tea80"]
+[ext_resource type="Script" path="res://scripts/Player.cs" id="1_akvin"]
+[ext_resource type="PackedScene" uid="uid://baqbuxb70x0a3" path="res://assets/Adventurer.gltf" id="2_qssne"]
+[ext_resource type="Script" path="res://scripts/player/MenuButton.cs" id="3_6d763"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fdxus"]
 
 [node name="Player" type="CharacterBody3D"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
-script = ExtResource("1_tigpn")
+script = ExtResource("1_akvin")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.830541, 0)
@@ -21,7 +21,7 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.7
 transform = Transform3D(1, 5.76607e-08, -2.77887e-15, 0, -3.96462e-08, -1, -6.3573e-08, 0.907, -4.37114e-08, 0, 0, 0)
 target_position = Vector3(0, -5, 0)
 
-[node name="Adventurer" parent="." instance=ExtResource("1_b1gdw")]
+[node name="Adventurer" parent="." instance=ExtResource("2_qssne")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 follow_viewport_enabled = true
@@ -52,7 +52,7 @@ offset_right = 1031.0
 offset_bottom = 543.0
 text = "Main Menu
 "
-script = ExtResource("3_tea80")
+script = ExtResource("3_6d763")
 
 [node name="QuitGameButton" type="Button" parent="Menu"]
 offset_left = 936.0
@@ -60,4 +60,4 @@ offset_top = 591.0
 offset_right = 1028.0
 offset_bottom = 622.0
 text = "Quit Game"
-script = ExtResource("3_tea80")
+script = ExtResource("3_6d763")

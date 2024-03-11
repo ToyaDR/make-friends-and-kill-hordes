@@ -1,8 +1,8 @@
 [gd_scene load_steps=33 format=3 uid="uid://6ed67wmlrh0w"]
 
 [ext_resource type="Material" uid="uid://b0h3enej5x38l" path="res://assets/materials/cobblestone_shader.tres" id="1_1myrw"]
-[ext_resource type="PackedScene" uid="uid://wc06lxol7jq8" path="res://scenes/Player.tscn" id="1_i8lry"]
-[ext_resource type="PackedScene" uid="uid://bup01200g4iel" path="res://scenes/GameManager.tscn" id="3_y5lae"]
+[ext_resource type="PackedScene" uid="uid://wc06lxol7jq8" path="res://scenes/player/Player.tscn" id="1_i8lry"]
+[ext_resource type="PackedScene" uid="uid://bup01200g4iel" path="res://scenes/player/GameManager.tscn" id="3_y5lae"]
 [ext_resource type="PackedScene" uid="uid://cpw5accl4oi83" path="res://assets/Props_n_Environment/tavernProps/tavernTable.fbx" id="4_elhb8"]
 [ext_resource type="PackedScene" uid="uid://cngncr24mt2w6" path="res://scenes/tavern/TavernkeepOverworld.tscn" id="4_ihc1b"]
 [ext_resource type="Material" uid="uid://dctakrlj6abrd" path="res://assets/materials/tavernTable.tres" id="5_bpbm3"]

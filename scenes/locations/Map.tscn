@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/map/Map.cs" id="1_d1x51"]
 [ext_resource type="Material" uid="uid://wpxwwskbm8wc" path="res://references/mapRef.tres" id="1_sgybe"]
 [ext_resource type="ArrayMesh" uid="uid://t0d3pcth0dvt" path="res://assets/programmer-art/WallEntrance.obj" id="2_nywom"]
-[ext_resource type="PackedScene" uid="uid://dolecfvsdco2s" path="res://scenes/PlayerMini.tscn" id="3_5p0y3"]
+[ext_resource type="PackedScene" uid="uid://dolecfvsdco2s" path="res://scenes/player/PlayerMini.tscn" id="3_5p0y3"]
 [ext_resource type="ArrayMesh" uid="uid://c11qy2ynknegm" path="res://assets/programmer-art/WallBricks.obj" id="3_m68gg"]
 [ext_resource type="Script" path="res://scripts/map/Location.cs" id="4_l36ne"]
 [ext_resource type="ArrayMesh" uid="uid://ddlwe4cs8pi2d" path="res://assets/programmer-art/PointyTower.obj" id="4_yesx8"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://eo5pry0bgkm3"]
 
 [ext_resource type="PackedScene" uid="uid://bws187iddtb2g" path="res://prefabs/characters/tavernkeep_rig.tscn" id="2_c3fhb"]
-[ext_resource type="PackedScene" uid="uid://r6mhon67ytox" path="res://scenes/Dialogue.tscn" id="3_igpsw"]
+[ext_resource type="PackedScene" uid="uid://r6mhon67ytox" path="res://scenes/dialogue/Dialogue.tscn" id="3_igpsw"]
 
 [node name="TavernkeepWithDialogue" type="Node3D"]
 

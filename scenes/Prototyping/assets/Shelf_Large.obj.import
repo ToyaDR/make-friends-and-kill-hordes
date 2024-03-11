@@ -4,14 +4,14 @@ importer="wavefront_obj"
 importer_version=1
 type="Mesh"
 uid="uid://ltswo8wgk8kt"
-path="res://.godot/imported/Shelf_Large.obj-b85f7fa235824ed7b9cb09cf43d67386.mesh"
+path="res://.godot/imported/Shelf_Large.obj-9cda8d656d06b06306aca010509c333f.mesh"
 
 [deps]
 
-files=["res://.godot/imported/Shelf_Large.obj-b85f7fa235824ed7b9cb09cf43d67386.mesh"]
+files=["res://.godot/imported/Shelf_Large.obj-9cda8d656d06b06306aca010509c333f.mesh"]
 
-source_file="res://scenes/Prototyping/assets/Shelf_Large.obj"
-dest_files=["res://.godot/imported/Shelf_Large.obj-b85f7fa235824ed7b9cb09cf43d67386.mesh", "res://.godot/imported/Shelf_Large.obj-b85f7fa235824ed7b9cb09cf43d67386.mesh"]
+source_file="res://scenes/prototyping/assets/Shelf_Large.obj"
+dest_files=["res://.godot/imported/Shelf_Large.obj-9cda8d656d06b06306aca010509c333f.mesh", "res://.godot/imported/Shelf_Large.obj-9cda8d656d06b06306aca010509c333f.mesh"]
 
 [params]
 
