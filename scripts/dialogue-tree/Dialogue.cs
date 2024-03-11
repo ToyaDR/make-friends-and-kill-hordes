@@ -49,7 +49,7 @@ public partial class Dialogue : Node3D
 				{
 					if (current.Responses[0].isExit)
 					{
-						GetTree().ChangeSceneToFile("res://scenes/locations/Main.tscn");
+						GetTree().ChangeSceneToFile("res://scenes/locations/Tavern.tscn");
 						return;
 					}
 					Talk(current.Responses[0].Result);
@@ -61,14 +61,14 @@ public partial class Dialogue : Node3D
 				{
 					if (current.Responses[1].isExit)
 					{
-						GetTree().ChangeSceneToFile("res://scenes/locations/Main.tscn");
+						GetTree().ChangeSceneToFile("res://scenes/locations/Tavern.tscn");
 						return;
 					}
 					Talk(current.Responses[1].Result);
 				}
 				else
 				{
-					GetTree().ChangeSceneToFile("res://scenes/locations/Main.tscn");
+					GetTree().ChangeSceneToFile("res://scenes/locations/Tavern.tscn");
 				}
 			}
 		}

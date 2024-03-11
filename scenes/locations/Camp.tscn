@@ -1,12 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://kxund4182mo4"]
+[gd_scene load_steps=5 format=3 uid="uid://kxund4182mo4"]
 
 [ext_resource type="PackedScene" uid="uid://wc06lxol7jq8" path="res://scenes/player/Player.tscn" id="1_x04yp"]
+[ext_resource type="PackedScene" uid="uid://bup01200g4iel" path="res://scenes/player/GameManager.tscn" id="2_e53dn"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7e4r2"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_rrrvg"]
 
-[node name="Tavern" type="Node3D"]
+[node name="Camp" type="Node3D"]
 
 [node name="Floor" type="StaticBody3D" parent="."]
 
@@ -20,3 +21,5 @@ mesh = SubResource("BoxMesh_rrrvg")
 
 [node name="Player" parent="." instance=ExtResource("1_x04yp")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.849238, 1.00456, 2.62646)
+
+[node name="GameManager" parent="." instance=ExtResource("2_e53dn")]

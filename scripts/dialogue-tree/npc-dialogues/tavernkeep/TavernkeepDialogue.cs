@@ -19,6 +19,6 @@ public class TavernkeepDialogue
     startResponses[1] = new DialogueOption("Of course!", new NPCDialogue("That's good to hear!", exitResponse));
 
     NPCDialogue start = new NPCDialogue("Good mornin' hon! Slept well I hope?", startResponses);
-    tree = new DialogueTree(start, "res://scenes/locations/Main.tscn");
+    tree = new DialogueTree(start, "res://scenes/locations/Tavern.tscn");
   }
 }

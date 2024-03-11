@@ -10,7 +10,7 @@ public partial class Location : StaticBody3D
       "Temple", "res://scenes/locations/Temple.tscn"
     },
     {
-      "Tavern", "res://scenes/locations/Main.tscn"
+      "Tavern", "res://scenes/locations/Tavern.tscn"
     },
     {
       "Library", "res://scenes/locations/Library.tscn"

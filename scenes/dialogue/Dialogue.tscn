@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://r6mhon67ytox"]
 
-[ext_resource type="Script" path="res://scripts/Dialogue.cs" id="1_31tb4"]
+[ext_resource type="Script" path="res://scripts/dialogue-tree/Dialogue.cs" id="1_31tb4"]
 [ext_resource type="Script" path="res://scripts/dialogue-tree/DialogueOptionBox.cs" id="2_di7lr"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ocu4e"]

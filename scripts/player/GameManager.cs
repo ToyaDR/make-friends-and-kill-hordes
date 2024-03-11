@@ -13,7 +13,7 @@ public partial class GameManager : Node
   {
     if (Input.IsActionJustPressed("open_map"))
     {
-      GetTree().ChangeSceneToFile("res://scenes/Map.tscn");
+      GetTree().ChangeSceneToFile("res://scenes/locations/Map.tscn");
     }
   }
 }

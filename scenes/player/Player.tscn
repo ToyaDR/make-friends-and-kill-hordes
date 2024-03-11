@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://wc06lxol7jq8"]
 
-[ext_resource type="Script" path="res://scripts/Player.cs" id="1_akvin"]
+[ext_resource type="Script" path="res://scripts/player/Player.cs" id="1_akvin"]
 [ext_resource type="PackedScene" uid="uid://baqbuxb70x0a3" path="res://assets/Adventurer.gltf" id="2_qssne"]
 [ext_resource type="Script" path="res://scripts/player/MenuButton.cs" id="3_6d763"]
 
