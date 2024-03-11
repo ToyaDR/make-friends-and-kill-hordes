@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://472cmwu0eaxg"]
 
 [ext_resource type="Material" uid="uid://b0h3enej5x38l" path="res://assets/materials/cobblestone_shader.tres" id="1_wv0km"]
-[ext_resource type="PackedScene" path="res://scenes/GameManager.tscn" id="2_5bn3j"]
+[ext_resource type="PackedScene" uid="uid://bup01200g4iel" path="res://scenes/GameManager.tscn" id="2_5bn3j"]
 [ext_resource type="PackedScene" uid="uid://eo5pry0bgkm3" path="res://scenes/TavernkeepV2.tscn" id="3_hbgik"]
 [ext_resource type="PackedScene" uid="uid://deidty8ocjhrh" path="res://prefabs/props_n_environments/tavernBar_prefab.tscn" id="4_b7trs"]
 [ext_resource type="PackedScene" uid="uid://cishld48mfg2o" path="res://scenes/player/PlayerDialogue.tscn" id="5_3al8d"]
