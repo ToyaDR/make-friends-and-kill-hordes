@@ -93,7 +93,7 @@ public partial class Dialogue : Node3D
 		{
 			if (current?.Responses?.Length == 0)
 			{
-				GetTree().ChangeSceneToFile("res://scenes/locations/Tavern.tscn");
+				GetTree().ChangeSceneToFile(dialogueTree.ExitScene);
 			}
 
 			SelectHoveredDialogue();
