@@ -9,8 +9,8 @@ public partial class Tavernkeep : StaticBody3D
 	private DialogueTree TavernkeepDialogueTree;
 	public override void _Ready()
 	{
-		DialogueBox = GetChild<Dialogue>(2);
+		DialogueBox = GetChild<Node3D>(GetChildCount() - 1) as Dialogue;
 		TavernkeepDialogueTree = new TavernkeepDialogue().Tree; // TODO: save state in dialogue
-		DialogueBox.Talk(TavernkeepDialogueTree.Start);
+		DialogueBox.SetTree(TavernkeepDialogueTree);
 	}
 }
