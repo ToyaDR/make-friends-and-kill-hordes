@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://r6mhon67ytox"]
+[gd_scene load_steps=4 format=3 uid="uid://r6mhon67ytox"]
 
 [ext_resource type="Script" path="res://scripts/dialogue-tree/Dialogue.cs" id="1_31tb4"]
-[ext_resource type="PackedScene" uid="uid://dnfbdcgpvak7o" path="res://scenes/dialogue/DialogueOption.tscn" id="2_pxbtq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ocu4e"]
 
@@ -29,11 +28,3 @@ shape = SubResource("BoxShape3D_ocu4e")
 transform = Transform3D(1.25, 0, 0, 0, 1, 0, 0, 0, 0.1, 0, 0, 0)
 mesh = SubResource("BoxMesh_vrs7t")
 skeleton = NodePath("")
-
-[node name="Option" parent="." instance=ExtResource("2_pxbtq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.3, 0)
-visible = false
-
-[node name="Option2" parent="." instance=ExtResource("2_pxbtq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.25, 0)
-visible = false

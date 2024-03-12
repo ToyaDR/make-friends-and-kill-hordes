@@ -68,50 +68,35 @@ public partial class Dialogue : Node3D
 		}
 	}
 
-	private void GetHoveredDialogue()
+	private void SelectHoveredDialogue()
 	{
-		for (int i = 1; i < GetChildCount(); i++) // Child at index 0 is NPCDialogue
+		for (int childIndex = 1; childIndex < GetChildCount(); childIndex++) // Child at index 0 is NPCDialogue
 		{
-			Node3D currentChild = GetChild<Node3D>(i);
+			Node3D currentChild = GetChild<Node3D>(childIndex);
 			if (currentChild is DialogueOptionBox && (currentChild as DialogueOptionBox).IsHovering)
 			{
-				Talk(current.Responses[i - 1].Result);
+				int responseIndex = childIndex - 1;
+				DialogueOption response = current.Responses[responseIndex];
+				if (response.isExit)
+				{
+					GetTree().ChangeSceneToFile(dialogueTree.ExitScene);
+					return;
+				}
+				Talk(response.Result);
 			}
 		}
 	}
 
-	public override void _Input(InputEvent @event)
+	public override void _Process(double delta)
 	{
-		if (@event is InputEventMouseButton)
+		if (Input.IsActionJustPressed("select_dialogue"))
 		{
-			// if (Option1Box != null && Option1Box.IsHovering)
-			// {
-			// 	if (current?.Responses?.Length > 0)
-			// 	{
-			// 		if (current.Responses[0].isExit)
-			// 		{
-			// 			GetTree().ChangeSceneToFile("res://scenes/locations/Tavern.tscn");
-			// 			return;
-			// 		}
-			// 		Talk(current.Responses[0].Result);
-			// 	}
-			// }
-			// if (Option2Box != null && Option2Box.IsHovering)
+			if (current?.Responses?.Length == 0)
 			{
-				if (current?.Responses?.Length > 1)
-				{
-					if (current.Responses[1].isExit)
-					{
-						GetTree().ChangeSceneToFile("res://scenes/locations/Tavern.tscn");
-						return;
-					}
-					Talk(current.Responses[1].Result);
-				}
-				else
-				{
-					GetTree().ChangeSceneToFile("res://scenes/locations/Tavern.tscn");
-				}
+				GetTree().ChangeSceneToFile("res://scenes/locations/Tavern.tscn");
 			}
+
+			SelectHoveredDialogue();
 		}
 	}
 }
