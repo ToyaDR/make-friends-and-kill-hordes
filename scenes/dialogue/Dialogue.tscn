@@ -1,78 +1,30 @@
-[gd_scene load_steps=7 format=3 uid="uid://r6mhon67ytox"]
+[gd_scene load_steps=4 format=3 uid="uid://r6mhon67ytox"]
 
 [ext_resource type="Script" path="res://scripts/dialogue-tree/Dialogue.cs" id="1_31tb4"]
-[ext_resource type="Script" path="res://scripts/dialogue-tree/DialogueOptionBox.cs" id="2_di7lr"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ocu4e"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_vrs7t"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_ia7e6"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_5o2cm"]
-
 [node name="Dialogue" type="Node3D"]
 script = ExtResource("1_31tb4")
 
 [node name="NPCDialogue" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, 0, 0)
 collision_layer = 2
 
 [node name="Label3D" type="Label3D" parent="NPCDialogue"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.599929, 1.41759, 0.06)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.599929, 0.185362, 0.06)
 text = "Placeholder text that is really long and i wonder if the wrapping functionality works"
 horizontal_alignment = 0
 vertical_alignment = 0
 autowrap_mode = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NPCDialogue"]
-transform = Transform3D(1.5, 0, 0, 0, 0.5, 0, 0, 0, 0.1, 0, 1.22158, 0)
+transform = Transform3D(1.25, 0, 0, 0, 1, 0, 0, 0, 0.1, 0, 0, 0)
 shape = SubResource("BoxShape3D_ocu4e")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NPCDialogue"]
-transform = Transform3D(1.5, 0, 0, 0, 0.5, 0, 0, 0, 0.1, 0, 1.22158, 0)
+transform = Transform3D(1.25, 0, 0, 0, 1, 0, 0, 0, 0.1, 0, 0, 0)
 mesh = SubResource("BoxMesh_vrs7t")
-skeleton = NodePath("")
-
-[node name="Option1" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.535958, 0.5, 0)
-collision_layer = 2
-script = ExtResource("2_di7lr")
-
-[node name="Label3D" type="Label3D" parent="Option1"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.445211, 0.178777, 0.0555489)
-text = "Really long placeholder text once again testing wrappping"
-horizontal_alignment = 0
-vertical_alignment = 0
-autowrap_mode = 2
-width = 400.0
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Option1"]
-transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 0.1, 0, 0, 0)
-shape = SubResource("BoxShape3D_ia7e6")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Option1"]
-transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 0.1, 0, 0, 0)
-mesh = SubResource("BoxMesh_5o2cm")
-skeleton = NodePath("")
-
-[node name="Option2" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.589972, 0.5, 0)
-collision_layer = 2
-script = ExtResource("2_di7lr")
-
-[node name="Label3D" type="Label3D" parent="Option2"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.445211, 0.178777, 0.0555489)
-text = "Really long placeholder text once again testing wrappping"
-horizontal_alignment = 0
-vertical_alignment = 0
-autowrap_mode = 2
-width = 400.0
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Option2"]
-transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 0.1, 0, 0, 0)
-shape = SubResource("BoxShape3D_ia7e6")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Option2"]
-transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 0.1, 0, 0, 0)
-mesh = SubResource("BoxMesh_5o2cm")
 skeleton = NodePath("")
