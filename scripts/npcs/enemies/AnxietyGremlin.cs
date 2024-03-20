@@ -40,7 +40,7 @@ public partial class AnxietyGremlin : RigidBody3D
 	{
 		int headIndex = skeleton.FindBone("DEF-head");
 
-		Quaternion headRotation = new Quaternion(new Vector3(Position.X, Position.Y, -Position.Z), Position.DirectionTo(playerPosition));
+		Quaternion headRotation = new Quaternion(new Vector3(Position.X, Position.Y + 2, -Position.Z), Position.DirectionTo(playerPosition));
 
 		skeleton.SetBonePoseRotation(headIndex, headRotation);
 	}

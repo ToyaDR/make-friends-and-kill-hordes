@@ -39,7 +39,7 @@ public partial class combat : Node3D
 
 		for (int i = 0; i < gremlinCount; i++)
 		{
-			gremlins.GetChild<AnxietyGremlin>(i).LookAtPlayer(player.Position);
+			gremlins.GetChild<AnxietyGremlin>(i).LookAtPlayer(player.PlayerHeadPosition);
 		}
 	}
 

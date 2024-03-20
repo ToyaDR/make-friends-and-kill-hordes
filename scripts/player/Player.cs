@@ -33,6 +33,10 @@ public partial class Player : CharacterBody3D
 		set { currentHitPoints = value; }
 	}
 
+	public Vector3 PlayerHeadPosition { get => playerHeadPosition; set => playerHeadPosition = value; }
+
+	private Vector3 playerHeadPosition;
+
 	public override void _Ready()
 	{
 		RayCast3D interactionRayCast = GetNode("CollisionShape3D/Camera3D/RayCast3D") as RayCast3D;
@@ -50,6 +54,7 @@ public partial class Player : CharacterBody3D
 		isInMenu = false;
 
 		currentHitPoints = maxHitPoints;
+		playerHeadPosition = camera.GlobalPosition;
 	}
 
 	public override void _Input(InputEvent @event)
@@ -145,6 +150,7 @@ public partial class Player : CharacterBody3D
 		// GD.Print(Position);
 		Velocity = velocity;
 		MoveAndSlide();
+		playerHeadPosition = Camera.GlobalPosition;
 	}
 
 	public override void _PhysicsProcess(double delta)
