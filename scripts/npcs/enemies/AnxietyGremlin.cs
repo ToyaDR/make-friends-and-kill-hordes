@@ -5,6 +5,7 @@ public partial class AnxietyGremlin : RigidBody3D
 {
 	private const string SlashAnimation = "anxietyGremlin_slash/gremlin_SLASH";
 	private const string IdleAnimation = "anxietyGremlin_idle/gremlin_IDLE";
+	private const string NoHeadIdleAnimation = "anxietyGremlin_idle_noheadAnim/gremlin_Idle_nohead";
 	private AnimationPlayer player;
 
 	private int maxHitPoints = 10;
@@ -34,6 +35,8 @@ public partial class AnxietyGremlin : RigidBody3D
 
 		// player.Queue(IdleAnimation);
 		// player.SpeedScale = 1.5f;
+		player.Play(IdleAnimation);
+		player.ProcessThreadGroup = ProcessThreadGroupEnum.MainThread;
 	}
 
 	public void LookAtPlayer(Vector3 playerPosition)
