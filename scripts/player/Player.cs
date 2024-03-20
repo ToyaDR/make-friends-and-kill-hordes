@@ -20,6 +20,19 @@ public partial class Player : CharacterBody3D
 	public bool isInteracting = false;
 	public bool isInMenu = false;
 
+	private int maxHitPoints = 20;
+	public int MaxHitPoints
+	{
+		get { return maxHitPoints; }
+	}
+
+	private int currentHitPoints;
+	public int CurrentHitPoints
+	{
+		get { return currentHitPoints; }
+		set { currentHitPoints = value; }
+	}
+
 	public override void _Ready()
 	{
 		RayCast3D interactionRayCast = GetNode("CollisionShape3D/Camera3D/RayCast3D") as RayCast3D;
@@ -35,6 +48,8 @@ public partial class Player : CharacterBody3D
 		Menu = GetNode("Menu") as CanvasLayer;
 		Menu.Visible = false;
 		isInMenu = false;
+
+		currentHitPoints = maxHitPoints;
 	}
 
 	public override void _Input(InputEvent @event)
@@ -150,5 +165,7 @@ public partial class Player : CharacterBody3D
 		{
 			HandleMovement(delta);
 		}
+
+		KinematicCollision3D collision = GetLastSlideCollision();
 	}
 }
