@@ -1,12 +1,12 @@
 using Godot;
 using System;
 
-public partial class AnxietyGremlin : RigidBody3D
+public partial class AnxietyGremlin : Enemy
 {
 	private const string SlashAnimation = "anxietyGremlin_slash/gremlin_SLASH";
 	private const string IdleAnimation = "anxietyGremlin_idle/gremlin_IDLE";
 	private const string NoHeadIdleAnimation = "anxietyGremlin_idle_noheadAnim/gremlin_Idle_nohead";
-	private AnimationPlayer player;
+	private AnimationPlayer animPlayer;
 
 	private int maxHitPoints = 10;
 	public int MaxHitPoints { get => maxHitPoints; }
@@ -16,6 +16,8 @@ public partial class AnxietyGremlin : RigidBody3D
 	public int CurrentHitPoints { get => currentHitPoints; set => currentHitPoints = value; }
 	private Skeleton3D skeleton;
 
+	private Weapon claw;
+
 	public override void _Ready()
 	{
 		CreateGremlin();
@@ -24,19 +26,21 @@ public partial class AnxietyGremlin : RigidBody3D
 	public void CreateGremlin()
 	{
 		currentHitPoints = maxHitPoints;
-		player = GetNode<AnimationPlayer>("anxietyGremlin_rig/anxietyGremlin_AnimPlayer");
+		animPlayer = GetNode<AnimationPlayer>("anxietyGremlin_rig/anxietyGremlin_AnimPlayer");
 		skeleton = GetNode<Skeleton3D>("anxietyGremlin_rig/anxietyGremlin_rig/Skeleton3D");
 
-		Animation idle = player.GetAnimation(IdleAnimation);
+		Animation idle = animPlayer.GetAnimation(IdleAnimation);
 		idle.LoopMode = Animation.LoopModeEnum.Linear;
 
-		// Animation slash = player.GetAnimation(SlashAnimation);
-		// slash.LoopMode = Animation.LoopModeEnum.None;
+		Animation slash = animPlayer.GetAnimation(SlashAnimation);
+		slash.LoopMode = Animation.LoopModeEnum.Linear;
 
 		// player.Queue(IdleAnimation);
 		// player.SpeedScale = 1.5f;
-		player.Play(IdleAnimation);
-		player.ProcessThreadGroup = ProcessThreadGroupEnum.MainThread;
+		animPlayer.Play(SlashAnimation);
+		animPlayer.ProcessThreadGroup = ProcessThreadGroupEnum.MainThread;
+		claw = GetNode<Weapon>("anxietyGremlin_rig/anxietyGremlin_rig/Skeleton3D/ClawBone/Claw");
+		claw.Damage = 2;
 	}
 
 	public void LookAtPlayer(Vector3 playerPosition)
@@ -50,7 +54,7 @@ public partial class AnxietyGremlin : RigidBody3D
 
 	public async void Slash()
 	{
-		player.Play(SlashAnimation);
+		animPlayer.Play(SlashAnimation);
 	}
 
 	public override void _Process(double delta)

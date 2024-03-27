@@ -172,6 +172,11 @@ public partial class Player : CharacterBody3D
 			HandleMovement(delta);
 		}
 
-		KinematicCollision3D collision = GetLastSlideCollision();
+		// KinematicCollision3D collision = GetLastSlideCollision();
+
+		// if (collision?.GetCollider() is Weapon)
+		// {
+		// 	(collision.GetCollider() as Weapon).DealDamage(this);
+		// }
 	}
 }
