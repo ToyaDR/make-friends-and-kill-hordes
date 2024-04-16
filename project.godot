@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="make-friends-and-kill-hordes"
-run/main_scene="res://scenes/locations/Tavern.tscn"
+run/main_scene="res://environments/hub/hub.tscn"
 config/features=PackedStringArray("4.2", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
