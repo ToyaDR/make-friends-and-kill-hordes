@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://uxwv65n6ftcw"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xv7bt"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_j7b1y"]
+
+[node name="Hub" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-1, -8.74228e-08, -3.82137e-15, 0, -4.37114e-08, 1, -8.74228e-08, 1, 4.37114e-08, 0, 3.46888, -0.411712)
+projection = 1
+size = 13.421
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(20, 0, 0, 0, 1, 0, 0, 0, 20, 0, 0, 0)
+shape = SubResource("BoxShape3D_xv7bt")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(20, 0, 0, 0, 1, 0, 0, 0, 20, 0, 0, 0)
+mesh = SubResource("BoxMesh_j7b1y")
+skeleton = NodePath("../..")
