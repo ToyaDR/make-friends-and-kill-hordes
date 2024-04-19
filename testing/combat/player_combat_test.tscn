@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://bx2i2hc2rnyas"]
+[gd_scene load_steps=48 format=3 uid="uid://bx2i2hc2rnyas"]
 
 [ext_resource type="Script" path="res://testing/combat/PlayerCombatTest.cs" id="1_0un2s"]
 
@@ -11097,7 +11097,12 @@ _data = {
 "Wave": SubResource("Animation_568i4")
 }
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_uf6ch"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_n63tk"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3f6mj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hs4x5"]
+size = Vector3(1, 0.411987, 1)
 
 [node name="PlayerCombatTest" type="CharacterBody3D"]
 script = ExtResource("1_0un2s")
@@ -11601,5 +11606,13 @@ libraries = {
 }
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-shape = SubResource("CapsuleShape3D_uf6ch")
+transform = Transform3D(0.536182, 0, 0, 0, 0.536182, 0, 0, 0, 0.536182, -0.0491945, 1.60381, 0)
+shape = SubResource("SphereShape3D_n63tk")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.305628, 0, 0, 0, 0.5, 0, 0, 0, 0.322381, 0.00319102, 1.05385, 0.0558162)
+shape = SubResource("CapsuleShape3D_3f6mj")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.618772, 0, 0, 0, 1, 0, 0, 0, 0.609213, 0, 0.0704056, 0)
+shape = SubResource("BoxShape3D_hs4x5")
