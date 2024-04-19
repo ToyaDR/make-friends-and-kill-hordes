@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://d36wa6ttdrb8t"]
+[gd_scene load_steps=5 format=3 uid="uid://d36wa6ttdrb8t"]
 
 [ext_resource type="PackedScene" uid="uid://bx2i2hc2rnyas" path="res://testing/combat/player_combat_test.tscn" id="1_p7qkf"]
+[ext_resource type="PackedScene" uid="uid://dofcminxd5v4e" path="res://testing/combat/AnxietyGremlinCombatTest.tscn" id="2_kjocb"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hk85y"]
 
@@ -72,3 +73,6 @@ mesh = SubResource("BoxMesh_7wsyk")
 transform = Transform3D(0.999999, 0.00155334, -1.35798e-10, 0.00155334, -0.999999, 8.74227e-08, 0, -8.74228e-08, -1, -1.91731, 3.7682, 0.379885)
 light_energy = 1.97
 omni_range = 17.632
+
+[node name="AnxietyGremlinCombatTest" parent="." instance=ExtResource("2_kjocb")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.0467078, 0, 2.98898)

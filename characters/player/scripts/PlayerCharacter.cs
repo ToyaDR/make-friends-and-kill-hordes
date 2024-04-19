@@ -12,6 +12,7 @@ public partial class PlayerCharacter : CharacterBody3D
 
 	public void ReadyPlayerCharacter()
 	{
+		Input.MouseMode = Input.MouseModeEnum.Captured;
 		FirstPersonCamera = GetNode<Camera3D>("%firstPersonCamera");
 	}
 
