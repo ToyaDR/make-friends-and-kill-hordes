@@ -12,7 +12,7 @@ public partial class PlayerCharacter : CharacterBody3D
 
 	public void ReadyPlayerCharacter()
 	{
-		FirstPersonCamera = GetNode<Camera3D>("firstPersonCamera");
+		FirstPersonCamera = GetNode<Camera3D>("%firstPersonCamera");
 	}
 
 	public override void _Ready()

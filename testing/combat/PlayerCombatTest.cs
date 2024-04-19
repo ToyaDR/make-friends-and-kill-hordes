@@ -3,15 +3,19 @@ using System;
 
 public partial class PlayerCombatTest : PlayerCharacter
 {
-	// Called when the node enters the scene tree for the first time.
+	AnimationPlayer animationPlayer;
 	public override void _Ready()
 	{
+		animationPlayer = GetNode<AnimationPlayer>("Medieval/AnimationPlayer");
 		ReadyPlayerCharacter();
 	}
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
 		HandleMovement(delta);
+		if (Input.IsActionJustPressed("attack"))
+		{
+			animationPlayer.Play("Sword_Slash");
+		}
 	}
 }
