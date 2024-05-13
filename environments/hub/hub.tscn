@@ -1,4 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://uxwv65n6ftcw"]
+[gd_scene load_steps=5 format=3 uid="uid://uxwv65n6ftcw"]
+
+[ext_resource type="ArrayMesh" uid="uid://cmffmfvwan422" path="res://assets/placeholders/dungeonTiles/Floor_Modular.obj" id="1_ewcpo"]
+[ext_resource type="ArrayMesh" uid="uid://bncej1aelq11w" path="res://assets/placeholders/dungeonTiles/Wall_Modular.obj" id="2_yxnr7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xv7bt"]
 
@@ -7,9 +10,9 @@
 [node name="Hub" type="Node3D"]
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-1, -8.74228e-08, -3.82137e-15, 0, -4.37114e-08, 1, -8.74228e-08, 1, 4.37114e-08, 0, 3.46888, -0.411712)
+transform = Transform3D(0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 4.22761, 5.32085, 5.23466)
 projection = 1
-size = 13.421
+size = 8.457
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
@@ -22,3 +25,357 @@ shape = SubResource("BoxShape3D_xv7bt")
 transform = Transform3D(20, 0, 0, 0, 1, 0, 0, 0, 20, 0, 0, 0)
 mesh = SubResource("BoxMesh_j7b1y")
 skeleton = NodePath("../..")
+
+[node name="Placeholders" type="Node3D" parent="."]
+
+[node name="Shrine" type="Node3D" parent="Placeholders"]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Placeholders/Shrine"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.975365, 1.32123, 1.786)
+light_color = Color(0.960784, 0.858824, 0.811765, 1)
+light_energy = 5.741
+
+[node name="Floor" type="Node3D" parent="Placeholders/Shrine"]
+
+[node name="FloorModular3" type="MeshInstance3D" parent="Placeholders/Shrine/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.018, -0.4, 3.00337)
+mesh = ExtResource("1_ewcpo")
+skeleton = NodePath(".")
+
+[node name="FloorModular4" type="MeshInstance3D" parent="Placeholders/Shrine/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.036, -0.4, 3.00337)
+mesh = ExtResource("1_ewcpo")
+skeleton = NodePath("../../..")
+
+[node name="FloorModular" type="MeshInstance3D" parent="Placeholders/Shrine/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -0.4, 1)
+mesh = ExtResource("1_ewcpo")
+skeleton = NodePath("../FloorModular2")
+
+[node name="FloorModular2" type="MeshInstance3D" parent="Placeholders/Shrine/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.018, -0.4, 1)
+mesh = ExtResource("1_ewcpo")
+skeleton = NodePath("../../../..")
+
+[node name="Walls" type="Node3D" parent="Placeholders/Shrine"]
+
+[node name="topRightWall" type="Node3D" parent="Placeholders/Shrine/Walls"]
+
+[node name="WallModular2" type="MeshInstance3D" parent="Placeholders/Shrine/Walls/topRightWall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.99797, 0.5, 0)
+mesh = ExtResource("2_yxnr7")
+skeleton = NodePath("../../../..")
+
+[node name="WallModular" type="MeshInstance3D" parent="Placeholders/Shrine/Walls/topRightWall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0721547, 0.5, 0)
+mesh = ExtResource("2_yxnr7")
+skeleton = NodePath("../../../../..")
+
+[node name="topLeftWall" type="Node3D" parent="Placeholders/Shrine/Walls"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.812791, 0, 2.94808)
+
+[node name="WallModular2" type="MeshInstance3D" parent="Placeholders/Shrine/Walls/topLeftWall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.99797, 0.5, 0)
+mesh = ExtResource("2_yxnr7")
+skeleton = NodePath("../../../..")
+
+[node name="WallModular" type="MeshInstance3D" parent="Placeholders/Shrine/Walls/topLeftWall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0721547, 0.5, 0)
+mesh = ExtResource("2_yxnr7")
+skeleton = NodePath("../../../../..")
+
+[node name="bottomLeftWall" type="Node3D" parent="Placeholders/Shrine/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0284213, 0, 3.73794)
+
+[node name="WallModular2" type="MeshInstance3D" parent="Placeholders/Shrine/Walls/bottomLeftWall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.99797, 0.5, 0)
+mesh = ExtResource("2_yxnr7")
+skeleton = NodePath("../../../..")
+
+[node name="WallModular" type="MeshInstance3D" parent="Placeholders/Shrine/Walls/bottomLeftWall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0721547, 0.5, 0)
+mesh = ExtResource("2_yxnr7")
+skeleton = NodePath("../../../../..")
+
+[node name="Kitchen" type="Node3D" parent="Placeholders"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.99249)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Placeholders/Kitchen"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.975365, 1.32123, 1.786)
+light_color = Color(0.960784, 0.858824, 0.811765, 1)
+light_energy = 5.741
+
+[node name="Floor" type="Node3D" parent="Placeholders/Kitchen"]
+
+[node name="FloorModular3" type="MeshInstance3D" parent="Placeholders/Kitchen/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.018, -0.4, 3.00337)
+mesh = ExtResource("1_ewcpo")
+skeleton = NodePath(".")
+
+[node name="FloorModular4" type="MeshInstance3D" parent="Placeholders/Kitchen/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.036, -0.4, 3.00337)
+mesh = ExtResource("1_ewcpo")
+skeleton = NodePath("../../..")
+
+[node name="FloorModular" type="MeshInstance3D" parent="Placeholders/Kitchen/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -0.4, 1)
+mesh = ExtResource("1_ewcpo")
+skeleton = NodePath("../FloorModular2")
+
+[node name="FloorModular2" type="MeshInstance3D" parent="Placeholders/Kitchen/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.018, -0.4, 1)
+mesh = ExtResource("1_ewcpo")
+skeleton = NodePath("../../../..")
+
+[node name="Walls" type="Node3D" parent="Placeholders/Kitchen"]
+
+[node name="topRightWall" type="Node3D" parent="Placeholders/Kitchen/Walls"]
+
+[node name="WallModular2" type="MeshInstance3D" parent="Placeholders/Kitchen/Walls/topRightWall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.99797, 0.5, 0)
+mesh = ExtResource("2_yxnr7")
+skeleton = NodePath("../../../..")
+
+[node name="WallModular" type="MeshInstance3D" parent="Placeholders/Kitchen/Walls/topRightWall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0721547, 0.5, 0)
+mesh = ExtResource("2_yxnr7")
+skeleton = NodePath("../../../../..")
+
+[node name="topLeftWall" type="Node3D" parent="Placeholders/Kitchen/Walls"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.812791, 0, 2.94808)
+
+[node name="WallModular2" type="MeshInstance3D" parent="Placeholders/Kitchen/Walls/topLeftWall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.99797, 0.5, 0)
+mesh = ExtResource("2_yxnr7")
+skeleton = NodePath("../../../..")
+
+[node name="WallModular" type="MeshInstance3D" parent="Placeholders/Kitchen/Walls/topLeftWall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0721547, 0.5, 0)
+mesh = ExtResource("2_yxnr7")
+skeleton = NodePath("../../../../..")
+
+[node name="bottomLeftWall" type="Node3D" parent="Placeholders/Kitchen/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0284213, 0, 3.73794)
+
+[node name="WallModular2" type="MeshInstance3D" parent="Placeholders/Kitchen/Walls/bottomLeftWall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.99797, 0.5, 0)
+mesh = ExtResource("2_yxnr7")
+skeleton = NodePath("../../../..")
+
+[node name="WallModular" type="MeshInstance3D" parent="Placeholders/Kitchen/Walls/bottomLeftWall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0721547, 0.5, 0)
+mesh = ExtResource("2_yxnr7")
+skeleton = NodePath("../../../../..")
+
+[node name="Library" type="Node3D" parent="Placeholders"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.74506, -0.106453)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Placeholders/Library"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.975365, 1.32123, 1.786)
+light_color = Color(0.960784, 0.858824, 0.811765, 1)
+light_energy = 5.741
+
+[node name="Floor" type="Node3D" parent="Placeholders/Library"]
+
+[node name="FloorModular3" type="MeshInstance3D" parent="Placeholders/Library/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.018, -0.4, 3.00337)
+mesh = ExtResource("1_ewcpo")
+skeleton = NodePath(".")
+
+[node name="FloorModular4" type="MeshInstance3D" parent="Placeholders/Library/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.036, -0.4, 3.00337)
+mesh = ExtResource("1_ewcpo")
+skeleton = NodePath("../../..")
+
+[node name="FloorModular" type="MeshInstance3D" parent="Placeholders/Library/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -0.4, 1)
+mesh = ExtResource("1_ewcpo")
+skeleton = NodePath("../FloorModular2")
+
+[node name="FloorModular2" type="MeshInstance3D" parent="Placeholders/Library/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.018, -0.4, 1)
+mesh = ExtResource("1_ewcpo")
+skeleton = NodePath("../../../..")
+
+[node name="Walls" type="Node3D" parent="Placeholders/Library"]
+
+[node name="topRightWall" type="Node3D" parent="Placeholders/Library/Walls"]
+
+[node name="WallModular2" type="MeshInstance3D" parent="Placeholders/Library/Walls/topRightWall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.99797, 0.5, 0)
+mesh = ExtResource("2_yxnr7")
+skeleton = NodePath("../../../..")
+
+[node name="WallModular" type="MeshInstance3D" parent="Placeholders/Library/Walls/topRightWall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0721547, 0.5, 0)
+mesh = ExtResource("2_yxnr7")
+skeleton = NodePath("../../../../..")
+
+[node name="topLeftWall" type="Node3D" parent="Placeholders/Library/Walls"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.812791, 0, 2.94808)
+
+[node name="WallModular2" type="MeshInstance3D" parent="Placeholders/Library/Walls/topLeftWall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.99797, 0.5, 0)
+mesh = ExtResource("2_yxnr7")
+skeleton = NodePath("../../../..")
+
+[node name="WallModular" type="MeshInstance3D" parent="Placeholders/Library/Walls/topLeftWall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0721547, 0.5, 0)
+mesh = ExtResource("2_yxnr7")
+skeleton = NodePath("../../../../..")
+
+[node name="bottomLeftWall" type="Node3D" parent="Placeholders/Library/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0284213, 0, 3.73794)
+
+[node name="WallModular2" type="MeshInstance3D" parent="Placeholders/Library/Walls/bottomLeftWall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.99797, 0.5, 0)
+mesh = ExtResource("2_yxnr7")
+skeleton = NodePath("../../../..")
+
+[node name="WallModular" type="MeshInstance3D" parent="Placeholders/Library/Walls/bottomLeftWall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0721547, 0.5, 0)
+mesh = ExtResource("2_yxnr7")
+skeleton = NodePath("../../../../..")
+
+[node name="Grounds" type="Node3D" parent="Placeholders"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.97347, 0, -0.0375781)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Placeholders/Grounds"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.975365, 1.32123, 1.786)
+light_color = Color(0.960784, 0.858824, 0.811765, 1)
+light_energy = 5.741
+
+[node name="Floor" type="Node3D" parent="Placeholders/Grounds"]
+
+[node name="FloorModular3" type="MeshInstance3D" parent="Placeholders/Grounds/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.018, -0.4, 3.00337)
+mesh = ExtResource("1_ewcpo")
+skeleton = NodePath(".")
+
+[node name="FloorModular4" type="MeshInstance3D" parent="Placeholders/Grounds/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.036, -0.4, 3.00337)
+mesh = ExtResource("1_ewcpo")
+skeleton = NodePath("../../..")
+
+[node name="FloorModular" type="MeshInstance3D" parent="Placeholders/Grounds/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -0.4, 1)
+mesh = ExtResource("1_ewcpo")
+skeleton = NodePath("../FloorModular2")
+
+[node name="FloorModular2" type="MeshInstance3D" parent="Placeholders/Grounds/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.018, -0.4, 1)
+mesh = ExtResource("1_ewcpo")
+skeleton = NodePath("../../../..")
+
+[node name="Walls" type="Node3D" parent="Placeholders/Grounds"]
+
+[node name="topRightWall" type="Node3D" parent="Placeholders/Grounds/Walls"]
+
+[node name="WallModular2" type="MeshInstance3D" parent="Placeholders/Grounds/Walls/topRightWall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.99797, 0.5, 0)
+mesh = ExtResource("2_yxnr7")
+skeleton = NodePath("../../../..")
+
+[node name="WallModular" type="MeshInstance3D" parent="Placeholders/Grounds/Walls/topRightWall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0721547, 0.5, 0)
+mesh = ExtResource("2_yxnr7")
+skeleton = NodePath("../../../../..")
+
+[node name="topLeftWall" type="Node3D" parent="Placeholders/Grounds/Walls"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.812791, 0, 2.94808)
+
+[node name="WallModular2" type="MeshInstance3D" parent="Placeholders/Grounds/Walls/topLeftWall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.99797, 0.5, 0)
+mesh = ExtResource("2_yxnr7")
+skeleton = NodePath("../../../..")
+
+[node name="WallModular" type="MeshInstance3D" parent="Placeholders/Grounds/Walls/topLeftWall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0721547, 0.5, 0)
+mesh = ExtResource("2_yxnr7")
+skeleton = NodePath("../../../../..")
+
+[node name="bottomLeftWall" type="Node3D" parent="Placeholders/Grounds/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0284213, 0, 3.73794)
+
+[node name="WallModular2" type="MeshInstance3D" parent="Placeholders/Grounds/Walls/bottomLeftWall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.99797, 0.5, 0)
+mesh = ExtResource("2_yxnr7")
+skeleton = NodePath("../../../..")
+
+[node name="WallModular" type="MeshInstance3D" parent="Placeholders/Grounds/Walls/bottomLeftWall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0721547, 0.5, 0)
+mesh = ExtResource("2_yxnr7")
+skeleton = NodePath("../../../../..")
+
+[node name="Docks" type="Node3D" parent="Placeholders"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0190215, 0, 4.03772)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Placeholders/Docks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.975365, 1.32123, 1.786)
+light_color = Color(0.960784, 0.858824, 0.811765, 1)
+light_energy = 5.741
+
+[node name="Floor" type="Node3D" parent="Placeholders/Docks"]
+
+[node name="FloorModular3" type="MeshInstance3D" parent="Placeholders/Docks/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.018, -0.4, 3.00337)
+mesh = ExtResource("1_ewcpo")
+skeleton = NodePath(".")
+
+[node name="FloorModular4" type="MeshInstance3D" parent="Placeholders/Docks/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.036, -0.4, 3.00337)
+mesh = ExtResource("1_ewcpo")
+skeleton = NodePath("../../..")
+
+[node name="FloorModular" type="MeshInstance3D" parent="Placeholders/Docks/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -0.4, 1)
+mesh = ExtResource("1_ewcpo")
+skeleton = NodePath("../FloorModular2")
+
+[node name="FloorModular2" type="MeshInstance3D" parent="Placeholders/Docks/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.018, -0.4, 1)
+mesh = ExtResource("1_ewcpo")
+skeleton = NodePath("../../../..")
+
+[node name="Walls" type="Node3D" parent="Placeholders/Docks"]
+
+[node name="topRightWall" type="Node3D" parent="Placeholders/Docks/Walls"]
+
+[node name="WallModular2" type="MeshInstance3D" parent="Placeholders/Docks/Walls/topRightWall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.99797, 0.5, 0)
+mesh = ExtResource("2_yxnr7")
+skeleton = NodePath("../../../..")
+
+[node name="WallModular" type="MeshInstance3D" parent="Placeholders/Docks/Walls/topRightWall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0721547, 0.5, 0)
+mesh = ExtResource("2_yxnr7")
+skeleton = NodePath("../../../../..")
+
+[node name="topLeftWall" type="Node3D" parent="Placeholders/Docks/Walls"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.812791, 0, 2.94808)
+
+[node name="WallModular2" type="MeshInstance3D" parent="Placeholders/Docks/Walls/topLeftWall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.99797, 0.5, 0)
+mesh = ExtResource("2_yxnr7")
+skeleton = NodePath("../../../..")
+
+[node name="WallModular" type="MeshInstance3D" parent="Placeholders/Docks/Walls/topLeftWall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0721547, 0.5, 0)
+mesh = ExtResource("2_yxnr7")
+skeleton = NodePath("../../../../..")
+
+[node name="bottomLeftWall" type="Node3D" parent="Placeholders/Docks/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0284213, 0, 3.73794)
+
+[node name="WallModular2" type="MeshInstance3D" parent="Placeholders/Docks/Walls/bottomLeftWall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.99797, 0.5, 0)
+mesh = ExtResource("2_yxnr7")
+skeleton = NodePath("../../../..")
+
+[node name="WallModular" type="MeshInstance3D" parent="Placeholders/Docks/Walls/bottomLeftWall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0721547, 0.5, 0)
+mesh = ExtResource("2_yxnr7")
+skeleton = NodePath("../../../../..")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.536446, 0.843935, 0, -0.843935, 0.536446, 0, 0, 0)
