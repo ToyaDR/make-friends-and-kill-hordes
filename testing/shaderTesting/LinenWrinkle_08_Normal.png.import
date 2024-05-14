@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://lntdspihwphg"
-path.s3tc="res://.godot/imported/gremlin_Normal_DirectX.png-a0221319c3ae54bcdb95a20daa460dfe.s3tc.ctex"
+uid="uid://clk4ma1u2daq2"
+path.s3tc="res://.godot/imported/LinenWrinkle_08_Normal.png-e62e917484465f9db3a138b317613533.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://characters/enemies/anxietyGremlin/gremlin_Normal_DirectX.png"
-dest_files=["res://.godot/imported/gremlin_Normal_DirectX.png-a0221319c3ae54bcdb95a20daa460dfe.s3tc.ctex"]
+source_file="res://testing/shaderTesting/LinenWrinkle_08_Normal.png"
+dest_files=["res://.godot/imported/LinenWrinkle_08_Normal.png-e62e917484465f9db3a138b317613533.s3tc.ctex"]
 
 [params]
 

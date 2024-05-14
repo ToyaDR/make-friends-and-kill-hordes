@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://c44w2k278gwgp"]
+
+[ext_resource type="PackedScene" uid="uid://xd47i7eenx81" path="res://characters/enemies/anxietyGremlin/anxietyGremlin_rig_2.glb" id="1_rxm2l"]
+[ext_resource type="Shader" uid="uid://dkj5g2wv3a7qs" path="res://testing/shaderTesting/iridescentShader3.tres" id="2_kg51w"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xpdwj"]
+render_priority = 0
+shader = ExtResource("2_kg51w")
+
+[node name="ShaderPlayground" type="Node3D"]
+
+[node name="anxietyGremlin_rig_2" parent="." instance=ExtResource("1_rxm2l")]
+transform = Transform3D(-0.999431, 0, 0.0337134, 0, 1, 0, -0.0337134, 0, -0.999431, 0.0356603, 0, -0.052738)
+
+[node name="anxietyGremlin_rig_001" parent="anxietyGremlin_rig_2/anxietyGremlin_rig/Skeleton3D" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_xpdwj")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.886042, 0, -0.463605, 0, 1, 0, 0.463605, 0, -0.886042, -0.0593301, 0.785304, -1.70868)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.965658, 0.0257941, 0.258533, -0.259281, 0.0318403, 0.965277, 0.0166667, -0.99916, 0.0374348, 2.89906, 1.42043, 0)
+
+[editable path="anxietyGremlin_rig_2"]
