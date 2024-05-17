@@ -1,5 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://uxwv65n6ftcw"]
+[gd_scene load_steps=8 format=3 uid="uid://uxwv65n6ftcw"]
 
+[ext_resource type="Script" path="res://environments/hub/HubLocation.cs" id="1_5v0kn"]
+[ext_resource type="Script" path="res://environments/hub/Hub.cs" id="1_ecgk0"]
 [ext_resource type="ArrayMesh" uid="uid://cmffmfvwan422" path="res://assets/placeholders/dungeonTiles/Floor_Modular.obj" id="1_ewcpo"]
 [ext_resource type="ArrayMesh" uid="uid://bncej1aelq11w" path="res://assets/placeholders/dungeonTiles/Wall_Modular.obj" id="2_yxnr7"]
 
@@ -7,12 +9,16 @@
 
 [sub_resource type="BoxMesh" id="BoxMesh_j7b1y"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_ywdab"]
+size = Vector3(4.42102, 1.5708, 4.01432)
+
 [node name="Hub" type="Node3D"]
+script = ExtResource("1_ecgk0")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 4.22761, 5.32085, 5.23466)
+transform = Transform3D(0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 4.22761, 7.52445, 5.23466)
 projection = 1
-size = 8.457
+size = 7.039
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
@@ -28,7 +34,12 @@ skeleton = NodePath("../..")
 
 [node name="Placeholders" type="Node3D" parent="."]
 
-[node name="Shrine" type="Node3D" parent="Placeholders"]
+[node name="Shrine" type="Area3D" parent="Placeholders"]
+script = ExtResource("1_5v0kn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Placeholders/Shrine"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.981508, 6.23482, 1.75559)
+shape = SubResource("BoxShape3D_ywdab")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Placeholders/Shrine"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.975365, 1.32123, 1.786)
@@ -97,8 +108,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0721547, 0.5, 0)
 mesh = ExtResource("2_yxnr7")
 skeleton = NodePath("../../../../..")
 
-[node name="Kitchen" type="Node3D" parent="Placeholders"]
+[node name="Kitchen" type="Area3D" parent="Placeholders"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.99249)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Placeholders/Kitchen"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.916693, 0.94319, 1.47159)
+shape = SubResource("BoxShape3D_ywdab")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Placeholders/Kitchen"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.975365, 1.32123, 1.786)
@@ -167,8 +182,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0721547, 0.5, 0)
 mesh = ExtResource("2_yxnr7")
 skeleton = NodePath("../../../../..")
 
-[node name="Library" type="Node3D" parent="Placeholders"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.74506, -0.106453)
+[node name="Library" type="Area3D" parent="Placeholders"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.38741, -0.106453)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Placeholders/Library"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.843279, -4.70033, 1.95858)
+shape = SubResource("BoxShape3D_ywdab")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Placeholders/Library"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.975365, 1.32123, 1.786)
@@ -237,8 +256,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0721547, 0.5, 0)
 mesh = ExtResource("2_yxnr7")
 skeleton = NodePath("../../../../..")
 
-[node name="Grounds" type="Node3D" parent="Placeholders"]
+[node name="Grounds" type="Area3D" parent="Placeholders"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.97347, 0, -0.0375781)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Placeholders/Grounds"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.998765, 0.838931, 1.89972)
+shape = SubResource("BoxShape3D_ywdab")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Placeholders/Grounds"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.975365, 1.32123, 1.786)
@@ -307,8 +330,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0721547, 0.5, 0)
 mesh = ExtResource("2_yxnr7")
 skeleton = NodePath("../../../../..")
 
-[node name="Docks" type="Node3D" parent="Placeholders"]
+[node name="Docks" type="Area3D" parent="Placeholders"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0190215, 0, 4.03772)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Placeholders/Docks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.843279, 0.702525, 1.81494)
+shape = SubResource("BoxShape3D_ywdab")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Placeholders/Docks"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.975365, 1.32123, 1.786)
