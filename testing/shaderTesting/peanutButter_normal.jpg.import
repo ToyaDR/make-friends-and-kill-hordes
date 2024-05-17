@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://lntdspihwphg"
-path.s3tc="res://.godot/imported/gremlin_Normal_DirectX.png-a0221319c3ae54bcdb95a20daa460dfe.s3tc.ctex"
+uid="uid://cvudjq6lo5xcr"
+path.s3tc="res://.godot/imported/peanutButter_normal.jpg-c88d40d45afd27319f05c274bfeac23d.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://characters/enemies/anxietyGremlin/gremlin_Normal_DirectX.png"
-dest_files=["res://.godot/imported/gremlin_Normal_DirectX.png-a0221319c3ae54bcdb95a20daa460dfe.s3tc.ctex"]
+source_file="res://testing/shaderTesting/peanutButter_normal.jpg"
+dest_files=["res://.godot/imported/peanutButter_normal.jpg-c88d40d45afd27319f05c274bfeac23d.s3tc.ctex"]
 
 [params]
 
