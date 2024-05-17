@@ -3,15 +3,15 @@
 importer="wavefront_obj"
 importer_version=1
 type="Mesh"
-uid="uid://cmffmfvwan422"
-path="res://.godot/imported/Floor_Modular.obj-35168d586e8919849638aa098fcd50cb.mesh"
+uid="uid://ci3mpsfp2e4el"
+path="res://.godot/imported/Floor_Modular.obj-e330089e9ecd5f9fcc96b072bd025d4c.mesh"
 
 [deps]
 
-files=["res://.godot/imported/Floor_Modular.obj-35168d586e8919849638aa098fcd50cb.mesh"]
+files=["res://.godot/imported/Floor_Modular.obj-e330089e9ecd5f9fcc96b072bd025d4c.mesh"]
 
-source_file="res://assets/placeholders/dungeonTiles/Floor_Modular.obj"
-dest_files=["res://.godot/imported/Floor_Modular.obj-35168d586e8919849638aa098fcd50cb.mesh", "res://.godot/imported/Floor_Modular.obj-35168d586e8919849638aa098fcd50cb.mesh"]
+source_file="res://Floor_Modular.obj"
+dest_files=["res://.godot/imported/Floor_Modular.obj-e330089e9ecd5f9fcc96b072bd025d4c.mesh", "res://.godot/imported/Floor_Modular.obj-e330089e9ecd5f9fcc96b072bd025d4c.mesh"]
 
 [params]
 

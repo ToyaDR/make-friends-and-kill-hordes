@@ -16,7 +16,7 @@ size = Vector3(4.42102, 1.5708, 4.01432)
 script = ExtResource("1_ecgk0")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 4.22761, 7.52445, 5.23466)
+transform = Transform3D(0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 7.39621, 12.1472, 9.14054)
 projection = 1
 size = 7.039
 
