@@ -34,76 +34,76 @@ skeleton = NodePath("../..")
 
 [node name="Placeholders" type="Node3D" parent="."]
 
-[node name="Shrine" type="Area3D" parent="Placeholders"]
+[node name="Chapel" type="Area3D" parent="Placeholders"]
 script = ExtResource("1_5v0kn")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Placeholders/Shrine"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Placeholders/Chapel"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.981508, 6.23482, 1.75559)
 shape = SubResource("BoxShape3D_ywdab")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="Placeholders/Shrine"]
+[node name="OmniLight3D" type="OmniLight3D" parent="Placeholders/Chapel"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.975365, 1.32123, 1.786)
 light_color = Color(0.960784, 0.858824, 0.811765, 1)
 light_energy = 5.741
 
-[node name="Floor" type="Node3D" parent="Placeholders/Shrine"]
+[node name="Floor" type="Node3D" parent="Placeholders/Chapel"]
 
-[node name="FloorModular3" type="MeshInstance3D" parent="Placeholders/Shrine/Floor"]
+[node name="FloorModular3" type="MeshInstance3D" parent="Placeholders/Chapel/Floor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.018, -0.4, 3.00337)
 mesh = ExtResource("1_ewcpo")
 skeleton = NodePath(".")
 
-[node name="FloorModular4" type="MeshInstance3D" parent="Placeholders/Shrine/Floor"]
+[node name="FloorModular4" type="MeshInstance3D" parent="Placeholders/Chapel/Floor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.036, -0.4, 3.00337)
 mesh = ExtResource("1_ewcpo")
 skeleton = NodePath("../../..")
 
-[node name="FloorModular" type="MeshInstance3D" parent="Placeholders/Shrine/Floor"]
+[node name="FloorModular" type="MeshInstance3D" parent="Placeholders/Chapel/Floor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -0.4, 1)
 mesh = ExtResource("1_ewcpo")
 skeleton = NodePath("../FloorModular2")
 
-[node name="FloorModular2" type="MeshInstance3D" parent="Placeholders/Shrine/Floor"]
+[node name="FloorModular2" type="MeshInstance3D" parent="Placeholders/Chapel/Floor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.018, -0.4, 1)
 mesh = ExtResource("1_ewcpo")
 skeleton = NodePath("../../../..")
 
-[node name="Walls" type="Node3D" parent="Placeholders/Shrine"]
+[node name="Walls" type="Node3D" parent="Placeholders/Chapel"]
 
-[node name="topRightWall" type="Node3D" parent="Placeholders/Shrine/Walls"]
+[node name="topRightWall" type="Node3D" parent="Placeholders/Chapel/Walls"]
 
-[node name="WallModular2" type="MeshInstance3D" parent="Placeholders/Shrine/Walls/topRightWall"]
+[node name="WallModular2" type="MeshInstance3D" parent="Placeholders/Chapel/Walls/topRightWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.99797, 0.5, 0)
 mesh = ExtResource("2_yxnr7")
 skeleton = NodePath("../../../..")
 
-[node name="WallModular" type="MeshInstance3D" parent="Placeholders/Shrine/Walls/topRightWall"]
+[node name="WallModular" type="MeshInstance3D" parent="Placeholders/Chapel/Walls/topRightWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0721547, 0.5, 0)
 mesh = ExtResource("2_yxnr7")
 skeleton = NodePath("../../../../..")
 
-[node name="topLeftWall" type="Node3D" parent="Placeholders/Shrine/Walls"]
+[node name="topLeftWall" type="Node3D" parent="Placeholders/Chapel/Walls"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.812791, 0, 2.94808)
 
-[node name="WallModular2" type="MeshInstance3D" parent="Placeholders/Shrine/Walls/topLeftWall"]
+[node name="WallModular2" type="MeshInstance3D" parent="Placeholders/Chapel/Walls/topLeftWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.99797, 0.5, 0)
 mesh = ExtResource("2_yxnr7")
 skeleton = NodePath("../../../..")
 
-[node name="WallModular" type="MeshInstance3D" parent="Placeholders/Shrine/Walls/topLeftWall"]
+[node name="WallModular" type="MeshInstance3D" parent="Placeholders/Chapel/Walls/topLeftWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0721547, 0.5, 0)
 mesh = ExtResource("2_yxnr7")
 skeleton = NodePath("../../../../..")
 
-[node name="bottomLeftWall" type="Node3D" parent="Placeholders/Shrine/Walls"]
+[node name="bottomLeftWall" type="Node3D" parent="Placeholders/Chapel/Walls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0284213, 0, 3.73794)
 
-[node name="WallModular2" type="MeshInstance3D" parent="Placeholders/Shrine/Walls/bottomLeftWall"]
+[node name="WallModular2" type="MeshInstance3D" parent="Placeholders/Chapel/Walls/bottomLeftWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.99797, 0.5, 0)
 mesh = ExtResource("2_yxnr7")
 skeleton = NodePath("../../../..")
 
-[node name="WallModular" type="MeshInstance3D" parent="Placeholders/Shrine/Walls/bottomLeftWall"]
+[node name="WallModular" type="MeshInstance3D" parent="Placeholders/Chapel/Walls/bottomLeftWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0721547, 0.5, 0)
 mesh = ExtResource("2_yxnr7")
 skeleton = NodePath("../../../../..")
@@ -330,76 +330,76 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0721547, 0.5, 0)
 mesh = ExtResource("2_yxnr7")
 skeleton = NodePath("../../../../..")
 
-[node name="Docks" type="Area3D" parent="Placeholders"]
+[node name="Camp" type="Area3D" parent="Placeholders"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0190215, 0, 4.03772)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Placeholders/Docks"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Placeholders/Camp"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.843279, 0.702525, 1.81494)
 shape = SubResource("BoxShape3D_ywdab")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="Placeholders/Docks"]
+[node name="OmniLight3D" type="OmniLight3D" parent="Placeholders/Camp"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.975365, 1.32123, 1.786)
 light_color = Color(0.960784, 0.858824, 0.811765, 1)
 light_energy = 5.741
 
-[node name="Floor" type="Node3D" parent="Placeholders/Docks"]
+[node name="Floor" type="Node3D" parent="Placeholders/Camp"]
 
-[node name="FloorModular3" type="MeshInstance3D" parent="Placeholders/Docks/Floor"]
+[node name="FloorModular3" type="MeshInstance3D" parent="Placeholders/Camp/Floor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.018, -0.4, 3.00337)
 mesh = ExtResource("1_ewcpo")
 skeleton = NodePath(".")
 
-[node name="FloorModular4" type="MeshInstance3D" parent="Placeholders/Docks/Floor"]
+[node name="FloorModular4" type="MeshInstance3D" parent="Placeholders/Camp/Floor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.036, -0.4, 3.00337)
 mesh = ExtResource("1_ewcpo")
 skeleton = NodePath("../../..")
 
-[node name="FloorModular" type="MeshInstance3D" parent="Placeholders/Docks/Floor"]
+[node name="FloorModular" type="MeshInstance3D" parent="Placeholders/Camp/Floor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -0.4, 1)
 mesh = ExtResource("1_ewcpo")
 skeleton = NodePath("../FloorModular2")
 
-[node name="FloorModular2" type="MeshInstance3D" parent="Placeholders/Docks/Floor"]
+[node name="FloorModular2" type="MeshInstance3D" parent="Placeholders/Camp/Floor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.018, -0.4, 1)
 mesh = ExtResource("1_ewcpo")
 skeleton = NodePath("../../../..")
 
-[node name="Walls" type="Node3D" parent="Placeholders/Docks"]
+[node name="Walls" type="Node3D" parent="Placeholders/Camp"]
 
-[node name="topRightWall" type="Node3D" parent="Placeholders/Docks/Walls"]
+[node name="topRightWall" type="Node3D" parent="Placeholders/Camp/Walls"]
 
-[node name="WallModular2" type="MeshInstance3D" parent="Placeholders/Docks/Walls/topRightWall"]
+[node name="WallModular2" type="MeshInstance3D" parent="Placeholders/Camp/Walls/topRightWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.99797, 0.5, 0)
 mesh = ExtResource("2_yxnr7")
 skeleton = NodePath("../../../..")
 
-[node name="WallModular" type="MeshInstance3D" parent="Placeholders/Docks/Walls/topRightWall"]
+[node name="WallModular" type="MeshInstance3D" parent="Placeholders/Camp/Walls/topRightWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0721547, 0.5, 0)
 mesh = ExtResource("2_yxnr7")
 skeleton = NodePath("../../../../..")
 
-[node name="topLeftWall" type="Node3D" parent="Placeholders/Docks/Walls"]
+[node name="topLeftWall" type="Node3D" parent="Placeholders/Camp/Walls"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.812791, 0, 2.94808)
 
-[node name="WallModular2" type="MeshInstance3D" parent="Placeholders/Docks/Walls/topLeftWall"]
+[node name="WallModular2" type="MeshInstance3D" parent="Placeholders/Camp/Walls/topLeftWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.99797, 0.5, 0)
 mesh = ExtResource("2_yxnr7")
 skeleton = NodePath("../../../..")
 
-[node name="WallModular" type="MeshInstance3D" parent="Placeholders/Docks/Walls/topLeftWall"]
+[node name="WallModular" type="MeshInstance3D" parent="Placeholders/Camp/Walls/topLeftWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0721547, 0.5, 0)
 mesh = ExtResource("2_yxnr7")
 skeleton = NodePath("../../../../..")
 
-[node name="bottomLeftWall" type="Node3D" parent="Placeholders/Docks/Walls"]
+[node name="bottomLeftWall" type="Node3D" parent="Placeholders/Camp/Walls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0284213, 0, 3.73794)
 
-[node name="WallModular2" type="MeshInstance3D" parent="Placeholders/Docks/Walls/bottomLeftWall"]
+[node name="WallModular2" type="MeshInstance3D" parent="Placeholders/Camp/Walls/bottomLeftWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.99797, 0.5, 0)
 mesh = ExtResource("2_yxnr7")
 skeleton = NodePath("../../../..")
 
-[node name="WallModular" type="MeshInstance3D" parent="Placeholders/Docks/Walls/bottomLeftWall"]
+[node name="WallModular" type="MeshInstance3D" parent="Placeholders/Camp/Walls/bottomLeftWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0721547, 0.5, 0)
 mesh = ExtResource("2_yxnr7")
 skeleton = NodePath("../../../../..")
