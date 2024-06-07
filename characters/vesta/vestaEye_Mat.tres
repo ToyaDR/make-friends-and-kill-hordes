@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://bhsftv2dsiph1"]
+
+[ext_resource type="Shader" uid="uid://d20xxjph70ydb" path="res://characters/vesta/vesta_mat.tres" id="1_ad5wm"]
+[ext_resource type="Texture2D" uid="uid://tmq3p8il4jud" path="res://characters/vesta/textures/eye_BaseColor.png" id="2_62pm7"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_ad5wm")
+shader_parameter/tex_frg_11 = ExtResource("2_62pm7")

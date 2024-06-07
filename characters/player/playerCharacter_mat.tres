@@ -1,7 +1,6 @@
-[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://1m8n105ajrep"]
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://1m8n105ajrep"]
 
 [ext_resource type="Shader" path="res://Shaders/botwShader.gdshader" id="1_0yt1i"]
-[ext_resource type="Texture2D" uid="uid://dxf6k1r0ebmtr" path="res://characters/player/textures/playerCharacter_Base_color.png" id="2_uxr87"]
 [ext_resource type="Texture2D" uid="uid://cetujdpub0d6v" path="res://characters/player/textures/playerCharacter_Normal_DirectX.png" id="3_lcf01"]
 
 [resource]
@@ -19,5 +18,4 @@ shader_parameter/rimlight_blend = 0.01
 shader_parameter/rimlight_color = Color(1, 1, 1, 1)
 shader_parameter/normal_bias = Vector3(0, 0, 0)
 shader_parameter/light_bias = Vector3(0, 0, 0)
-shader_parameter/albedo_texture = ExtResource("2_uxr87")
 shader_parameter/normal_map = ExtResource("3_lcf01")

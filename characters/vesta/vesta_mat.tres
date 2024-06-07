@@ -1,0 +1,71 @@
+[gd_resource type="VisualShader" load_steps=7 format=3 uid="uid://d20xxjph70ydb"]
+
+[ext_resource type="Texture2D" uid="uid://dcj3bxwu12n6n" path="res://testing/shaderTesting/seamless-texture-blue-watercolor.jpg" id="3_4g2kv"]
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_euq8r"]
+texture_type = 1
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_hstko"]
+texture_type = 2
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_pisnl"]
+input_name = "view"
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_5rcs8"]
+default_input_values = [0, Quaternion(0, 0, 0, 0), 1, Quaternion(0, 0, 0, 0)]
+op_type = 2
+operator = 7
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_a825y"]
+texture = ExtResource("3_4g2kv")
+texture_type = 2
+
+[resource]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_schlick_ggx;
+
+uniform sampler2D tex_frg_11 : source_color;
+uniform sampler2D tex_frg_12 : hint_normal;
+uniform sampler2D tex_frg_9 : hint_normal;
+
+
+
+void fragment() {
+// Texture2D:11
+	vec4 n_out11p0 = texture(tex_frg_11, UV);
+
+
+// Texture2D:12
+	vec4 n_out12p0 = texture(tex_frg_12, UV);
+
+
+// Input:4
+	vec3 n_out4p0 = VIEW;
+
+
+// Texture2D:9
+	vec4 n_out9p0 = texture(tex_frg_9, vec2(n_out4p0.xy));
+
+
+// VectorOp:6
+	vec4 n_out6p0 = min(n_out12p0, n_out9p0);
+
+
+// Output:0
+	ALBEDO = vec3(n_out11p0.xyz);
+	NORMAL_MAP = vec3(n_out6p0.xyz);
+
+
+}
+"
+nodes/fragment/4/node = SubResource("VisualShaderNodeInput_pisnl")
+nodes/fragment/4/position = Vector2(-1440, 640)
+nodes/fragment/6/node = SubResource("VisualShaderNodeVectorOp_5rcs8")
+nodes/fragment/6/position = Vector2(-39.455, 516.57)
+nodes/fragment/9/node = SubResource("VisualShaderNodeTexture_a825y")
+nodes/fragment/9/position = Vector2(-600, 780)
+nodes/fragment/11/node = SubResource("VisualShaderNodeTexture_euq8r")
+nodes/fragment/11/position = Vector2(-600, 160)
+nodes/fragment/12/node = SubResource("VisualShaderNodeTexture_hstko")
+nodes/fragment/12/position = Vector2(-580, 400)
+nodes/fragment/connections = PackedInt32Array(9, 0, 6, 1, 4, 0, 9, 0, 12, 0, 6, 0, 6, 0, 0, 9, 11, 0, 0, 0)
