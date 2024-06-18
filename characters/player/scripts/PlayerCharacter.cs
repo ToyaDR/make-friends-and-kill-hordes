@@ -7,13 +7,15 @@ public partial class PlayerCharacter : CharacterBody3D
 
 	public float gravity = ProjectSettings.GetSetting("physics/3d/default_gravity").AsSingle();
 	private const float Speed = 5.0f;
-	private const float MouseSensitivityY = 0.1f;
-	private const float MouseSensitivityX = 0.3f;
+	private const float LookSpeed = 0.001f;
+
+	private float RotationX = 0.0f;
+	private float RotationY = 0.0f;
 
 	public void ReadyPlayerCharacter()
 	{
 		Input.MouseMode = Input.MouseModeEnum.Captured;
-		FirstPersonCamera = GetNode<Camera3D>("%firstPersonCamera");
+		FirstPersonCamera = GetNode<Camera3D>("PlayerCharacterPrefab/firstPersonCamera");
 	}
 
 	public override void _Ready()
@@ -23,16 +25,20 @@ public partial class PlayerCharacter : CharacterBody3D
 
 	public override void _Input(InputEvent @event)
 	{
-		if (@event is InputEventMouseMotion)
+		if (@event is InputEventMouseMotion mouseMotion)
 		{
-			InputEventMouseMotion mouseEvent = @event as InputEventMouseMotion;
+			RotationX += mouseMotion.Relative.X * LookSpeed;
+			RotationY += mouseMotion.Relative.Y * LookSpeed;
 
-			float yRotation = Mathf.DegToRad(-mouseEvent.Relative.X * MouseSensitivityX);
-			RotateY(yRotation);
+			Transform3D transform = Transform;
+			transform.Basis = Basis.Identity;
+			Transform = transform;
 
-			float xRotation = Mathf.DegToRad(mouseEvent.Relative.Y * MouseSensitivityY);
-			float clampedX = Mathf.Clamp(xRotation, Mathf.DegToRad(-30), Mathf.DegToRad(60));
-			FirstPersonCamera.RotateX(clampedX);
+			// float clampedX = Mathf.Clamp(RotationX, Mathf.DegToRad(-30), Mathf.DegToRad(30));
+			float clampedY = Mathf.Clamp(RotationY, Mathf.DegToRad(-90), Mathf.DegToRad(90));
+
+			RotateObjectLocal(Vector3.Up, -RotationX);
+			RotateObjectLocal(Vector3.Right, clampedY);
 		}
 	}
 	public void HandleMovement(double delta)

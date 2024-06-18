@@ -13,8 +13,10 @@ shader = ExtResource("4_s3y7u")
 
 [node name="PlayerCharacterPrefab" type="Node3D"]
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 1.53314, 0)
+[node name="firstPersonCamera" type="Camera3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(-1, 0, 5.96047e-08, 0, 1, -7.45058e-09, -5.96047e-08, -7.45058e-09, -1, 2.98023e-08, 1.53314, 0.0322134)
+fov = 90.0
 
 [node name="pc_arms_rig_v4" parent="." instance=ExtResource("2_ola81")]
 
@@ -149,9 +151,7 @@ bones/219/rotation = Quaternion(-0.367195, -0.337538, 0.730196, 0.466957)
 bones/222/rotation = Quaternion(2.11177e-07, -2.64845e-07, 1.0326e-07, 1)
 bones/223/rotation = Quaternion(-0.317344, -0.335227, 0.756203, 0.463759)
 bones/224/rotation = Quaternion(-0.0325681, 0.0468617, 0.00152868, 0.998369)
-bones/224/scale = Vector3(1, 1, 1)
 bones/225/rotation = Quaternion(0.06408, -4.88285e-08, -1.77254e-08, 0.997945)
-bones/225/scale = Vector3(1, 1, 1)
 bones/226/rotation = Quaternion(-0.486061, -0.11088, 0.402122, 0.767951)
 bones/228/rotation = Quaternion(-0.838284, -0.479182, -0.129338, 0.22569)
 bones/229/rotation = Quaternion(-0.604021, 0.345103, 0.356718, 0.623551)
@@ -170,7 +170,7 @@ bones/240/rotation = Quaternion(-0.707107, 1.78355e-12, 1.78355e-12, 0.707107)
 surface_material_override/0 = ExtResource("2_plibh")
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="pc_arms_rig_v4/playerCharacter_rig/Skeleton3D" index="1"]
-transform = Transform3D(0.446421, 0.0553136, 0.893112, 0.41129, -0.899095, -0.149899, 0.7947, 0.434246, -0.424125, -0.479127, 0.876459, 0.16242)
+transform = Transform3D(0.446421, 0.0553137, 0.893112, 0.411289, -0.899095, -0.149898, 0.794701, 0.434245, -0.424124, -0.479127, 0.876458, 0.162419)
 bone_name = "DEF-f_index.01.R"
 bone_idx = 202
 
