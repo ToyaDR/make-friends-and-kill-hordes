@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://batc4hfkvv3il"]
+
+[ext_resource type="Shader" uid="uid://6v4ogc4wfm0l" path="res://testing/shaderTesting/mainShader_vis.tres" id="1_he4ge"]
+[ext_resource type="Texture2D" uid="uid://bokkplbt8jnig" path="res://testing/shaderTesting/Stroke_Generator_diffuse.png" id="2_ywvbh"]
+[ext_resource type="Texture2D" uid="uid://ch3aljuqvy2nw" path="res://testing/shaderTesting/Stroke_Generator_Ob_Space_Normal.png" id="3_p027g"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_he4ge")
+shader_parameter/BaseColor = ExtResource("2_ywvbh")
+shader_parameter/NormalMap = ExtResource("3_p027g")
