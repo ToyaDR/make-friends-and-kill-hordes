@@ -6,7 +6,7 @@ public partial class PlayerCombatTest : PlayerCharacter
 	AnimationPlayer animationPlayer;
 	public override void _Ready()
 	{
-		animationPlayer = GetNode<AnimationPlayer>("Medieval/AnimationPlayer");
+		animationPlayer = GetNode<AnimationPlayer>("PlayerCharacterPrefab/pc_arms_rig_v4/AnimationPlayer");
 		ReadyPlayerCharacter();
 	}
 
@@ -15,7 +15,7 @@ public partial class PlayerCombatTest : PlayerCharacter
 		HandleMovement(delta);
 		if (Input.IsActionJustPressed("attack"))
 		{
-			animationPlayer.Play("Sword_Slash");
+			animationPlayer.Play("pc_anims_v1/playerCharacter_rigAction_001");
 		}
 	}
 }
