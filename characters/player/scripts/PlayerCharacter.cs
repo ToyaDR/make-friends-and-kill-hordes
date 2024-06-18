@@ -7,10 +7,13 @@ public partial class PlayerCharacter : CharacterBody3D
 
 	public float gravity = ProjectSettings.GetSetting("physics/3d/default_gravity").AsSingle();
 	private const float Speed = 5.0f;
+	private const float DashSpeed = 40.0f;
 	private const float LookSpeed = 0.001f;
 
 	private float RotationX = 0.0f;
 	private float RotationY = 0.0f;
+	private bool isDashing = false;
+	private int framesDashing = 0;
 
 	public void ReadyPlayerCharacter()
 	{
@@ -34,7 +37,6 @@ public partial class PlayerCharacter : CharacterBody3D
 			transform.Basis = Basis.Identity;
 			Transform = transform;
 
-			// float clampedX = Mathf.Clamp(RotationX, Mathf.DegToRad(-30), Mathf.DegToRad(30));
 			float clampedY = Mathf.Clamp(RotationY, Mathf.DegToRad(-90), Mathf.DegToRad(90));
 
 			RotateObjectLocal(Vector3.Up, -RotationX);
@@ -54,16 +56,35 @@ public partial class PlayerCharacter : CharacterBody3D
 
 		direction = (Transform.Basis * new Vector3(inputDirection.X, 0, inputDirection.Y)).Normalized();
 
+		if (Input.IsActionJustPressed("dash") && !isDashing)
+		{
+			isDashing = true;
+			framesDashing = 0;
+		}
+
+		if (framesDashing >= 15)
+		{
+			isDashing = false;
+		}
+
+		if (isDashing)
+		{
+			framesDashing++;
+		}
+
+		float playerSpeed = isDashing ? DashSpeed : Speed;
 		if (direction != Vector3.Zero)
 		{
-			velocity.X = direction.X * Speed;
-			velocity.Z = direction.Z * Speed;
+
+			velocity.X = direction.X * playerSpeed;
+			velocity.Z = direction.Z * playerSpeed;
 		}
 		else
 		{
-			velocity.X = Mathf.MoveToward(Velocity.X, 0, Speed);
-			velocity.Z = Mathf.MoveToward(Velocity.Z, 0, Speed);
+			velocity.X = Mathf.MoveToward(Velocity.X, 0, playerSpeed);
+			velocity.Z = Mathf.MoveToward(Velocity.Z, 0, playerSpeed);
 		}
+
 		Velocity = velocity;
 		MoveAndSlide();
 	}

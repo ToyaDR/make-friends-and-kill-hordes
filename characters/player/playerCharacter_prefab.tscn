@@ -15,8 +15,9 @@ shader = ExtResource("4_s3y7u")
 
 [node name="firstPersonCamera" type="Camera3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(-1, 0, 5.96047e-08, 0, 1, -7.45058e-09, -5.96047e-08, -7.45058e-09, -1, 2.98023e-08, 1.53314, 0.0322134)
-fov = 90.0
+transform = Transform3D(-1, -5.35447e-09, 5.93637e-08, 0, 0.995957, 0.089833, -5.96047e-08, 0.089833, -0.995957, 3.3722e-08, 1.49504, -0.0335487)
+fov = 98.9
+near = 0.001
 
 [node name="pc_arms_rig_v4" parent="." instance=ExtResource("2_ola81")]
 
@@ -164,7 +165,7 @@ bones/213/rotation = Quaternion(0.324153, -0.0513173, 0.224793, 0.917475)
 bones/214/rotation = Quaternion(-0.436023, 0.533616, 0.0916847, 0.718841)
 bones/215/rotation = Quaternion(0.332836, 0.19084, -0.120669, 0.915554)
 bones/216/rotation = Quaternion(0.299209, 0.095063, -0.0795443, 0.946102)
-bones/219/rotation = Quaternion(-0.367195, -0.337538, 0.730196, 0.466957)
+bones/219/rotation = Quaternion(-0.367196, -0.337538, 0.730196, 0.466957)
 bones/220/rotation = Quaternion(0.0640815, -4.43335e-08, -1.46625e-08, 0.997945)
 bones/222/rotation = Quaternion(1.87662e-07, -4.00469e-07, 1.93599e-07, 1)
 bones/223/rotation = Quaternion(-0.317344, -0.335226, 0.756203, 0.463759)
@@ -189,7 +190,7 @@ bones/240/rotation = Quaternion(-0.707107, 1.78355e-12, 1.78355e-12, 0.707107)
 surface_material_override/0 = ExtResource("2_plibh")
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="pc_arms_rig_v4/playerCharacter_rig/Skeleton3D" index="1"]
-transform = Transform3D(0.359205, 0.802141, 0.477013, 0.563148, -0.593884, 0.574602, 0.744201, 0.0622288, -0.66505, -0.479127, 0.876459, 0.162419)
+transform = Transform3D(0.710222, 0.588221, 0.386756, 0.596069, -0.210178, -0.774936, -0.374546, 0.780911, -0.499894, -0.882694, 1.06671, 0.495409)
 bone_name = "DEF-f_index.01.R"
 bone_idx = 202
 
@@ -198,6 +199,12 @@ transform = Transform3D(0.315209, 0.75409, 0.576189, -0.751773, -0.172145, 0.636
 
 [node name="sword_01" parent="pc_arms_rig_v4/playerCharacter_rig/Skeleton3D/BoneAttachment3D/sword_012/sword" index="0"]
 surface_material_override/0 = SubResource("ShaderMaterial_6k2w3")
+
+[node name="BoneAttachment3D2" type="BoneAttachment3D" parent="pc_arms_rig_v4/playerCharacter_rig/Skeleton3D" index="2"]
+transform = Transform3D(0.197027, -0.941832, 0.272273, -0.979568, -0.200543, 0.015145, 0.040338, -0.269693, -0.962101, -0.351614, 0.835712, 0.109849)
+bone_name = "ORG-shoulder.R"
+bone_idx = 115
+override_pose = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="pc_arms_rig_v4"]
 libraries = {
