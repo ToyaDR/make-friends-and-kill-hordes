@@ -3,16 +3,18 @@
 [ext_resource type="Script" path="res://testing/combat/AnxietyGremlinCombatTest.cs" id="1_4c06o"]
 [ext_resource type="PackedScene" uid="uid://b563lfkfva3xw" path="res://assets/placeholders/anxietyGremlin_rig_2.glb" id="2_xprbs"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_nklik"]
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_3lmfa"]
+height = 0.691344
+radius = 0.33915
 
 [node name="AnxietyGremlinCombatTest" type="RigidBody3D"]
 collision_layer = 4
 collision_mask = 3
-mass = 3.2
+mass = 19.3
 script = ExtResource("1_4c06o")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0.605063, 0)
-shape = SubResource("SphereShape3D_nklik")
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0.516772, 0)
+shape = SubResource("CylinderShape3D_3lmfa")
 
 [node name="anxietyGremlin_rig_2" parent="." instance=ExtResource("2_xprbs")]
