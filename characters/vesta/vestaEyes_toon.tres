@@ -1,0 +1,17 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://dmoyde50d3qys"]
+
+[ext_resource type="Texture2D" uid="uid://tmq3p8il4jud" path="res://characters/vesta/textures/eye_BaseColor.png" id="1_spsij"]
+[ext_resource type="Texture2D" uid="uid://88cq8qfsekni" path="res://characters/vesta/textures/eye_Normal_DirectX.png" id="2_200dd"]
+
+[resource]
+diffuse_mode = 3
+specular_mode = 1
+albedo_texture = ExtResource("1_spsij")
+metallic_specular = 1.0
+roughness = 0.21
+normal_enabled = true
+normal_texture = ExtResource("2_200dd")
+rim_enabled = true
+rim_tint = 0.0
+backlight_enabled = true
+backlight = Color(0.356863, 0.67451, 0.776471, 1)

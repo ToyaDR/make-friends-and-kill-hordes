@@ -1,0 +1,17 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://pyf41ycfokm8"]
+
+[ext_resource type="Texture2D" uid="uid://bocoges3jhuxw" path="res://characters/vesta/textures/main_BaseColor.png" id="1_u4ufu"]
+[ext_resource type="Texture2D" uid="uid://coelsy2chwewi" path="res://characters/vesta/textures/main_Normal.png" id="2_m0nej"]
+
+[resource]
+diffuse_mode = 3
+specular_mode = 1
+albedo_texture = ExtResource("1_u4ufu")
+metallic_specular = 1.0
+roughness = 0.21
+normal_enabled = true
+normal_texture = ExtResource("2_m0nej")
+rim_enabled = true
+rim_tint = 0.0
+backlight_enabled = true
+backlight = Color(0.356863, 0.67451, 0.776471, 1)

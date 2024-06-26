@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://c44w2k278gwgp"]
+[gd_scene load_steps=53 format=3 uid="uid://c44w2k278gwgp"]
 
 [ext_resource type="PackedScene" uid="uid://xd47i7eenx81" path="res://characters/enemies/anxietyGremlin/anxietyGremlin_rig_2.glb" id="1_rxm2l"]
 [ext_resource type="Shader" uid="uid://dkj5g2wv3a7qs" path="res://testing/shaderTesting/iridescentShader3.tres" id="2_kg51w"]
@@ -6,12 +6,14 @@
 [ext_resource type="PackedScene" uid="uid://b670k8onn4x1e" path="res://characters/player/pc_arms_rig_v4.glb" id="4_p8k5c"]
 [ext_resource type="Shader" uid="uid://6v4ogc4wfm0l" path="res://testing/shaderTesting/mainShader_vis.tres" id="5_ho263"]
 [ext_resource type="Texture2D" uid="uid://d30i76551ublq" path="res://characters/player/textures/playerCharacter_Base_color.png" id="6_pqv7i"]
-[ext_resource type="Texture2D" uid="uid://cgmjb3smubtfu" path="res://characters/player/playerCharacter_Normal.png" id="7_c2u0i"]
+[ext_resource type="Texture2D" uid="uid://dslc0pjgjlswh" path="res://characters/player/playerCharacter_Normal_DirectX.png" id="7_o0wc7"]
 [ext_resource type="PackedScene" uid="uid://c2x26mfqlh1ib" path="res://characters/player/sword_01.glb" id="7_orukk"]
 [ext_resource type="Texture2D" uid="uid://cy8njyrcaoe88" path="res://testing/shaderTesting/A9VMI.png" id="9_57syo"]
 [ext_resource type="Texture2D" uid="uid://b4idixsbbll6v" path="res://testing/shaderTesting/wrinkled_silver_foil_01_normal-708x708.jpg" id="10_2ef43"]
 [ext_resource type="Texture2D" uid="uid://clk4ma1u2daq2" path="res://testing/shaderTesting/LinenWrinkle_08_Normal.png" id="11_8drk5"]
 [ext_resource type="Shader" path="res://testing/shaderTesting/toonOutlineShader.gdshader" id="12_futp2"]
+[ext_resource type="PackedScene" uid="uid://da7aioth5mibf" path="res://characters/vesta/barkeep_rig_10.glb" id="13_x4qh8"]
+[ext_resource type="Material" uid="uid://bvdp7g4cgh1rn" path="res://testing/shaderTesting/toonTesting.tres" id="14_vgqhm"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xpdwj"]
 render_priority = 0
@@ -1013,7 +1015,7 @@ bind/321/pose = Transform3D(0.999988, 0.000436016, -0.00488766, -0.00488766, 0.1
 render_priority = 0
 shader = ExtResource("5_ho263")
 shader_parameter/BaseColor = ExtResource("6_pqv7i")
-shader_parameter/NormalMap = ExtResource("7_c2u0i")
+shader_parameter/NormalMap = ExtResource("7_o0wc7")
 
 [sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_svbij"]
 output_port_for_preview = 0
@@ -1309,13 +1311,19 @@ adjustment_brightness = 0.71
 adjustment_contrast = 0.96
 adjustment_saturation = 0.98
 
+[sub_resource type="SphereMesh" id="SphereMesh_4ht7l"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jrexh"]
+diffuse_mode = 3
+
 [node name="ShaderPlayground" type="Node3D"]
 
 [node name="anxietyGremlin_rig_2" parent="." instance=ExtResource("1_rxm2l")]
 transform = Transform3D(-0.999431, 0, 0.0337134, 0, 1, 0, -0.0337134, 0, -0.999431, -1.4084, 0, -0.052738)
+visible = false
 
 [node name="Skeleton3D" parent="anxietyGremlin_rig_2/anxietyGremlin_rig" index="0"]
-transform = Transform3D(1, 0, 7.45058e-09, 0, 1, 0, -7.45058e-09, 0, 1, 0, 0, 0)
+transform = Transform3D(1, 0.000634786, -0.000419512, -0.000634527, 1, 0.000641025, 0.000419892, -0.000640768, 1, 0, 0, 0)
 
 [node name="anxietyGremlin_rig_001" parent="anxietyGremlin_rig_2/anxietyGremlin_rig/Skeleton3D" index="0"]
 transform = Transform3D(1, 0, 7.45058e-09, 0, 1, 0, -7.45058e-09, 0, 1, 0, 0, 0)
@@ -1323,6 +1331,7 @@ surface_material_override/0 = SubResource("ShaderMaterial_xpdwj")
 
 [node name="anxietyGremlin_rig_3" parent="." instance=ExtResource("1_rxm2l")]
 transform = Transform3D(-0.999431, 0, 0.0337134, 0, 1, 0, -0.0337134, 0, -0.999431, -0.0064683, 0, -0.052738)
+visible = false
 
 [node name="anxietyGremlin_rig_001" parent="anxietyGremlin_rig_3/anxietyGremlin_rig/Skeleton3D" index="0"]
 transform = Transform3D(1, 0, 3.72529e-09, 0, 1, 0, -3.72529e-09, 0, 1, 0, 0, 0)
@@ -1337,10 +1346,21 @@ surface_material_override/0 = ExtResource("3_gywuq")
 metadata/_edit_group_ = true
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-0.999321, 0, 0.036836, 0, 1, 0, -0.036836, 0, -0.999321, 1.33952, 0.736799, -2.21584)
+transform = Transform3D(-0.997363, 0.0507059, 0.0519201, 0.0555616, 0.993752, 0.0968015, -0.0466873, 0.0994311, -0.993949, 0.184174, 1.46092, -0.666759)
+fov = 24.1
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.580341, -0.441823, 0.684104, -0.622649, 0.300705, 0.722415, -0.524893, -0.845204, -0.100589, 5.06899, 0.149405, -0.38149)
+transform = Transform3D(0.641485, -0.061677, 0.764652, -0.468811, -0.820495, 0.327115, 0.607218, -0.568317, -0.55525, 5.06899, 3.00804, -4.33407)
+shadow_bias = 0.0
+shadow_reverse_cull_face = true
+shadow_transmittance_bias = -0.72
+shadow_blur = 2.869
+sky_mode = 1
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="DirectionalLight3D"]
+transform = Transform3D(-0.071246, -0.395662, -0.915628, -0.826696, -0.490215, 0.276159, -0.55812, 0.776621, -0.292167, 3.77583, 0.877237, -11.532)
+light_color = Color(0.396078, 0.729412, 1, 1)
+light_energy = 0.351
 shadow_bias = 0.0
 shadow_reverse_cull_face = true
 shadow_transmittance_bias = -0.72
@@ -1350,12 +1370,16 @@ sky_mode = 1
 [node name="pc_arms_rig_v4" parent="." instance=ExtResource("4_p8k5c")]
 transform = Transform3D(-0.992219, 0, 0.124502, 0, 1, 0, -0.124502, 0, -0.992219, 2.4054, 0, 0.0548944)
 
+[node name="playerCharacter_rig" parent="pc_arms_rig_v4" index="0"]
+visible = false
+
 [node name="playerCharacter" parent="pc_arms_rig_v4/playerCharacter_rig/Skeleton3D" index="0"]
 transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, 0, 0)
 surface_material_override/0 = SubResource("ShaderMaterial_4tect")
 
 [node name="sword_012" parent="." instance=ExtResource("7_orukk")]
 transform = Transform3D(-0.0278169, 0, 0.999613, -0.927796, 0.372194, -0.0258184, -0.37205, -0.928155, -0.0103533, 2.85866, 0.830402, -0.0645031)
+visible = false
 
 [node name="sword_01" parent="sword_012/sword" index="0"]
 transform = Transform3D(-1, -3.27826e-07, -9.31323e-10, 3.27826e-07, -1, 0, -1.62981e-09, 0, 1, 0, 0, 0)
@@ -1370,7 +1394,25 @@ surface_material_override/0 = SubResource("ShaderMaterial_15v8y")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_m46uy")
 
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.46478, 0.977606, 1.94998)
+mesh = SubResource("SphereMesh_4ht7l")
+surface_material_override/0 = SubResource("StandardMaterial3D_jrexh")
+
+[node name="barkeep_rig_10" parent="." instance=ExtResource("13_x4qh8")]
+transform = Transform3D(-0.991485, -2.54728e-05, -0.130219, -8.54036e-05, 1, 0.000454598, 0.130219, 0.000461849, -0.991485, -0.0245824, 0, 2.39713)
+
+[node name="eyeL" parent="barkeep_rig_10/tavernkeep_rig/Skeleton3D" index="0"]
+transform = Transform3D(1, -2.04891e-08, 0, -5.96046e-08, -2.84053e-08, -1, -2.79397e-08, 0.999999, -6.00703e-08, 0.0468756, 1.58599, 0.0350296)
+
+[node name="eyeR" parent="barkeep_rig_10/tavernkeep_rig/Skeleton3D" index="1"]
+transform = Transform3D(1, 2.04891e-08, 0, 5.96046e-08, -2.84053e-08, -1, 2.79397e-08, 0.999999, -6.00703e-08, -0.0468757, 1.58599, 0.0350296)
+
+[node name="main_low" parent="barkeep_rig_10/tavernkeep_rig/Skeleton3D" index="13"]
+surface_material_override/0 = ExtResource("14_vgqhm")
+
 [editable path="anxietyGremlin_rig_2"]
 [editable path="anxietyGremlin_rig_3"]
 [editable path="pc_arms_rig_v4"]
 [editable path="sword_012"]
+[editable path="barkeep_rig_10"]

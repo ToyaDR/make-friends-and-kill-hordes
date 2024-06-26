@@ -1,26 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://da2ephdfbs8og"]
+[gd_scene load_steps=7 format=3 uid="uid://da2ephdfbs8og"]
 
 [ext_resource type="PackedScene" uid="uid://da7aioth5mibf" path="res://characters/vesta/barkeep_rig_10.glb" id="1_2uq68"]
-[ext_resource type="Material" uid="uid://bhsftv2dsiph1" path="res://characters/vesta/vestaEye_Mat.tres" id="2_4xe3k"]
-[ext_resource type="Material" uid="uid://bfgxm6u3vgpke" path="res://characters/vesta/vesta_mat2.tres" id="2_jgsyb"]
-[ext_resource type="Material" uid="uid://o445vank40r" path="res://characters/vesta/vesClothes_mat.tres" id="2_xaxh7"]
-[ext_resource type="Shader" uid="uid://d20xxjph70ydb" path="res://characters/vesta/vesta_mat.tres" id="4_d7hdm"]
-[ext_resource type="Texture2D" uid="uid://bnqe6em5bfj1d" path="res://characters/vesta/textures/hair_BaseColor.png" id="5_ccnby"]
-[ext_resource type="Texture2D" uid="uid://cwtkj4oaas5vd" path="res://characters/vesta/textures/boots_BaseColor.png" id="5_k1h66"]
-[ext_resource type="Texture2D" uid="uid://dpt3orowxf8ay" path="res://characters/vesta/textures/hair_Normal.png" id="6_1siej"]
-[ext_resource type="Texture2D" uid="uid://byhnb17jdipdi" path="res://characters/vesta/textures/boots_Normal.png" id="6_cud46"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_y06he"]
-render_priority = 0
-shader = ExtResource("4_d7hdm")
-shader_parameter/tex_frg_11 = ExtResource("5_k1h66")
-shader_parameter/tex_frg_12 = ExtResource("6_cud46")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_w5vjy"]
-render_priority = 0
-shader = ExtResource("4_d7hdm")
-shader_parameter/tex_frg_11 = ExtResource("5_ccnby")
-shader_parameter/tex_frg_12 = ExtResource("6_1siej")
+[ext_resource type="Material" uid="uid://dmoyde50d3qys" path="res://characters/vesta/vestaEyes_toon.tres" id="2_gg8ur"]
+[ext_resource type="Material" uid="uid://dycpjqf68v7w6" path="res://characters/vesta/vestaClothes_toon.tres" id="3_kiqgc"]
+[ext_resource type="Material" uid="uid://cjglobu1jahjy" path="res://characters/vesta/vestaBoots_toon.tres" id="4_4ucwe"]
+[ext_resource type="Material" uid="uid://yqs7sloanggl" path="res://characters/vesta/vestaHair_toon.tres" id="7_w2k8y"]
+[ext_resource type="Material" uid="uid://pyf41ycfokm8" path="res://characters/vesta/vesta_mat3_toon.tres" id="9_ch4y4"]
 
 [node name="vestaPrefab" type="Node3D"]
 
@@ -43,74 +28,80 @@ bones/384/rotation = Quaternion(4.07453e-10, -1.76707e-27, 1, -2.89513e-24)
 transform = Transform3D(1, -2.04891e-08, 0, -5.96046e-08, -2.84053e-08, -1, -2.79397e-08, 0.999999, -6.00703e-08, 0.0468756, 1.58599, 0.0350296)
 
 [node name="eyeL" parent="barkeep_rig_10/tavernkeep_rig/Skeleton3D/eyeL" index="0"]
-surface_material_override/0 = ExtResource("2_4xe3k")
+surface_material_override/0 = ExtResource("2_gg8ur")
 
 [node name="eyeR" parent="barkeep_rig_10/tavernkeep_rig/Skeleton3D" index="1"]
 transform = Transform3D(1, 2.04891e-08, 0, 5.96046e-08, -2.84053e-08, -1, 2.79397e-08, 0.999999, -6.00703e-08, -0.0468757, 1.58599, 0.0350296)
 
 [node name="eyeR" parent="barkeep_rig_10/tavernkeep_rig/Skeleton3D/eyeR" index="0"]
-surface_material_override/0 = ExtResource("2_4xe3k")
+surface_material_override/0 = ExtResource("2_gg8ur")
 
 [node name="apron_low" parent="barkeep_rig_10/tavernkeep_rig/Skeleton3D" index="2"]
-surface_material_override/0 = ExtResource("2_xaxh7")
+surface_material_override/0 = ExtResource("3_kiqgc")
 
 [node name="belt1_low" parent="barkeep_rig_10/tavernkeep_rig/Skeleton3D" index="3"]
-surface_material_override/0 = ExtResource("2_xaxh7")
+surface_material_override/0 = ExtResource("3_kiqgc")
 
 [node name="belt2_low" parent="barkeep_rig_10/tavernkeep_rig/Skeleton3D" index="4"]
-surface_material_override/0 = ExtResource("2_xaxh7")
+surface_material_override/0 = ExtResource("3_kiqgc")
 
 [node name="beltBuckle_low" parent="barkeep_rig_10/tavernkeep_rig/Skeleton3D" index="5"]
-surface_material_override/0 = ExtResource("2_xaxh7")
+surface_material_override/0 = ExtResource("3_kiqgc")
 
 [node name="bootBottom_low" parent="barkeep_rig_10/tavernkeep_rig/Skeleton3D" index="6"]
-surface_material_override/0 = SubResource("ShaderMaterial_y06he")
+surface_material_override/0 = ExtResource("4_4ucwe")
 
 [node name="bootBuckle1_low" parent="barkeep_rig_10/tavernkeep_rig/Skeleton3D" index="7"]
-surface_material_override/0 = SubResource("ShaderMaterial_y06he")
+surface_material_override/0 = ExtResource("4_4ucwe")
 
 [node name="bootBuckle2_low" parent="barkeep_rig_10/tavernkeep_rig/Skeleton3D" index="8"]
-surface_material_override/0 = SubResource("ShaderMaterial_y06he")
+surface_material_override/0 = ExtResource("4_4ucwe")
 
 [node name="bootMain_low" parent="barkeep_rig_10/tavernkeep_rig/Skeleton3D" index="9"]
-surface_material_override/0 = SubResource("ShaderMaterial_y06he")
+surface_material_override/0 = ExtResource("4_4ucwe")
 
 [node name="bootStrap_low" parent="barkeep_rig_10/tavernkeep_rig/Skeleton3D" index="10"]
-surface_material_override/0 = SubResource("ShaderMaterial_y06he")
+surface_material_override/0 = ExtResource("4_4ucwe")
 
 [node name="earrings_low" parent="barkeep_rig_10/tavernkeep_rig/Skeleton3D" index="11"]
-surface_material_override/0 = ExtResource("2_xaxh7")
+surface_material_override/0 = ExtResource("3_kiqgc")
 
 [node name="hair_low" parent="barkeep_rig_10/tavernkeep_rig/Skeleton3D" index="12"]
-surface_material_override/0 = SubResource("ShaderMaterial_w5vjy")
+surface_material_override/0 = ExtResource("7_w2k8y")
 
 [node name="main_low" parent="barkeep_rig_10/tavernkeep_rig/Skeleton3D" index="13"]
 transform = Transform3D(0.999999, 0.00127104, -0.000498117, -0.00127073, 0.999999, 0.000624238, 0.000498914, -0.000623601, 1, 0, 0, 0)
-surface_material_override/0 = ExtResource("2_jgsyb")
+surface_material_override/0 = ExtResource("9_ch4y4")
 
 [node name="noseRing_low" parent="barkeep_rig_10/tavernkeep_rig/Skeleton3D" index="14"]
-surface_material_override/0 = ExtResource("2_xaxh7")
+surface_material_override/0 = ExtResource("3_kiqgc")
 
 [node name="pants_low" parent="barkeep_rig_10/tavernkeep_rig/Skeleton3D" index="15"]
-surface_material_override/0 = ExtResource("2_xaxh7")
+surface_material_override/0 = ExtResource("3_kiqgc")
 
 [node name="rag_low" parent="barkeep_rig_10/tavernkeep_rig/Skeleton3D" index="16"]
-surface_material_override/0 = ExtResource("2_xaxh7")
+surface_material_override/0 = ExtResource("3_kiqgc")
 
 [node name="shirt_low" parent="barkeep_rig_10/tavernkeep_rig/Skeleton3D" index="17"]
-surface_material_override/0 = ExtResource("2_xaxh7")
+surface_material_override/0 = ExtResource("3_kiqgc")
 
 [node name="spatterdashes_low" parent="barkeep_rig_10/tavernkeep_rig/Skeleton3D" index="18"]
-surface_material_override/0 = SubResource("ShaderMaterial_y06he")
+surface_material_override/0 = ExtResource("4_4ucwe")
 
 [node name="spatterdashStrap_low" parent="barkeep_rig_10/tavernkeep_rig/Skeleton3D" index="19"]
-surface_material_override/0 = SubResource("ShaderMaterial_y06he")
+surface_material_override/0 = ExtResource("4_4ucwe")
 
 [node name="straps_low" parent="barkeep_rig_10/tavernkeep_rig/Skeleton3D" index="20"]
-surface_material_override/0 = ExtResource("2_xaxh7")
+surface_material_override/0 = ExtResource("3_kiqgc")
+
+[node name="teeth_low" parent="barkeep_rig_10/tavernkeep_rig/Skeleton3D" index="21"]
+surface_material_override/0 = ExtResource("9_ch4y4")
+
+[node name="tusks_low" parent="barkeep_rig_10/tavernkeep_rig/Skeleton3D" index="22"]
+surface_material_override/0 = ExtResource("9_ch4y4")
 
 [node name="vest_low" parent="barkeep_rig_10/tavernkeep_rig/Skeleton3D" index="23"]
-surface_material_override/0 = ExtResource("2_xaxh7")
+surface_material_override/0 = ExtResource("3_kiqgc")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.330328, -0.612417, -0.718212, 0.875726, -0.0850144, 0.475265, -0.352119, -0.78595, 0.508227, -2.99783, 0.974575, -3.27806)

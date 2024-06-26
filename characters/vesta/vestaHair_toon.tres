@@ -1,0 +1,17 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://yqs7sloanggl"]
+
+[ext_resource type="Texture2D" uid="uid://bnqe6em5bfj1d" path="res://characters/vesta/textures/hair_BaseColor.png" id="1_g3ts1"]
+[ext_resource type="Texture2D" uid="uid://dpt3orowxf8ay" path="res://characters/vesta/textures/hair_Normal.png" id="2_1u5aw"]
+
+[resource]
+diffuse_mode = 3
+specular_mode = 1
+albedo_texture = ExtResource("1_g3ts1")
+metallic_specular = 1.0
+roughness = 0.21
+normal_enabled = true
+normal_texture = ExtResource("2_1u5aw")
+rim_enabled = true
+rim_tint = 0.0
+backlight_enabled = true
+backlight = Color(0.356863, 0.67451, 0.776471, 1)
