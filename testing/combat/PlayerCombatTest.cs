@@ -14,6 +14,11 @@ public partial class PlayerCombatTest : PlayerCharacter
 	public override void _Process(double delta)
 	{
 		HandleMovement(delta);
+
+		if (Mathf.RoundToInt(delta) % 1000 == 0)
+		{
+			TakeDamage(1);
+		}
 		if (Input.IsActionJustPressed("attack"))
 		{
 			animationPlayer.Play("pc_anims_v1/playerCharacter_rigAction_001");

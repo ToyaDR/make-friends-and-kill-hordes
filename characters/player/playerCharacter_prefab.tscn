@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://npx1hgqxi5f2"]
+[gd_scene load_steps=10 format=3 uid="uid://npx1hgqxi5f2"]
 
 [ext_resource type="PackedScene" uid="uid://b670k8onn4x1e" path="res://characters/player/pc_arms_rig_v4.glb" id="2_ola81"]
 [ext_resource type="Material" uid="uid://1m8n105ajrep" path="res://characters/player/playerCharacter_mat.tres" id="2_plibh"]
@@ -6,6 +6,7 @@
 [ext_resource type="AnimationLibrary" uid="uid://bw7c0fx2mw3e5" path="res://characters/player/pc_anims_v1.glb" id="4_fg2lc"]
 [ext_resource type="Shader" uid="uid://cbadlvsj34j7b" path="res://characters/player/playerCharacter_swordBlade.tres" id="4_s3y7u"]
 [ext_resource type="AnimationLibrary" uid="uid://ce1ivtggl2wqw" path="res://characters/player/pc_anims_v5.glb" id="5_siib7"]
+[ext_resource type="Script" path="res://characters/player/scripts/HitPointsBar.cs" id="7_clvsj"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6cqxy"]
 size = Vector3(0.118103, 0.243225, 0.860901)
@@ -155,9 +156,7 @@ bones/219/rotation = Quaternion(-0.367195, -0.337538, 0.730196, 0.466957)
 bones/222/rotation = Quaternion(2.11177e-07, -2.64845e-07, 1.0326e-07, 1)
 bones/223/rotation = Quaternion(-0.317344, -0.335227, 0.756203, 0.463759)
 bones/224/rotation = Quaternion(-0.0325681, 0.0468617, 0.00152868, 0.998369)
-bones/224/scale = Vector3(1, 1, 1)
 bones/225/rotation = Quaternion(0.06408, -4.88285e-08, -1.77254e-08, 0.997945)
-bones/225/scale = Vector3(1, 1, 1)
 bones/226/rotation = Quaternion(-0.486061, -0.11088, 0.402122, 0.767951)
 bones/228/rotation = Quaternion(-0.838284, -0.479182, -0.129338, 0.22569)
 bones/229/rotation = Quaternion(-0.604021, 0.345103, 0.356718, 0.623551)
@@ -176,7 +175,7 @@ bones/240/rotation = Quaternion(-0.707107, 1.78355e-12, 1.78355e-12, 0.707107)
 surface_material_override/0 = ExtResource("2_plibh")
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="pc_arms_rig_v4/playerCharacter_rig/Skeleton3D" index="1"]
-transform = Transform3D(0.763829, -0.0611864, 0.642511, 0.613255, 0.379137, -0.692945, -0.201201, 0.923315, 0.32712, -0.882693, 1.06671, 0.495409)
+transform = Transform3D(0.763829, -0.0611869, 0.642511, 0.613256, 0.379137, -0.692945, -0.201201, 0.923315, 0.327119, -0.882693, 1.06671, 0.495409)
 bone_name = "DEF-f_index.01.R"
 bone_idx = 202
 
@@ -204,6 +203,91 @@ libraries = {
 "pc_anims_v1": ExtResource("4_fg2lc"),
 "pc_anims_v5": ExtResource("5_siib7")
 }
+
+[node name="HitPointsBar" type="CanvasLayer" parent="."]
+script = ExtResource("7_clvsj")
+
+[node name="TotalHitPoints" type="ColorRect" parent="HitPointsBar"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -199.0
+offset_top = -129.0
+offset_right = 199.0
+offset_bottom = -64.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 6
+size_flags_vertical = 10
+color = Color(0.278431, 0.368627, 0.321569, 1)
+
+[node name="CurrentHitPoints" type="ColorRect" parent="HitPointsBar"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -199.0
+offset_top = -129.0
+offset_right = 19.0
+offset_bottom = -64.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 6
+size_flags_vertical = 10
+color = Color(0.145098, 0.756863, 0.431373, 1)
+
+[node name="Control" type="Control" parent="HitPointsBar"]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -16.0
+offset_top = -116.0
+offset_right = 24.0
+offset_bottom = -76.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 10
+
+[node name="TotalHitPointsNumber" type="Label" parent="HitPointsBar/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -9.0
+offset_right = 32.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 10
+text = "/100"
+vertical_alignment = 2
+
+[node name="CurrentHitPointsNumber" type="Label" parent="HitPointsBar/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -49.0
+offset_top = -9.0
+offset_right = -9.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 10
+text = "100"
+horizontal_alignment = 2
+vertical_alignment = 2
 
 [editable path="pc_arms_rig_v4"]
 [editable path="pc_arms_rig_v4/playerCharacter_rig/Skeleton3D/BoneAttachment3D/sword_012"]

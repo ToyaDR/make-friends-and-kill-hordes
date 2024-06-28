@@ -14,3 +14,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.863529, 0.0114639)
 shape = SubResource("CapsuleShape3D_pg6wf")
 
 [node name="PlayerCharacterPrefab" parent="." instance=ExtResource("2_xgrlj")]
+
+[editable path="PlayerCharacterPrefab"]
+[editable path="PlayerCharacterPrefab/pc_arms_rig_v4"]
+[editable path="PlayerCharacterPrefab/pc_arms_rig_v4/playerCharacter_rig/Skeleton3D/BoneAttachment3D/sword_012"]

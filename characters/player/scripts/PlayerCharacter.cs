@@ -15,10 +15,16 @@ public partial class PlayerCharacter : CharacterBody3D
 	private bool isDashing = false;
 	private int framesDashing = 0;
 
+	private HitPoints hitPoints;
+	private HitPointsBar hitPointsBar;
+
 	public void ReadyPlayerCharacter()
 	{
 		Input.MouseMode = Input.MouseModeEnum.Captured;
 		FirstPersonCamera = GetNode<Camera3D>("PlayerCharacterPrefab/firstPersonCamera");
+		hitPoints = new HitPoints(100);
+		hitPointsBar = GetNode<HitPointsBar>("PlayerCharacterPrefab/HitPointsBar");
+		hitPointsBar.InitHitPointsBars(hitPoints);
 	}
 
 	public override void _Ready()
@@ -87,6 +93,11 @@ public partial class PlayerCharacter : CharacterBody3D
 
 		Velocity = velocity;
 		MoveAndSlide();
+	}
+
+	public void TakeDamage(int damage)
+	{
+		hitPointsBar.TakeDamage(damage);
 	}
 
 	public override void _Process(double delta)
