@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://environments/hub/HubLocation.cs" id="1_5v0kn"]
 [ext_resource type="Script" path="res://environments/hub/Hub.cs" id="1_ecgk0"]
-[ext_resource type="ArrayMesh" uid="uid://cmffmfvwan422" path="res://assets/placeholders/dungeonTiles/Floor_Modular.obj" id="1_ewcpo"]
+[ext_resource type="ArrayMesh" uid="uid://ci3mpsfp2e4el" path="res://assets/placeholders/dungeonTiles/Floor_Modular.obj" id="1_ewcpo"]
 [ext_resource type="ArrayMesh" uid="uid://bncej1aelq11w" path="res://assets/placeholders/dungeonTiles/Wall_Modular.obj" id="2_yxnr7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xv7bt"]

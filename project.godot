@@ -25,6 +25,10 @@ window/size/mode=3
 
 project/assembly_name="make-friends-and-kill-hordes"
 
+[editor]
+
+movie_writer/movie_file="E:/Pinaypple/TOWTMFIBFAHOM/Ballast/BallastRenderTest.png"
+
 [input]
 
 move_forward={

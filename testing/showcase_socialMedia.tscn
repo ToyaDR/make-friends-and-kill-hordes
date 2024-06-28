@@ -1,0 +1,117 @@
+[gd_scene load_steps=10 format=3 uid="uid://cyn4r51kvpm1"]
+
+[ext_resource type="PackedScene" uid="uid://da2ephdfbs8og" path="res://characters/vesta/vesta_prefab.tscn" id="1_6jrlh"]
+[ext_resource type="PackedScene" uid="uid://rt2pppgbwrtk" path="res://characters/ballast/ballast_prefab.tscn" id="1_bgf0t"]
+[ext_resource type="Shader" path="res://Shaders/toonOutlineShader.gdshader" id="3_jw4bo"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vjuks"]
+render_priority = 0
+shader = ExtResource("3_jw4bo")
+shader_parameter/outlineColor = Color(0, 0, 0, 0.78)
+shader_parameter/depth_threshold = 0.025
+shader_parameter/normal_threshold = 0.5
+shader_parameter/normal_smoothing = 0.25
+shader_parameter/max_thickness = 1.3
+shader_parameter/min_thickness = 0.5
+shader_parameter/max_distance = 75.0
+shader_parameter/min_distance = 2.0
+shader_parameter/grazing_fresnel_power = 5.0
+shader_parameter/grazing_angle_mask_power = 1.0
+shader_parameter/grazing_angle_modulation_factor = 50.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_mgauf"]
+flip_faces = true
+size = Vector2(2, 2)
+
+[sub_resource type="Animation" id="Animation_6v0qj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_e3frx"]
+resource_name = "lights"
+length = 6.00001
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array()
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 6.28319, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yany0"]
+_data = {
+"RESET": SubResource("Animation_6v0qj"),
+"lights": SubResource("Animation_e3frx")
+}
+
+[sub_resource type="Environment" id="Environment_b822b"]
+background_mode = 1
+background_color = Color(0.176471, 0.176471, 0.176471, 1)
+tonemap_exposure = 0.51
+ssao_enabled = true
+
+[node name="ShowcaseSocialMedia" type="Node3D"]
+
+[node name="BallastPrefab" parent="." instance=ExtResource("1_bgf0t")]
+
+[node name="vestaPrefab" parent="." instance=ExtResource("1_6jrlh")]
+visible = false
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.992757, -0.0359259, 0.11464, 0, 0.95424, 0.299041, -0.120137, -0.296875, 0.947329, 0.20297, 1.73027, 2.30081)
+fov = 45.3
+
+[node name="outlinePostProcess" type="MeshInstance3D" parent="Camera3D"]
+transform = Transform3D(0.992757, 2.59151e-08, -0.120137, -0.0359259, 0.95424, -0.296875, 0.11464, 0.299041, 0.947328, -0.212518, 0.220777, 0.139048)
+material_override = SubResource("ShaderMaterial_vjuks")
+extra_cull_margin = 16384.0
+mesh = SubResource("QuadMesh_mgauf")
+skeleton = NodePath("../..")
+
+[node name="lights" type="Node3D" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="lights"]
+transform = Transform3D(0.27675, 0.44154, -0.853494, -0.953173, 0.238848, -0.185508, 0.121946, 0.864867, 0.486965, -6.30644, 2.44321, 2.52502)
+
+[node name="DirectionalLight3D3" type="DirectionalLight3D" parent="lights"]
+transform = Transform3D(-0.669323, -0.530017, -0.520662, -0.667887, 0.736218, 0.109137, 0.325476, 0.420791, -0.846759, 2.80094, 4.95232, -10.5819)
+light_color = Color(1, 0.819608, 0.635294, 1)
+light_energy = 1.162
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="lights"]
+transform = Transform3D(0.310863, -0.10159, 0.94501, -0.024286, 0.993098, 0.114748, -0.950144, -0.0586216, 0.30625, 8.82027, 2.44321, 7.47109)
+light_color = Color(0.247059, 0.662745, 0.847059, 1)
+light_energy = 1.693
+light_indirect_energy = 1.264
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="lights"]
+libraries = {
+"": SubResource("AnimationLibrary_yany0")
+}
+autoplay = "lights"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_b822b")

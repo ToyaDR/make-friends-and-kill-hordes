@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://cy8njyrcaoe88" path="res://testing/shaderTesting/A9VMI.png" id="9_57syo"]
 [ext_resource type="Texture2D" uid="uid://b4idixsbbll6v" path="res://testing/shaderTesting/wrinkled_silver_foil_01_normal-708x708.jpg" id="10_2ef43"]
 [ext_resource type="Texture2D" uid="uid://clk4ma1u2daq2" path="res://testing/shaderTesting/LinenWrinkle_08_Normal.png" id="11_8drk5"]
-[ext_resource type="Shader" path="res://testing/shaderTesting/toonOutlineShader.gdshader" id="12_futp2"]
+[ext_resource type="Shader" path="res://Shaders/toonOutlineShader.gdshader" id="12_futp2"]
 [ext_resource type="PackedScene" uid="uid://da7aioth5mibf" path="res://characters/vesta/barkeep_rig_10.glb" id="13_x4qh8"]
 [ext_resource type="Material" uid="uid://bvdp7g4cgh1rn" path="res://testing/shaderTesting/toonTesting.tres" id="14_vgqhm"]
 

@@ -1,11 +1,23 @@
 [gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://bfgxm6u3vgpke"]
 
-[ext_resource type="Shader" uid="uid://d20xxjph70ydb" path="res://characters/vesta/old/vesta_mat.tres" id="1_jtvv7"]
+[ext_resource type="Shader" path="res://Shaders/botwShader.gdshader" id="1_8qprx"]
 [ext_resource type="Texture2D" uid="uid://bocoges3jhuxw" path="res://characters/vesta/textures/main_BaseColor.png" id="2_ebycn"]
 [ext_resource type="Texture2D" uid="uid://coelsy2chwewi" path="res://characters/vesta/textures/main_Normal.png" id="3_m8to0"]
 
 [resource]
 render_priority = 0
-shader = ExtResource("1_jtvv7")
-shader_parameter/tex_frg_11 = ExtResource("2_ebycn")
-shader_parameter/tex_frg_12 = ExtResource("3_m8to0")
+shader = ExtResource("1_8qprx")
+shader_parameter/tint = Color(1, 1, 1, 1)
+shader_parameter/metallic = 0.0
+shader_parameter/shadow_size = -0.225
+shader_parameter/shadow_blend = 0.001
+shader_parameter/shadow_extra_intensity = 0.0
+shader_parameter/shadow_color = Color(0, 1, 0.972549, 1)
+shader_parameter/light_tint = Color(1, 1, 1, 1)
+shader_parameter/rimlight_size = 0.921
+shader_parameter/rimlight_blend = 0.01
+shader_parameter/rimlight_color = null
+shader_parameter/normal_bias = Vector3(0, 0, 0)
+shader_parameter/light_bias = Vector3(0, 0, 0)
+shader_parameter/albedo_texture = ExtResource("2_ebycn")
+shader_parameter/normal_map = ExtResource("3_m8to0")

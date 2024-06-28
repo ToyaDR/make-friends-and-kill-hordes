@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://da2ephdfbs8og"]
+[gd_scene load_steps=8 format=3 uid="uid://da2ephdfbs8og"]
 
 [ext_resource type="PackedScene" uid="uid://da7aioth5mibf" path="res://characters/vesta/barkeep_rig_10.glb" id="1_2uq68"]
 [ext_resource type="Material" uid="uid://dmoyde50d3qys" path="res://characters/vesta/vestaEyes_toon.tres" id="2_gg8ur"]
 [ext_resource type="Material" uid="uid://dycpjqf68v7w6" path="res://characters/vesta/vestaClothes_toon.tres" id="3_kiqgc"]
 [ext_resource type="Material" uid="uid://cjglobu1jahjy" path="res://characters/vesta/vestaBoots_toon.tres" id="4_4ucwe"]
+[ext_resource type="Material" uid="uid://bfgxm6u3vgpke" path="res://characters/vesta/old/vesta_mat2.tres" id="6_886h0"]
 [ext_resource type="Material" uid="uid://yqs7sloanggl" path="res://characters/vesta/vestaHair_toon.tres" id="7_w2k8y"]
 [ext_resource type="Material" uid="uid://pyf41ycfokm8" path="res://characters/vesta/vesta_mat3_toon.tres" id="9_ch4y4"]
 
@@ -71,7 +72,7 @@ surface_material_override/0 = ExtResource("7_w2k8y")
 
 [node name="main_low" parent="barkeep_rig_10/tavernkeep_rig/Skeleton3D" index="13"]
 transform = Transform3D(0.999999, 0.00127104, -0.000498117, -0.00127073, 0.999999, 0.000624238, 0.000498914, -0.000623601, 1, 0, 0, 0)
-surface_material_override/0 = ExtResource("9_ch4y4")
+surface_material_override/0 = ExtResource("6_886h0")
 
 [node name="noseRing_low" parent="barkeep_rig_10/tavernkeep_rig/Skeleton3D" index="14"]
 surface_material_override/0 = ExtResource("3_kiqgc")
@@ -102,8 +103,5 @@ surface_material_override/0 = ExtResource("9_ch4y4")
 
 [node name="vest_low" parent="barkeep_rig_10/tavernkeep_rig/Skeleton3D" index="23"]
 surface_material_override/0 = ExtResource("3_kiqgc")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.330328, -0.612417, -0.718212, 0.875726, -0.0850144, 0.475265, -0.352119, -0.78595, 0.508227, -2.99783, 0.974575, -3.27806)
 
 [editable path="barkeep_rig_10"]

@@ -1,0 +1,45 @@
+[gd_scene load_steps=9 format=3 uid="uid://rt2pppgbwrtk"]
+
+[ext_resource type="PackedScene" uid="uid://b603hyrtd8cug" path="res://characters/ballast/ballast_norig.glb" id="1_cwkay"]
+[ext_resource type="Material" uid="uid://di36p8wh38j0v" path="res://characters/ballast/materials/ballastEyes_toon.tres" id="2_76cgm"]
+[ext_resource type="Material" uid="uid://ci6tlu43bpjan" path="res://characters/ballast/materials/ballastBackpack_toon.tres" id="3_vr5ec"]
+[ext_resource type="Shader" path="res://Shaders/botwShader.gdshader" id="4_g57sv"]
+[ext_resource type="Material" uid="uid://dhgbqqdo3a4bt" path="res://characters/ballast/materials/ballastClothes_toon.tres" id="4_wodby"]
+[ext_resource type="Texture2D" uid="uid://bp74qt7h7h65" path="res://characters/ballast/textures/ballastMain_Mat_Base_color.png" id="5_vhvuy"]
+[ext_resource type="Texture2D" uid="uid://ba2fywt58ibdm" path="res://characters/ballast/textures/ballastMain_Mat_Normal.png" id="6_wuldw"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kyt7l"]
+render_priority = 0
+shader = ExtResource("4_g57sv")
+shader_parameter/tint = Color(1, 1, 1, 1)
+shader_parameter/metallic = 0.0
+shader_parameter/shadow_size = -0.02
+shader_parameter/shadow_blend = 0.035
+shader_parameter/shadow_extra_intensity = 0.0
+shader_parameter/shadow_color = Color(0, 0.34902, 0.584314, 1)
+shader_parameter/light_tint = Color(0.992157, 0.992157, 0.992157, 1)
+shader_parameter/rimlight_size = 0.921
+shader_parameter/rimlight_blend = 0.01
+shader_parameter/rimlight_color = Color(0.121569, 0.533333, 1, 1)
+shader_parameter/normal_bias = Vector3(0, 0, 0)
+shader_parameter/light_bias = Vector3(0, 0, 0)
+shader_parameter/albedo_texture = ExtResource("5_vhvuy")
+shader_parameter/normal_map = ExtResource("6_wuldw")
+
+[node name="BallastPrefab" type="Node3D"]
+
+[node name="ballast_norig" parent="." instance=ExtResource("1_cwkay")]
+
+[node name="ballastEyes" parent="ballast_norig" index="0"]
+surface_material_override/0 = ExtResource("2_76cgm")
+
+[node name="ballastBackpack" parent="ballast_norig" index="1"]
+surface_material_override/0 = ExtResource("3_vr5ec")
+
+[node name="ballastMain" parent="ballast_norig" index="2"]
+surface_material_override/0 = SubResource("ShaderMaterial_kyt7l")
+
+[node name="ballastClothes" parent="ballast_norig" index="3"]
+surface_material_override/0 = ExtResource("4_wodby")
+
+[editable path="ballast_norig"]

@@ -1,0 +1,18 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://di36p8wh38j0v"]
+
+[ext_resource type="Texture2D" uid="uid://bfkyxj8tlivex" path="res://characters/ballast/textures/ballastEyes_Mat_Base_color.png" id="1_18g4e"]
+[ext_resource type="Texture2D" uid="uid://vf3cb4wkdrxx" path="res://characters/ballast/textures/ballastEyes_Mat_Normal.png" id="2_4dgla"]
+
+[resource]
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(0.670588, 0.670588, 0.670588, 1)
+albedo_texture = ExtResource("1_18g4e")
+metallic_specular = 1.0
+roughness = 0.46
+normal_enabled = true
+normal_texture = ExtResource("2_4dgla")
+rim_enabled = true
+rim_tint = 0.0
+backlight_enabled = true
+backlight = Color(0.356863, 0.67451, 0.776471, 1)
