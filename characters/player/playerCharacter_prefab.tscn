@@ -156,7 +156,9 @@ bones/219/rotation = Quaternion(-0.367195, -0.337538, 0.730196, 0.466957)
 bones/222/rotation = Quaternion(2.11177e-07, -2.64845e-07, 1.0326e-07, 1)
 bones/223/rotation = Quaternion(-0.317344, -0.335227, 0.756203, 0.463759)
 bones/224/rotation = Quaternion(-0.0325681, 0.0468617, 0.00152868, 0.998369)
+bones/224/scale = Vector3(1, 1, 1)
 bones/225/rotation = Quaternion(0.06408, -4.88285e-08, -1.77254e-08, 0.997945)
+bones/225/scale = Vector3(1, 1, 1)
 bones/226/rotation = Quaternion(-0.486061, -0.11088, 0.402122, 0.767951)
 bones/228/rotation = Quaternion(-0.838284, -0.479182, -0.129338, 0.22569)
 bones/229/rotation = Quaternion(-0.604021, 0.345103, 0.356718, 0.623551)
@@ -175,7 +177,7 @@ bones/240/rotation = Quaternion(-0.707107, 1.78355e-12, 1.78355e-12, 0.707107)
 surface_material_override/0 = ExtResource("2_plibh")
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="pc_arms_rig_v4/playerCharacter_rig/Skeleton3D" index="1"]
-transform = Transform3D(0.763829, -0.0611869, 0.642511, 0.613256, 0.379137, -0.692945, -0.201201, 0.923315, 0.327119, -0.882693, 1.06671, 0.495409)
+transform = Transform3D(0.763829, -0.0611864, 0.642511, 0.613255, 0.379137, -0.692945, -0.201201, 0.923315, 0.32712, -0.882693, 1.06671, 0.495409)
 bone_name = "DEF-f_index.01.R"
 bone_idx = 202
 

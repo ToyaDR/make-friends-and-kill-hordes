@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bx2i2hc2rnyas"]
 
 [ext_resource type="Script" path="res://testing/combat/PlayerCombatTest.cs" id="1_0un2s"]
-[ext_resource type="PackedScene" uid="uid://npx1hgqxi5f2" path="res://characters/player/playerCharacter_prefab.tscn" id="2_xgrlj"]
+[ext_resource type="PackedScene" uid="uid://beva6dkuop8yi" path="res://characters/player/playerCharacter_prefab_v2.tscn" id="3_b72vo"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pg6wf"]
 
@@ -13,8 +13,4 @@ script = ExtResource("1_0un2s")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.863529, 0.0114639)
 shape = SubResource("CapsuleShape3D_pg6wf")
 
-[node name="PlayerCharacterPrefab" parent="." instance=ExtResource("2_xgrlj")]
-
-[editable path="PlayerCharacterPrefab"]
-[editable path="PlayerCharacterPrefab/pc_arms_rig_v4"]
-[editable path="PlayerCharacterPrefab/pc_arms_rig_v4/playerCharacter_rig/Skeleton3D/BoneAttachment3D/sword_012"]
+[node name="PlayerCharacterPrefab" parent="." instance=ExtResource("3_b72vo")]
