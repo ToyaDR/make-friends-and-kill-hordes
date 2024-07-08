@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bwukirbirjqq" path="res://characters/player/pc_arms_rig_04.glb" id="9_pvsaj"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6cqxy"]
-size = Vector3(0.118103, 0.243225, 0.860901)
+size = Vector3(0.118103, 0.243225, 1.02762)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6k2w3"]
 render_priority = 0
@@ -531,7 +531,7 @@ bone_idx = 202
 transform = Transform3D(1, 0, -1.49012e-08, 0, 1, 0, 2.98023e-08, 2.98023e-08, 1, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="pc_arms_rig_04/pc_rig_02/Skeleton3D/BoneAttachment3D/StaticBody3D"]
-transform = Transform3D(0.556878, -0.271627, -0.784932, 0.655106, 0.724588, 0.21403, 0.510614, -0.633399, 0.581458, 0.425197, -0.0714829, -0.304588)
+transform = Transform3D(-0.0686197, -0.0276337, -0.997263, 0.641881, 0.764012, -0.0653388, 0.763727, -0.644612, -0.0346848, 0.321082, 0.0501285, 0.0309818)
 shape = SubResource("BoxShape3D_6cqxy")
 
 [node name="sword_012" parent="pc_arms_rig_04/pc_rig_02/Skeleton3D/BoneAttachment3D" instance=ExtResource("3_kwsho")]

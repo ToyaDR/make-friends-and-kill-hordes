@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://c25kfm6svragu"]
 
 [ext_resource type="PackedScene" uid="uid://xd47i7eenx81" path="res://characters/enemies/anxietyGremlin/anxietyGremlin_rig_2.glb" id="1_kcb2y"]
-[ext_resource type="Material" uid="uid://c33irbn0rxqq8" path="res://characters/enemies/anxietyGremlin/anxietyGremlin_toon.tres" id="2_k7utq"]
+[ext_resource type="Material" path="res://characters/enemies/anxietyGremlin/anxietyGremlin_toon.tres" id="2_k7utq"]
 [ext_resource type="AnimationLibrary" uid="uid://c7nravnkrh6di" path="res://characters/enemies/anxietyGremlin/anxietyGremlin_animations/anxietyGremlin_idle_2.glb" id="3_3b3wa"]
 [ext_resource type="AnimationLibrary" uid="uid://7cq4dibbxk08" path="res://characters/enemies/anxietyGremlin/anxietyGremlin_animations/anxietyGremlin_idletoRunBlend.glb" id="4_52vhv"]
 [ext_resource type="AnimationLibrary" uid="uid://ddsdh1cc231vx" path="res://characters/enemies/anxietyGremlin/anxietyGremlin_animations/anxietyGremlin_run.glb" id="5_3v3d7"]
@@ -11,7 +11,11 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wt65t"]
 height = 1.43913
 
-[node name="AnxietyGremlinPrefab" type="Node3D"]
+[node name="AnxietyGremlinPrefab" type="RigidBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.705, 0.176454)
+shape = SubResource("CapsuleShape3D_wt65t")
 
 [node name="anxietyGremlin_rig_2" parent="." instance=ExtResource("1_kcb2y")]
 
@@ -90,7 +94,7 @@ bones/47/rotation = Quaternion(-0.000229768, 0.810515, -0.585717, -3.83241e-05)
 bones/47/scale = Vector3(1, 1, 1)
 bones/48/rotation = Quaternion(0.679227, 0.00298656, -0.000462935, 0.733922)
 bones/48/scale = Vector3(1.00009, 0.999822, 1.00009)
-bones/49/rotation = Quaternion(0.827328, -0.000289548, 0.000424488, 0.561718)
+bones/49/rotation = Quaternion(0.827329, -0.000289548, 0.000424488, 0.561718)
 bones/49/scale = Vector3(1.00041, 0.998948, 1.00064)
 bones/50/rotation = Quaternion(-0.422369, 0.00208642, 0.00159228, 0.90642)
 bones/50/scale = Vector3(0.9995, 1.00012, 1.00038)
@@ -391,12 +395,6 @@ bones/320/rotation = Quaternion(-0.707107, 0, 0, 0.707107)
 
 [node name="anxietyGremlin_rig_001" parent="anxietyGremlin_rig_2/anxietyGremlin_rig/Skeleton3D" index="0"]
 surface_material_override/0 = ExtResource("2_k7utq")
-
-[node name="RigidBody3D" type="RigidBody3D" parent="anxietyGremlin_rig_2"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="anxietyGremlin_rig_2/RigidBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.705, 0.176454)
-shape = SubResource("CapsuleShape3D_wt65t")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="anxietyGremlin_rig_2"]
 libraries = {
