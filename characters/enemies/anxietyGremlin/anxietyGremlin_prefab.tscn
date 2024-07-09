@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://c25kfm6svragu"]
 
 [ext_resource type="PackedScene" uid="uid://xd47i7eenx81" path="res://characters/enemies/anxietyGremlin/anxietyGremlin_rig_2.glb" id="1_kcb2y"]
-[ext_resource type="Material" path="res://characters/enemies/anxietyGremlin/anxietyGremlin_toon.tres" id="2_k7utq"]
+[ext_resource type="Material" uid="uid://c33irbn0rxqq8" path="res://characters/enemies/anxietyGremlin/anxietyGremlin_toon.tres" id="2_k7utq"]
 [ext_resource type="AnimationLibrary" uid="uid://c7nravnkrh6di" path="res://characters/enemies/anxietyGremlin/anxietyGremlin_animations/anxietyGremlin_idle_2.glb" id="3_3b3wa"]
 [ext_resource type="AnimationLibrary" uid="uid://7cq4dibbxk08" path="res://characters/enemies/anxietyGremlin/anxietyGremlin_animations/anxietyGremlin_idletoRunBlend.glb" id="4_52vhv"]
 [ext_resource type="AnimationLibrary" uid="uid://ddsdh1cc231vx" path="res://characters/enemies/anxietyGremlin/anxietyGremlin_animations/anxietyGremlin_run.glb" id="5_3v3d7"]

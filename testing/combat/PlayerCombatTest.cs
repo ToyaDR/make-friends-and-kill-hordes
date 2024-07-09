@@ -6,7 +6,7 @@ public partial class PlayerCombatTest : PlayerCharacter
 	AnimationPlayer animationPlayer;
 	public override void _Ready()
 	{
-		animationPlayer = GetNode<AnimationPlayer>("PlayerCharacterPrefab/pc_arms_rig_04/AnimationPlayer");
+		animationPlayer = GetNode<AnimationPlayer>("PlayerCharacterPrefab/pc_arms_rig_v5/AnimationPlayer");
 		animationPlayer.SpeedScale = 1.5f;
 		ReadyPlayerCharacter();
 	}
