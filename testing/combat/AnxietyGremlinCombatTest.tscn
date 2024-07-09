@@ -1,20 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dofcminxd5v4e"]
+[gd_scene load_steps=3 format=3 uid="uid://dofcminxd5v4e"]
 
 [ext_resource type="Script" path="res://testing/combat/AnxietyGremlinCombatTest.cs" id="1_4c06o"]
-[ext_resource type="PackedScene" uid="uid://b563lfkfva3xw" path="res://assets/placeholders/anxietyGremlin_rig_2.glb" id="2_xprbs"]
+[ext_resource type="PackedScene" uid="uid://c25kfm6svragu" path="res://characters/enemies/anxietyGremlin/anxietyGremlin_prefab.tscn" id="2_k0coy"]
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_3lmfa"]
-height = 0.691344
-radius = 0.33915
-
-[node name="AnxietyGremlinCombatTest" type="RigidBody3D"]
-collision_layer = 4
-collision_mask = 3
-mass = 19.3
+[node name="AnxietyGremlinCombatTest" type="Node3D"]
 script = ExtResource("1_4c06o")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0.516772, 0)
-shape = SubResource("CylinderShape3D_3lmfa")
-
-[node name="anxietyGremlin_rig_2" parent="." instance=ExtResource("2_xprbs")]
+[node name="AnxietyGremlinPrefab" parent="." instance=ExtResource("2_k0coy")]

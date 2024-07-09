@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class Enemy : RigidBody3D
+public partial class Enemy : Node3D
 {
 	private float hitPoints;
 	public float HitPoints { get => hitPoints; set => hitPoints = value; }

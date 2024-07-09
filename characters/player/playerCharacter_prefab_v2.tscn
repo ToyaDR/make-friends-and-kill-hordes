@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bwukirbirjqq" path="res://characters/player/pc_arms_rig_04.glb" id="9_pvsaj"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6cqxy"]
-size = Vector3(0.118103, 0.243225, 0.860901)
+size = Vector3(0.118103, 0.243225, 1.02762)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6k2w3"]
 render_priority = 0
