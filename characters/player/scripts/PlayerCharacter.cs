@@ -100,6 +100,42 @@ public partial class PlayerCharacter : CharacterBody3D
 		hitPointsBar.TakeDamage(damage);
 	}
 
+	private string[] ItemList = new string[2]{
+		"Sword",
+		"Heal",
+	};
+
+	private int currentItem = 0;
+	public string CurrentItem { get => ItemList[currentItem]; }
+
+	public void SwapItem()
+	{
+		if (Input.IsActionJustPressed("swap_forward"))
+		{
+			currentItem = (currentItem + 1) % ItemList.Length;
+		}
+		if (Input.IsActionJustPressed("swap_back"))
+		{
+			if (currentItem == 0)
+			{
+				currentItem = ItemList.Length + (currentItem - 1);
+			}
+			else
+			{
+				currentItem--;
+			}
+		}
+
+		if (Input.IsActionJustPressed("swap_sword"))
+		{
+			currentItem = 0;
+		}
+		if (Input.IsActionJustPressed("swap_heal"))
+		{
+			currentItem = 1;
+		}
+	}
+
 	public override void _Process(double delta)
 	{
 		HandleMovement(delta);

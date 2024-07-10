@@ -14,14 +14,23 @@ public partial class PlayerCombatTest : PlayerCharacter
 	public override void _Process(double delta)
 	{
 		HandleMovement(delta);
+		SwapItem();
 
 		if (Mathf.RoundToInt(delta) % 1000 == 0)
 		{
 			TakeDamage(1);
 		}
-		if (Input.IsActionJustPressed("attack"))
+		if (Input.IsActionJustPressed("attack_or_heal"))
 		{
-			animationPlayer.Play("swordSwing");
+			if (CurrentItem == "Sword")
+			{
+				animationPlayer.Play("swordSwing");
+			}
+
+			if (CurrentItem == "Heal")
+			{
+				animationPlayer.Play("healingSpell");
+			}
 		}
 	}
 }

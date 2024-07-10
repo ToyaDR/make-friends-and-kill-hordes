@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bx2i2hc2rnyas"]
 
 [ext_resource type="Script" path="res://testing/combat/PlayerCombatTest.cs" id="1_0un2s"]
-[ext_resource type="PackedScene" uid="uid://beva6dkuop8yi" path="res://characters/player/playerCharacter_prefab_v2.tscn" id="3_b72vo"]
+[ext_resource type="PackedScene" uid="uid://cf3rf8u3fxy3j" path="res://characters/player/playerCharacter_prefab_v2.tscn" id="3_b72vo"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pg6wf"]
 
