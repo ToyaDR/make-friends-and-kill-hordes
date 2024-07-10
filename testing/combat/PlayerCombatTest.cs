@@ -4,11 +4,13 @@ using System;
 public partial class PlayerCombatTest : PlayerCharacter
 {
 	AnimationPlayer animationPlayer;
+	private bool takeDamage = false;
 	public override void _Ready()
 	{
-		animationPlayer = GetNode<AnimationPlayer>("PlayerCharacterPrefab/pc_arms_rig_v5/AnimationPlayer");
+		animationPlayer = GetNode<AnimationPlayer>("PlayerCharacterPrefab/pc_arms_rig_v6/AnimationPlayer");
 		animationPlayer.SpeedScale = 1.5f;
 		ReadyPlayerCharacter();
+		takeDamage = true;
 	}
 
 	public override void _Process(double delta)
@@ -16,7 +18,7 @@ public partial class PlayerCombatTest : PlayerCharacter
 		HandleMovement(delta);
 		SwapItem();
 
-		if (Mathf.RoundToInt(delta) % 1000 == 0)
+		if (Mathf.RoundToInt(delta) % 1000 == 0 && HPBar.HitPointsValue.CurrentHitPoints > 50 && takeDamage)
 		{
 			TakeDamage(1);
 		}
@@ -30,6 +32,8 @@ public partial class PlayerCombatTest : PlayerCharacter
 			if (CurrentItem == "Heal")
 			{
 				animationPlayer.Play("healingSpell");
+				takeDamage = false;
+				HPBar.ReceiveHealing(25);
 			}
 		}
 	}
