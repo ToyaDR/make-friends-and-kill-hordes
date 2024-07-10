@@ -42,4 +42,22 @@ public partial class HitPointsBar : CanvasLayer
 		int updatedCurrentHitPoints = hitPointsValue.TakeDamage(damage);
 		currentHitPointsBar.SetSize(new Vector2(updatedCurrentHitPoints * mult, barHeight));
 	}
+
+	public void ReceiveHealing(int hitPoints)
+	{
+		if (hitPointsValue == null)
+		{
+			GD.Print("Set value for HitPointsBar");
+			return;
+		}
+
+		if (hitPointsValue.CurrentHitPoints >= hitPointsValue.TotalHitPoints)
+		{
+			GD.Print("No overhealing!");
+			return;
+		}
+
+		int updatedCurrentHitPoints = hitPointsValue.ReceiveHealing(hitPoints);
+		currentHitPointsBar.SetSize(new Vector2(updatedCurrentHitPoints * mult, barHeight));
+	}
 }

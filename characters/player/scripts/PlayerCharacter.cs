@@ -17,6 +17,7 @@ public partial class PlayerCharacter : CharacterBody3D
 
 	private HitPoints hitPoints;
 	private HitPointsBar hitPointsBar;
+	public HitPointsBar HPBar { get => hitPointsBar; set => hitPointsBar = value; }
 
 	public void ReadyPlayerCharacter()
 	{
