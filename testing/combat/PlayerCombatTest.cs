@@ -7,7 +7,7 @@ public partial class PlayerCombatTest : PlayerCharacter
 	private bool takeDamage = false;
 	public override void _Ready()
 	{
-		animationPlayer = GetNode<AnimationPlayer>("PlayerCharacterPrefab/pc_arms_rig_v5/AnimationPlayer");
+		animationPlayer = GetNode<AnimationPlayer>("PlayerCharacterPrefab/pc_arms_rig_v6/AnimationPlayer");
 		animationPlayer.SpeedScale = 1.5f;
 		ReadyPlayerCharacter();
 		takeDamage = true;

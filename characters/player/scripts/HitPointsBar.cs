@@ -53,7 +53,6 @@ public partial class HitPointsBar : CanvasLayer
 
 		if (hitPointsValue.CurrentHitPoints >= hitPointsValue.TotalHitPoints)
 		{
-			GD.Print("No overhealing!");
 			return;
 		}
 
