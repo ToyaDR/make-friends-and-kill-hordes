@@ -19,6 +19,8 @@ public partial class PlayerCharacter : CharacterBody3D
 	private HitPointsBar hitPointsBar;
 	public HitPointsBar HPBar { get => hitPointsBar; set => hitPointsBar = value; }
 
+	private Node3D Sword;
+
 	public void ReadyPlayerCharacter()
 	{
 		Input.MouseMode = Input.MouseModeEnum.Captured;
@@ -26,6 +28,7 @@ public partial class PlayerCharacter : CharacterBody3D
 		hitPoints = new HitPoints(100);
 		hitPointsBar = GetNode<HitPointsBar>("PlayerCharacterPrefab/HitPointsBar");
 		hitPointsBar.InitHitPointsBars(hitPoints);
+		Sword = GetNode<Node3D>("PlayerCharacterPrefab/pc_arms_rig_v6/PC_rig/Skeleton3D/BoneAttachment3D");
 	}
 
 	public override void _Ready()
@@ -134,6 +137,17 @@ public partial class PlayerCharacter : CharacterBody3D
 		if (Input.IsActionJustPressed("swap_heal"))
 		{
 			currentItem = 1;
+		}
+
+		if (CurrentItem == "Heal")
+		{
+			Sword.Visible = false;
+			Sword.GetChild<StaticBody3D>(0).GetChild<CollisionShape3D>(0).Disabled = true;
+		}
+		else
+		{
+			Sword.Visible = true;
+			Sword.GetChild<StaticBody3D>(0).GetChild<CollisionShape3D>(0).Disabled = false;
 		}
 	}
 
