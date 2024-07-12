@@ -64,7 +64,7 @@ public partial class EnemyHitPointsBar : CanvasLayer
 	public override void _Process(double delta)
 	{
 		Camera3D camera = GetViewport().GetCamera3D();
-		Vector3 parentPosition = GetParent<RigidBody3D>().GlobalPosition;
+		Vector3 parentPosition = GetParent<Enemy>().GlobalPosition;
 		float distance = camera.GlobalPosition.DistanceTo(parentPosition);
 
 		Vector2 unprojectedParentPosition = camera.UnprojectPosition(parentPosition + new Vector3(1 / (distance * distance), 1 / (distance * distance), 1));

@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class Enemy : Node3D
+public partial class Enemy : RigidBody3D
 {
 	private HitPoints hitPoints;
 	private EnemyHitPointsBar hitPointsBar;

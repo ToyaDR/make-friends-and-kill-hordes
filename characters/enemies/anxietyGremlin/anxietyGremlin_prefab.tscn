@@ -1,5 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://c25kfm6svragu"]
+[gd_scene load_steps=11 format=3 uid="uid://c25kfm6svragu"]
 
+[ext_resource type="Script" path="res://characters/enemies/anxietyGremlin/AnxietyGremlin.cs" id="1_h6j4g"]
 [ext_resource type="PackedScene" uid="uid://xd47i7eenx81" path="res://characters/enemies/anxietyGremlin/anxietyGremlin_rig_2.glb" id="1_kcb2y"]
 [ext_resource type="Material" path="res://characters/enemies/anxietyGremlin/anxietyGremlin_toon.tres" id="2_k7utq"]
 [ext_resource type="AnimationLibrary" uid="uid://c7nravnkrh6di" path="res://characters/enemies/anxietyGremlin/anxietyGremlin_animations/anxietyGremlin_idle_2.glb" id="3_3b3wa"]
@@ -14,6 +15,7 @@ height = 1.43913
 
 [node name="AnxietyGremlinPrefab" type="RigidBody3D"]
 collision_mask = 3
+script = ExtResource("1_h6j4g")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.705, 0.176454)
