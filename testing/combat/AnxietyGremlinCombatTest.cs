@@ -5,7 +5,7 @@ public partial class AnxietyGremlinCombatTest : Enemy
 {
   public override void _Ready()
   {
-	HitPoints = 10.0f;
+	ReadyEnemy("AnxietyGremlinPrefab/HitPointsBar", 20);
   }
 
   public override void _Process(double delta)

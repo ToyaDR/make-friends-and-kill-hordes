@@ -7,3 +7,6 @@
 script = ExtResource("1_4c06o")
 
 [node name="AnxietyGremlinPrefab" parent="." instance=ExtResource("2_k0coy")]
+
+[editable path="AnxietyGremlinPrefab"]
+[editable path="AnxietyGremlinPrefab/anxietyGremlin_rig_2"]
