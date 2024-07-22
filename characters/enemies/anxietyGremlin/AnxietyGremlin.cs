@@ -13,6 +13,7 @@ public partial class AnxietyGremlin : Enemy
 
   public override void _Process(double delta)
   {
+    HandlePoofing();
   }
 
   private void OnBodyEntered(Node body)
@@ -24,6 +25,11 @@ public partial class AnxietyGremlin : Enemy
     {
       Sword sword = body as Sword;
       HPBar.TakeDamage(sword.Damage);
+
+      if (HPBar.HitPointsValue.CurrentHitPoints <= 0)
+      {
+        StartPoofTimer = true;
+      }
     }
   }
 }
