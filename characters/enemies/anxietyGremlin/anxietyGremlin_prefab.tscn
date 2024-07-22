@@ -1,17 +1,22 @@
-[gd_scene load_steps=9 format=3 uid="uid://c25kfm6svragu"]
+[gd_scene load_steps=11 format=3 uid="uid://c25kfm6svragu"]
 
+[ext_resource type="Script" path="res://characters/enemies/anxietyGremlin/AnxietyGremlin.cs" id="1_h6j4g"]
 [ext_resource type="PackedScene" uid="uid://xd47i7eenx81" path="res://characters/enemies/anxietyGremlin/anxietyGremlin_rig_2.glb" id="1_kcb2y"]
-[ext_resource type="Material" uid="uid://c33irbn0rxqq8" path="res://characters/enemies/anxietyGremlin/anxietyGremlin_toon.tres" id="2_k7utq"]
+[ext_resource type="Material" path="res://characters/enemies/anxietyGremlin/anxietyGremlin_toon.tres" id="2_k7utq"]
 [ext_resource type="AnimationLibrary" uid="uid://c7nravnkrh6di" path="res://characters/enemies/anxietyGremlin/anxietyGremlin_animations/anxietyGremlin_idle_2.glb" id="3_3b3wa"]
 [ext_resource type="AnimationLibrary" uid="uid://7cq4dibbxk08" path="res://characters/enemies/anxietyGremlin/anxietyGremlin_animations/anxietyGremlin_idletoRunBlend.glb" id="4_52vhv"]
 [ext_resource type="AnimationLibrary" uid="uid://ddsdh1cc231vx" path="res://characters/enemies/anxietyGremlin/anxietyGremlin_animations/anxietyGremlin_run.glb" id="5_3v3d7"]
 [ext_resource type="AnimationLibrary" uid="uid://d26fxhi7q4sud" path="res://characters/enemies/anxietyGremlin/anxietyGremlin_animations/anxietyGremlin_runtoIdleBlend.glb" id="6_rv1ou"]
 [ext_resource type="AnimationLibrary" uid="uid://mbk2c17qhi17" path="res://characters/enemies/anxietyGremlin/anxietyGremlin_animations/anxietyGremlin_slash.glb" id="7_hddwh"]
+[ext_resource type="Script" path="res://characters/hitPoints/EnemyHitPointsBar.cs" id="8_up5p8"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wt65t"]
 height = 1.43913
 
 [node name="AnxietyGremlinPrefab" type="RigidBody3D"]
+collision_layer = 4
+collision_mask = 11
+script = ExtResource("1_h6j4g")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.705, 0.176454)
@@ -404,5 +409,92 @@ libraries = {
 "anxietyGremlin_runtoIdleBlend": ExtResource("6_rv1ou"),
 "anxietyGremlin_slash": ExtResource("7_hddwh")
 }
+
+[node name="HitPointsBar" type="CanvasLayer" parent="."]
+script = ExtResource("8_up5p8")
+
+[node name="TotalHitPoints" type="ColorRect" parent="HitPointsBar"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -199.0
+offset_top = -129.0
+offset_right = 199.0
+offset_bottom = -64.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 6
+size_flags_vertical = 10
+color = Color(0.313726, 0.113725, 0.0392157, 1)
+
+[node name="CurrentHitPoints" type="ColorRect" parent="HitPointsBar"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -199.0
+offset_top = -129.0
+offset_right = 19.0
+offset_bottom = -64.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 6
+size_flags_vertical = 10
+color = Color(0.835294, 0.113725, 0.0392157, 1)
+
+[node name="Control" type="Control" parent="HitPointsBar"]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -16.0
+offset_top = -116.0
+offset_right = 24.0
+offset_bottom = -76.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 10
+
+[node name="TotalHitPointsNumber" type="Label" parent="HitPointsBar/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -9.0
+offset_right = 32.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 10
+text = "/100"
+vertical_alignment = 2
+
+[node name="CurrentHitPointsNumber" type="Label" parent="HitPointsBar/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -49.0
+offset_top = -9.0
+offset_right = -9.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 10
+text = "100"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[connection signal="body_entered" from="." to="." method="OnBodyEntered"]
 
 [editable path="anxietyGremlin_rig_2"]

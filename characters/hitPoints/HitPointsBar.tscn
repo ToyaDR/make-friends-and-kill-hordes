@@ -1,0 +1,88 @@
+[gd_scene load_steps=2 format=3 uid="uid://dfje4j8ylprbo"]
+
+[ext_resource type="Script" path="res://characters/hitPoints/HitPointsBar.cs" id="1_m4fj6"]
+
+[node name="HitPointsBar" type="CanvasLayer"]
+script = ExtResource("1_m4fj6")
+
+[node name="TotalHitPoints" type="ColorRect" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -199.0
+offset_top = -129.0
+offset_right = 199.0
+offset_bottom = -64.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 6
+size_flags_vertical = 10
+color = Color(0.278431, 0.368627, 0.321569, 1)
+
+[node name="CurrentHitPoints" type="ColorRect" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -199.0
+offset_top = -129.0
+offset_right = 19.0
+offset_bottom = -64.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 6
+size_flags_vertical = 10
+color = Color(0.145098, 0.756863, 0.431373, 1)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -16.0
+offset_top = -116.0
+offset_right = 24.0
+offset_bottom = -76.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 10
+
+[node name="TotalHitPointsNumber" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -9.0
+offset_right = 32.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 10
+text = "/100"
+vertical_alignment = 2
+
+[node name="CurrentHitPointsNumber" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -49.0
+offset_top = -9.0
+offset_right = -9.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 10
+text = "100"
+horizontal_alignment = 2
+vertical_alignment = 2

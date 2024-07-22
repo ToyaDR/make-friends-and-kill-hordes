@@ -1,13 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://cf3rf8u3fxy3j"]
+[gd_scene load_steps=9 format=3 uid="uid://cf3rf8u3fxy3j"]
 
 [ext_resource type="PackedScene" uid="uid://bvbfykahrj55f" path="res://characters/player/pc_arms_rig_v6.glb" id="1_sysh2"]
+[ext_resource type="Script" path="res://characters/player/scripts/Sword.cs" id="2_oiksd"]
 [ext_resource type="PackedScene" uid="uid://c2x26mfqlh1ib" path="res://characters/player/sword_01.glb" id="3_kwsho"]
 [ext_resource type="Shader" uid="uid://cbadlvsj34j7b" path="res://characters/player/playerCharacter_swordBlade.tres" id="4_cqllp"]
-[ext_resource type="Script" path="res://characters/player/scripts/HitPointsBar.cs" id="7_8nldp"]
+[ext_resource type="PackedScene" uid="uid://dfje4j8ylprbo" path="res://characters/hitPoints/HitPointsBar.tscn" id="5_lqql5"]
 [ext_resource type="Material" path="res://PC_toon.tres" id="9_67nuo"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6cqxy"]
-size = Vector3(0.0487976, 0.171768, 0.787178)
+size = Vector3(0.0487976, 0.171768, 1.39401)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6k2w3"]
 render_priority = 0
@@ -257,15 +258,19 @@ bones/239/rotation = Quaternion(-0.709052, -0.00390593, 2.91038e-09, 0.705146)
 bones/239/scale = Vector3(0.997246, 0.997246, 0.997246)
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="pc_arms_rig_v6/PC_rig/Skeleton3D" index="0"]
-transform = Transform3D(0.253773, -0.0456778, 0.963333, 0.899629, 0.370152, -0.21944, -0.347514, 0.924878, 0.135401, -0.513488, 1.48135, 0.336687)
+transform = Transform3D(0.253773, -0.0456788, 0.963334, 0.89963, 0.370151, -0.21944, -0.347512, 0.924879, 0.135401, -0.513488, 1.48135, 0.336686)
 bone_name = "DEF-f_index.01.R"
 bone_idx = 201
 
-[node name="StaticBody3D" type="StaticBody3D" parent="pc_arms_rig_v6/PC_rig/Skeleton3D/BoneAttachment3D"]
+[node name="Sword" type="CharacterBody3D" parent="pc_arms_rig_v6/PC_rig/Skeleton3D/BoneAttachment3D"]
 transform = Transform3D(1, 0, -1.49012e-08, 0, 1, 0, 2.98023e-08, 2.98023e-08, 1, 0, 0, 0)
+collision_layer = 8
+collision_mask = 4
+motion_mode = 1
+script = ExtResource("2_oiksd")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="pc_arms_rig_v6/PC_rig/Skeleton3D/BoneAttachment3D/StaticBody3D"]
-transform = Transform3D(0.00326584, -0.0441914, -0.999028, 0.543253, 0.838825, -0.035331, 0.839564, -0.542608, 0.0267493, 0.473465, 0.050352, 0.0206419)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="pc_arms_rig_v6/PC_rig/Skeleton3D/BoneAttachment3D/Sword"]
+transform = Transform3D(0.00326586, -0.0441914, -0.999028, 0.543253, 0.838825, -0.0353308, 0.839564, -0.542607, 0.0267493, 0.776588, 0.0610719, 0.0125256)
 shape = SubResource("BoxShape3D_6cqxy")
 
 [node name="sword_012" parent="pc_arms_rig_v6/PC_rig/Skeleton3D/BoneAttachment3D" instance=ExtResource("3_kwsho")]
@@ -278,90 +283,7 @@ surface_material_override/0 = SubResource("ShaderMaterial_6k2w3")
 [node name="playerCharacter" parent="pc_arms_rig_v6/PC_rig/Skeleton3D" index="1"]
 surface_material_override/0 = ExtResource("9_67nuo")
 
-[node name="HitPointsBar" type="CanvasLayer" parent="."]
-script = ExtResource("7_8nldp")
-
-[node name="TotalHitPoints" type="ColorRect" parent="HitPointsBar"]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -199.0
-offset_top = -129.0
-offset_right = 199.0
-offset_bottom = -64.0
-grow_horizontal = 2
-grow_vertical = 0
-size_flags_horizontal = 6
-size_flags_vertical = 10
-color = Color(0.278431, 0.368627, 0.321569, 1)
-
-[node name="CurrentHitPoints" type="ColorRect" parent="HitPointsBar"]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -199.0
-offset_top = -129.0
-offset_right = 19.0
-offset_bottom = -64.0
-grow_horizontal = 2
-grow_vertical = 0
-size_flags_horizontal = 6
-size_flags_vertical = 10
-color = Color(0.145098, 0.756863, 0.431373, 1)
-
-[node name="Control" type="Control" parent="HitPointsBar"]
-layout_mode = 3
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -16.0
-offset_top = -116.0
-offset_right = 24.0
-offset_bottom = -76.0
-grow_horizontal = 2
-grow_vertical = 0
-size_flags_vertical = 10
-
-[node name="TotalHitPointsNumber" type="Label" parent="HitPointsBar/Control"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -8.0
-offset_top = -9.0
-offset_right = 32.0
-offset_bottom = 14.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_vertical = 10
-text = "/100"
-vertical_alignment = 2
-
-[node name="CurrentHitPointsNumber" type="Label" parent="HitPointsBar/Control"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -49.0
-offset_top = -9.0
-offset_right = -9.0
-offset_bottom = 14.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_vertical = 10
-text = "100"
-horizontal_alignment = 2
-vertical_alignment = 2
+[node name="HitPointsBar" parent="." instance=ExtResource("5_lqql5")]
 
 [editable path="pc_arms_rig_v6"]
 [editable path="pc_arms_rig_v6/PC_rig/Skeleton3D/BoneAttachment3D/sword_012"]

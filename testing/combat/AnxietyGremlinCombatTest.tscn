@@ -1,9 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://dofcminxd5v4e"]
+[gd_scene load_steps=2 format=3 uid="uid://dofcminxd5v4e"]
 
-[ext_resource type="Script" path="res://testing/combat/AnxietyGremlinCombatTest.cs" id="1_4c06o"]
 [ext_resource type="PackedScene" uid="uid://c25kfm6svragu" path="res://characters/enemies/anxietyGremlin/anxietyGremlin_prefab.tscn" id="2_k0coy"]
 
 [node name="AnxietyGremlinCombatTest" type="Node3D"]
-script = ExtResource("1_4c06o")
 
 [node name="AnxietyGremlinPrefab" parent="." instance=ExtResource("2_k0coy")]
+
+[editable path="AnxietyGremlinPrefab"]
+[editable path="AnxietyGremlinPrefab/anxietyGremlin_rig_2"]
