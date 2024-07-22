@@ -1,13 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://cf3rf8u3fxy3j"]
+[gd_scene load_steps=9 format=3 uid="uid://cf3rf8u3fxy3j"]
 
 [ext_resource type="PackedScene" uid="uid://bvbfykahrj55f" path="res://characters/player/pc_arms_rig_v6.glb" id="1_sysh2"]
+[ext_resource type="Script" path="res://characters/player/scripts/Sword.cs" id="2_oiksd"]
 [ext_resource type="PackedScene" uid="uid://c2x26mfqlh1ib" path="res://characters/player/sword_01.glb" id="3_kwsho"]
 [ext_resource type="Shader" uid="uid://cbadlvsj34j7b" path="res://characters/player/playerCharacter_swordBlade.tres" id="4_cqllp"]
 [ext_resource type="PackedScene" uid="uid://dfje4j8ylprbo" path="res://characters/hitPoints/HitPointsBar.tscn" id="5_lqql5"]
 [ext_resource type="Material" path="res://PC_toon.tres" id="9_67nuo"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6cqxy"]
-size = Vector3(0.0487976, 0.171768, 0.787178)
+size = Vector3(0.0487976, 0.171768, 1.39401)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6k2w3"]
 render_priority = 0
@@ -261,11 +262,15 @@ transform = Transform3D(0.253773, -0.0456788, 0.963334, 0.89963, 0.370151, -0.21
 bone_name = "DEF-f_index.01.R"
 bone_idx = 201
 
-[node name="StaticBody3D" type="StaticBody3D" parent="pc_arms_rig_v6/PC_rig/Skeleton3D/BoneAttachment3D"]
+[node name="Sword" type="CharacterBody3D" parent="pc_arms_rig_v6/PC_rig/Skeleton3D/BoneAttachment3D"]
 transform = Transform3D(1, 0, -1.49012e-08, 0, 1, 0, 2.98023e-08, 2.98023e-08, 1, 0, 0, 0)
+collision_layer = 8
+collision_mask = 4
+motion_mode = 1
+script = ExtResource("2_oiksd")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="pc_arms_rig_v6/PC_rig/Skeleton3D/BoneAttachment3D/StaticBody3D"]
-transform = Transform3D(0.00326584, -0.0441914, -0.999028, 0.543253, 0.838825, -0.035331, 0.839564, -0.542608, 0.0267493, 0.473465, 0.050352, 0.0206419)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="pc_arms_rig_v6/PC_rig/Skeleton3D/BoneAttachment3D/Sword"]
+transform = Transform3D(0.00326586, -0.0441914, -0.999028, 0.543253, 0.838825, -0.0353308, 0.839564, -0.542607, 0.0267493, 0.776588, 0.0610719, 0.0125256)
 shape = SubResource("BoxShape3D_6cqxy")
 
 [node name="sword_012" parent="pc_arms_rig_v6/PC_rig/Skeleton3D/BoneAttachment3D" instance=ExtResource("3_kwsho")]

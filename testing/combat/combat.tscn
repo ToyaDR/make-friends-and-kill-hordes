@@ -16,7 +16,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0291917, -0.0927756, -0.08
 
 [node name="Floor" type="StaticBody3D" parent="Environment"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
-collision_layer = 3
 collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Floor"]
@@ -30,7 +29,6 @@ skeleton = NodePath("../../..")
 
 [node name="WallBack" type="StaticBody3D" parent="Environment"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -1, -9.52375)
-collision_layer = 2
 collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/WallBack"]
@@ -43,7 +41,6 @@ mesh = SubResource("BoxMesh_7wsyk")
 
 [node name="WallFront" type="StaticBody3D" parent="Environment"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -1, 9.5)
-collision_layer = 2
 collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/WallFront"]
@@ -56,7 +53,6 @@ mesh = SubResource("BoxMesh_7wsyk")
 
 [node name="WallLeft" type="StaticBody3D" parent="Environment"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 9.466, -1, 0)
-collision_layer = 2
 collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/WallLeft"]
@@ -69,7 +65,6 @@ mesh = SubResource("BoxMesh_7wsyk")
 
 [node name="WallRight" type="StaticBody3D" parent="Environment"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -9.5, -1, 0)
-collision_layer = 2
 collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/WallRight"]

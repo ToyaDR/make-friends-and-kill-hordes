@@ -14,7 +14,8 @@
 height = 1.43913
 
 [node name="AnxietyGremlinPrefab" type="RigidBody3D"]
-collision_mask = 3
+collision_layer = 4
+collision_mask = 11
 script = ExtResource("1_h6j4g")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -493,5 +494,7 @@ size_flags_vertical = 10
 text = "100"
 horizontal_alignment = 2
 vertical_alignment = 2
+
+[connection signal="body_entered" from="." to="." method="OnBodyEntered"]
 
 [editable path="anxietyGremlin_rig_2"]

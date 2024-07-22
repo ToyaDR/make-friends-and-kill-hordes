@@ -142,12 +142,12 @@ public partial class PlayerCharacter : CharacterBody3D
 		if (CurrentItem == "Heal")
 		{
 			Sword.Visible = false;
-			Sword.GetChild<StaticBody3D>(0).GetChild<CollisionShape3D>(0).Disabled = true;
+			Sword.GetChild<Sword>(0).GetChild<CollisionShape3D>(0).Disabled = true;
 		}
 		else
 		{
 			Sword.Visible = true;
-			Sword.GetChild<StaticBody3D>(0).GetChild<CollisionShape3D>(0).Disabled = false;
+			Sword.GetChild<Sword>(0).GetChild<CollisionShape3D>(0).Disabled = false;
 		}
 	}
 
