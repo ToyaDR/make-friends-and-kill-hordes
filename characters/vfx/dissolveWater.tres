@@ -1,0 +1,16 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://btom25pa5188y"]
+
+[ext_resource type="Shader" uid="uid://4kronfet74pp" path="res://characters/vfx/dissolve.tres" id="1_ntdn7"]
+[ext_resource type="Texture2D" uid="uid://d0ml8nllhgrfx" path="res://characters/vfx/textures/T_VFX_Noise_4.PNG" id="2_td1wl"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_ntdn7")
+shader_parameter/OutsideColor = Color(0.698039, 1, 0.996078, 1)
+shader_parameter/InsideColor = Color(0, 0.733333, 0.839216, 1)
+shader_parameter/InsideColor2 = Color(0.521569, 0.917647, 0.945098, 1)
+shader_parameter/textureSpeed = Vector2(0, 1.5)
+shader_parameter/textureIntensity = 1.0
+shader_parameter/InOutThreshold = 0.8
+shader_parameter/mainTransparency = 1.0
+shader_parameter/effecttexture = ExtResource("2_td1wl")

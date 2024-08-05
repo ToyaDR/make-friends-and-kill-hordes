@@ -1,0 +1,15 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://dj2bobrl1msak"]
+
+[ext_resource type="Shader" uid="uid://bsoajfcdfwl04" path="res://characters/vfx/swirlfx.tres" id="1_ofwel"]
+[ext_resource type="Texture2D" uid="uid://dlmsxc2q5b6fn" path="res://characters/vfx/textures/stripes.png" id="2_xp5he"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_ofwel")
+shader_parameter/Vector2Parameter = Vector2(2, 1)
+shader_parameter/TexturePower = 1.0
+shader_parameter/Gradient_Power = 4.0
+shader_parameter/triplanar_scale = Vector3(1, 1, 1)
+shader_parameter/triplanar_offset = null
+shader_parameter/triplanar_sharpness = 0.5
+shader_parameter/Energy_Texture = ExtResource("2_xp5he")
