@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cg58t2n1wm1qj"
+path="res://.godot/imported/swirl2.obj-ecc4b3dbea7389bc9c865e2a09645022.mesh"
+
+[deps]
+
+files=["res://.godot/imported/swirl2.obj-ecc4b3dbea7389bc9c865e2a09645022.mesh"]
+
+source_file="res://characters/vfx/swirl2.obj"
+dest_files=["res://.godot/imported/swirl2.obj-ecc4b3dbea7389bc9c865e2a09645022.mesh", "res://.godot/imported/swirl2.obj-ecc4b3dbea7389bc9c865e2a09645022.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
