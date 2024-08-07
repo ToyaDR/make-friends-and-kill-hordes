@@ -9,6 +9,7 @@ public partial class PlayerCharacter : CharacterBody3D
 	private const float Speed = 5.0f;
 	private const float DashSpeed = 40.0f;
 	private const float LookSpeed = 0.001f;
+	private const float JumpSpeed = 4.5f;
 
 	private float RotationX = 0.0f;
 	private float RotationY = 0.0f;
@@ -55,7 +56,7 @@ public partial class PlayerCharacter : CharacterBody3D
 	}
 	public void HandleMovement(double delta)
 	{
-		Vector3 velocity = Vector3.Zero;
+		Vector3 velocity = Velocity;
 
 		// Add the gravity.
 		if (!IsOnFloor())
@@ -93,6 +94,12 @@ public partial class PlayerCharacter : CharacterBody3D
 		{
 			velocity.X = Mathf.MoveToward(Velocity.X, 0, playerSpeed);
 			velocity.Z = Mathf.MoveToward(Velocity.Z, 0, playerSpeed);
+		}
+
+		if (Input.IsActionJustPressed("jump") && IsOnFloor())
+		{
+			GD.Print("jumping");
+			velocity.Y = JumpSpeed;
 		}
 
 		Velocity = velocity;

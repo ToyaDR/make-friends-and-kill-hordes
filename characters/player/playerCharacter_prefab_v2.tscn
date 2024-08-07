@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://c2x26mfqlh1ib" path="res://characters/player/sword_01.glb" id="3_kwsho"]
 [ext_resource type="Shader" uid="uid://cbadlvsj34j7b" path="res://characters/player/playerCharacter_swordBlade.tres" id="4_cqllp"]
 [ext_resource type="PackedScene" uid="uid://dfje4j8ylprbo" path="res://characters/hitPoints/HitPointsBar.tscn" id="5_lqql5"]
-[ext_resource type="Material" path="res://PC_toon.tres" id="9_67nuo"]
+[ext_resource type="Material" uid="uid://bchaayqrgckcn" path="res://PC_toon.tres" id="9_67nuo"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6cqxy"]
 size = Vector3(0.0487976, 0.171768, 1.39401)
