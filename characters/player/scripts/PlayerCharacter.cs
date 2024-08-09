@@ -9,7 +9,7 @@ public partial class PlayerCharacter : CharacterBody3D
 	private const float Speed = 5.0f;
 	private const float DashSpeed = 40.0f;
 	private const float LookSpeed = 0.001f;
-	private const float JumpSpeed = 4.5f;
+	private const float JumpHeight = 2f;
 
 	private float RotationX = 0.0f;
 	private float RotationY = 0.0f;
@@ -99,7 +99,7 @@ public partial class PlayerCharacter : CharacterBody3D
 		if (Input.IsActionJustPressed("jump") && IsOnFloor())
 		{
 			GD.Print("jumping");
-			velocity.Y = JumpSpeed;
+			velocity.Y = Mathf.Sqrt(JumpHeight*2*gravity);
 		}
 
 		Velocity = velocity;
