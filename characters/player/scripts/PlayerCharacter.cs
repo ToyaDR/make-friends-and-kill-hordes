@@ -7,14 +7,21 @@ public partial class PlayerCharacter : CharacterBody3D
 
 	public float gravity = ProjectSettings.GetSetting("physics/3d/default_gravity").AsSingle();
 	private const float Speed = 5.0f;
+	private const float JumpHorizontalSpeed = 2.0f;
 	private const float DashSpeed = 40.0f;
 	private const float LookSpeed = 0.001f;
+	private const float JumpHeight = 1f;
 
 	private float RotationX = 0.0f;
 	private float RotationY = 0.0f;
 	private bool isDashing = false;
 	private int framesDashing = 0;
 
+	private bool isJumping = false;
+	private bool disableJumpButton = false;
+	private int framesJumping = 0;
+	private int MAX_FRAMES_JUMPING = 30;
+	private int INITIAL_FRAMES = 10;
 	private HitPoints hitPoints;
 	private HitPointsBar hitPointsBar;
 	public HitPointsBar HPBar { get => hitPointsBar; set => hitPointsBar = value; }
@@ -55,11 +62,11 @@ public partial class PlayerCharacter : CharacterBody3D
 	}
 	public void HandleMovement(double delta)
 	{
-		Vector3 velocity = Vector3.Zero;
+		Vector3 velocity = Velocity;
 
 		// Add the gravity.
 		if (!IsOnFloor())
-			velocity.Y -= gravity * (float)delta;
+			velocity.Y -= gravity * (float)delta / 2;
 
 		Vector3 direction = Vector3.Zero;
 		Vector2 inputDirection = Input.GetVector("move_right", "move_left", "move_backward", "move_forward");
@@ -82,7 +89,16 @@ public partial class PlayerCharacter : CharacterBody3D
 			framesDashing++;
 		}
 
-		float playerSpeed = isDashing ? DashSpeed : Speed;
+		float playerSpeed = Speed;
+		if (!IsOnFloor())
+		{
+			playerSpeed = JumpHorizontalSpeed;
+		}
+		if (isDashing)
+		{
+			playerSpeed = DashSpeed;
+		}
+
 		if (direction != Vector3.Zero)
 		{
 
@@ -93,6 +109,39 @@ public partial class PlayerCharacter : CharacterBody3D
 		{
 			velocity.X = Mathf.MoveToward(Velocity.X, 0, playerSpeed);
 			velocity.Z = Mathf.MoveToward(Velocity.Z, 0, playerSpeed);
+		}
+
+		if (Input.IsActionPressed("jump") && isJumping && framesJumping < MAX_FRAMES_JUMPING)
+		{
+			if (framesJumping > INITIAL_FRAMES)
+			{
+				velocity.Y = Mathf.Sqrt(JumpHeight * 4f * gravity);
+			}
+			else
+			{
+				velocity.Y = Mathf.Sqrt(JumpHeight * gravity);
+			}
+			framesJumping++;
+		}
+
+		if (Input.IsActionJustPressed("jump") && !disableJumpButton)
+		{
+			isJumping = true;
+			disableJumpButton = true;
+
+			velocity.Y = Mathf.Sqrt(JumpHeight * gravity);
+		}
+
+		if (Input.IsActionJustReleased("jump") || framesJumping >= MAX_FRAMES_JUMPING)
+		{
+			isJumping = false;
+		}
+
+		if (IsOnFloor())
+		{
+			disableJumpButton = false;
+			isJumping = false;
+			framesJumping = 0;
 		}
 
 		Velocity = velocity;
@@ -151,7 +200,7 @@ public partial class PlayerCharacter : CharacterBody3D
 		}
 	}
 
-	public override void _Process(double delta)
+	public override void _PhysicsProcess(double delta)
 	{
 		HandleMovement(delta);
 	}
