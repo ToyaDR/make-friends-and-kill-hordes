@@ -7,6 +7,7 @@ public partial class PlayerCharacter : CharacterBody3D
 
 	public float gravity = ProjectSettings.GetSetting("physics/3d/default_gravity").AsSingle();
 	private const float Speed = 5.0f;
+	private const float JumpHorizontalSpeed = 2.0f;
 	private const float DashSpeed = 40.0f;
 	private const float LookSpeed = 0.001f;
 	private const float JumpHeight = 1f;
@@ -88,7 +89,16 @@ public partial class PlayerCharacter : CharacterBody3D
 			framesDashing++;
 		}
 
-		float playerSpeed = isDashing ? DashSpeed : Speed;
+		float playerSpeed = Speed;
+		if (!IsOnFloor())
+		{
+			playerSpeed = JumpHorizontalSpeed;
+		}
+		if (isDashing)
+		{
+			playerSpeed = DashSpeed;
+		}
+
 		if (direction != Vector3.Zero)
 		{
 
