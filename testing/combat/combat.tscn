@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://d36wa6ttdrb8t"]
+[gd_scene load_steps=6 format=3 uid="uid://d36wa6ttdrb8t"]
 
 [ext_resource type="PackedScene" uid="uid://bx2i2hc2rnyas" path="res://testing/combat/player_combat_test.tscn" id="1_p7qkf"]
 [ext_resource type="PackedScene" uid="uid://c25kfm6svragu" path="res://characters/enemies/anxietyGremlin/anxietyGremlin_prefab.tscn" id="2_i2tpi"]
+[ext_resource type="PackedScene" uid="uid://c1g36ohbvf0dd" path="res://environments/grapplePoint/grapple_point.tscn" id="3_sduwu"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hk85y"]
 
@@ -82,3 +83,8 @@ omni_range = 17.632
 
 [node name="AnxietyGremlinPrefab" parent="." instance=ExtResource("2_i2tpi")]
 transform = Transform3D(-0.959722, 0, 0.280952, 0, 1, 0, -0.280952, 0, -0.959722, 0, 0, 6.40436)
+
+[node name="GrapplePoint" parent="." instance=ExtResource("3_sduwu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.59693, 6.03348)
+collision_layer = 16
+collision_mask = 0

@@ -16,6 +16,8 @@ public partial class PlayerCombatTest : PlayerCharacter
 	public override void _Process(double delta)
 	{
 		HandleMovement(delta);
+		HandleInteraction();
+
 		SwapItem();
 
 		if (Mathf.RoundToInt(delta) % 1000 == 0 && HPBar.HitPointsValue.CurrentHitPoints > 50 && takeDamage)

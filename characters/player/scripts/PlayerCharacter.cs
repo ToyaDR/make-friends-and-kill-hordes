@@ -28,6 +28,9 @@ public partial class PlayerCharacter : CharacterBody3D
 
 	private Node3D Sword;
 
+	private RayCast3D interactionRayCast;
+	private GodotObject hoveredObject;
+
 	public void ReadyPlayerCharacter()
 	{
 		Input.MouseMode = Input.MouseModeEnum.Captured;
@@ -36,6 +39,8 @@ public partial class PlayerCharacter : CharacterBody3D
 		hitPointsBar = GetNode<HitPointsBar>("PlayerCharacterPrefab/HitPointsBar");
 		hitPointsBar.InitHitPointsBars(hitPoints);
 		Sword = GetNode<Node3D>("PlayerCharacterPrefab/pc_arms_rig_v6/PC_rig/Skeleton3D/BoneAttachment3D");
+		interactionRayCast = GetNode<RayCast3D>("PlayerCharacterPrefab/firstPersonCamera/RayCast3D");
+		interactionRayCast.CollideWithBodies = true;
 	}
 
 	public override void _Ready()
@@ -200,8 +205,28 @@ public partial class PlayerCharacter : CharacterBody3D
 		}
 	}
 
+	public void HandleInteraction()
+	{
+		GodotObject interactable = interactionRayCast.GetCollider();
+		if (interactable != null && interactable is GrapplePoint)
+		{
+			hoveredObject = interactable;
+			((GrapplePoint)hoveredObject).Hover();
+		}
+
+		if (interactable == null && hoveredObject != null)
+		{
+			if (hoveredObject is GrapplePoint)
+			{
+				((GrapplePoint)hoveredObject).LeaveHover();
+			}
+			hoveredObject = null;
+		}
+	}
+
 	public override void _PhysicsProcess(double delta)
 	{
 		HandleMovement(delta);
+		HandleInteraction();
 	}
 }
