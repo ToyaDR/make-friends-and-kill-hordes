@@ -24,7 +24,7 @@ public partial class PlayerCombatTest : PlayerCharacter
 		{
 			TakeDamage(1);
 		}
-		if (Input.IsActionJustPressed("attack_or_heal"))
+		if (Input.IsActionJustPressed("action"))
 		{
 			if (CurrentItem == "Sword")
 			{

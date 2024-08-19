@@ -23,7 +23,7 @@ current = true
 near = 0.001
 
 [node name="RayCast3D" type="RayCast3D" parent="firstPersonCamera"]
-transform = Transform3D(-4.149, -2.26494e-06, -2.73844e-14, 0, -6.55671e-07, 4.149, -6.26482e-07, 15, 1.81359e-07, 4.84204e-08, -0.122287, -0.745802)
+transform = Transform3D(-4.149, -2.97466e-06, -2.66454e-14, 0, -1.07288e-06, 4.149, -6.26482e-07, 19.7003, 4.17233e-07, 4.84204e-08, -0.122287, -0.745802)
 collide_with_areas = true
 
 [node name="pc_arms_rig_v6" parent="." instance=ExtResource("1_sysh2")]
