@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://c2x26mfqlh1ib" path="res://characters/player/sword_01.glb" id="3_kwsho"]
 [ext_resource type="Shader" uid="uid://cbadlvsj34j7b" path="res://characters/player/playerCharacter_swordBlade.tres" id="4_cqllp"]
 [ext_resource type="PackedScene" uid="uid://dfje4j8ylprbo" path="res://characters/hitPoints/HitPointsBar.tscn" id="5_lqql5"]
-[ext_resource type="Material" uid="uid://bchaayqrgckcn" path="res://PC_toon.tres" id="9_67nuo"]
+[ext_resource type="Material" path="res://PC_toon.tres" id="9_67nuo"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6cqxy"]
 size = Vector3(0.0487976, 0.171768, 1.39401)
@@ -21,6 +21,10 @@ unique_name_in_owner = true
 transform = Transform3D(-1, -5.35447e-09, 5.93637e-08, 0, 0.995957, 0.089833, -5.96047e-08, 0.089833, -0.995957, 3.3722e-08, 1.49504, -0.0335487)
 current = true
 near = 0.001
+
+[node name="RayCast3D" type="RayCast3D" parent="firstPersonCamera"]
+transform = Transform3D(-4.149, -2.97466e-06, -2.66454e-14, 0, -1.07288e-06, 4.149, -6.26482e-07, 19.7003, 4.17233e-07, 4.84204e-08, -0.122287, -0.745802)
+collide_with_areas = true
 
 [node name="pc_arms_rig_v6" parent="." instance=ExtResource("1_sysh2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0434236, -0.204253, 0.172426)

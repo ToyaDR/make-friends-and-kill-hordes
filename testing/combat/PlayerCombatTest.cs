@@ -16,13 +16,15 @@ public partial class PlayerCombatTest : PlayerCharacter
 	public override void _Process(double delta)
 	{
 		HandleMovement(delta);
+		HandleInteraction();
+
 		SwapItem();
 
 		if (Mathf.RoundToInt(delta) % 1000 == 0 && HPBar.HitPointsValue.CurrentHitPoints > 50 && takeDamage)
 		{
 			TakeDamage(1);
 		}
-		if (Input.IsActionJustPressed("attack_or_heal"))
+		if (Input.IsActionJustPressed("action"))
 		{
 			if (CurrentItem == "Sword")
 			{

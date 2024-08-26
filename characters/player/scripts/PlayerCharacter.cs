@@ -4,11 +4,11 @@ using System;
 public partial class PlayerCharacter : CharacterBody3D
 {
 	private Camera3D FirstPersonCamera;
+	// private Camera3D DebugCamera;
 
 	public float gravity = ProjectSettings.GetSetting("physics/3d/default_gravity").AsSingle();
 	private const float Speed = 5.0f;
 	private const float JumpHorizontalSpeed = 2.0f;
-	private const float DashSpeed = 40.0f;
 	private const float LookSpeed = 0.001f;
 	private const float JumpHeight = 1f;
 
@@ -28,6 +28,12 @@ public partial class PlayerCharacter : CharacterBody3D
 
 	private Node3D Sword;
 
+	private RayCast3D interactionRayCast;
+	private GodotObject hoveredObject;
+
+	private Vector3 hookPoint;
+	private bool isGrappling;
+
 	public void ReadyPlayerCharacter()
 	{
 		Input.MouseMode = Input.MouseModeEnum.Captured;
@@ -36,6 +42,10 @@ public partial class PlayerCharacter : CharacterBody3D
 		hitPointsBar = GetNode<HitPointsBar>("PlayerCharacterPrefab/HitPointsBar");
 		hitPointsBar.InitHitPointsBars(hitPoints);
 		Sword = GetNode<Node3D>("PlayerCharacterPrefab/pc_arms_rig_v6/PC_rig/Skeleton3D/BoneAttachment3D");
+		interactionRayCast = GetNode<RayCast3D>("PlayerCharacterPrefab/firstPersonCamera/RayCast3D");
+		interactionRayCast.CollideWithBodies = true;
+
+		// DebugCamera = GetNode<Camera3D>("SubViewport/Camera3D");
 	}
 
 	public override void _Ready()
@@ -60,6 +70,33 @@ public partial class PlayerCharacter : CharacterBody3D
 			RotateObjectLocal(Vector3.Right, clampedY);
 		}
 	}
+
+
+	public void HandleGrapple(double delta)
+	{
+		Transform3D transform = Transform;
+		if (currentItem == 2 && hoveredObject is GrapplePoint && Input.IsActionJustPressed("action"))
+		{
+			if (!isGrappling)
+			{
+				isGrappling = true;
+			}
+		}
+
+		if (isGrappling)
+		{
+			hookPoint = interactionRayCast.GetCollisionPoint() + new Vector3(0f, 2.25f, 0f);
+			transform.Origin = Transform.Origin.Lerp(hookPoint, 0.05f);
+			Transform = transform;
+		}
+
+		if (Input.IsActionJustReleased("action"))
+		{
+			isGrappling = false;
+			hookPoint = Vector3.Zero;
+		}
+	}
+
 	public void HandleMovement(double delta)
 	{
 		Vector3 velocity = Velocity;
@@ -73,32 +110,14 @@ public partial class PlayerCharacter : CharacterBody3D
 
 		direction = (Transform.Basis * new Vector3(inputDirection.X, 0, inputDirection.Y)).Normalized();
 
-		if (Input.IsActionJustPressed("dash") && !isDashing)
-		{
-			isDashing = true;
-			framesDashing = 0;
-		}
-
-		if (framesDashing >= 15)
-		{
-			isDashing = false;
-		}
-
-		if (isDashing)
-		{
-			framesDashing++;
-		}
 
 		float playerSpeed = Speed;
 		if (!IsOnFloor())
 		{
 			playerSpeed = JumpHorizontalSpeed;
 		}
-		if (isDashing)
-		{
-			playerSpeed = DashSpeed;
-		}
 
+		HandleGrapple(delta);
 		if (direction != Vector3.Zero)
 		{
 
@@ -153,9 +172,10 @@ public partial class PlayerCharacter : CharacterBody3D
 		hitPointsBar.TakeDamage(damage);
 	}
 
-	private string[] ItemList = new string[2]{
+	private string[] ItemList = new string[3]{
 		"Sword",
 		"Heal",
+		"Grapple",
 	};
 
 	private int currentItem = 0;
@@ -187,6 +207,10 @@ public partial class PlayerCharacter : CharacterBody3D
 		{
 			currentItem = 1;
 		}
+		if (Input.IsActionJustPressed("swap_grapple"))
+		{
+			currentItem = 2;
+		}
 
 		if (CurrentItem == "Heal")
 		{
@@ -200,8 +224,33 @@ public partial class PlayerCharacter : CharacterBody3D
 		}
 	}
 
+	public void HandleInteraction()
+	{
+		GodotObject interactable = interactionRayCast.GetCollider();
+		if (interactable != null && interactable is GrapplePoint)
+		{
+			hoveredObject = interactable;
+			((GrapplePoint)hoveredObject).Hover();
+		}
+
+		if (interactable == null && hoveredObject != null)
+		{
+			if (hoveredObject is GrapplePoint)
+			{
+				((GrapplePoint)hoveredObject).LeaveHover();
+			}
+			hoveredObject = null;
+		}
+	}
+
 	public override void _PhysicsProcess(double delta)
 	{
 		HandleMovement(delta);
+		HandleInteraction();
+
+		// Transform3D debugCameraTransform = Transform;
+		// debugCameraTransform.Origin = new Vector3(Transform.Origin.X + 10.0f, Transform.Origin.Y, Transform.Origin.Z);
+		// debugCameraTransform.Basis = new Basis(new Vector3(0, 0, -1), new Vector3(0, 1, 0), new Vector3(1, 0, 0));
+		// DebugCamera.Transform = debugCameraTransform;
 	}
 }
