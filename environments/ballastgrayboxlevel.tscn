@@ -1,21 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://13gp7pl0tbmt"]
+[gd_scene load_steps=7 format=3 uid="uid://13gp7pl0tbmt"]
 
 [ext_resource type="Material" uid="uid://7xnxfp5n847g" path="res://environments/grayboxResources/grayboxcheckers.tres" id="1_tbt6e"]
 [ext_resource type="PackedScene" uid="uid://bx2i2hc2rnyas" path="res://testing/combat/player_combat_test.tscn" id="2_qs1kf"]
-[ext_resource type="Material" uid="uid://dipgnvtagoyk3" path="res://environments/grayboxResources/grayboxcheckers_light.tres" id="2_qusny"]
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_qc3iw"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_pkspj"]
-material = ExtResource("1_tbt6e")
-
-[sub_resource type="BoxMesh" id="BoxMesh_qyfmv"]
-
-[sub_resource type="PrismMesh" id="PrismMesh_2w8x8"]
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_ml0ef"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_6hnvb"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_oqm3e"]
+viewport_path = NodePath("SubViewport")
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0qpa3"]
 
@@ -28,42 +17,22 @@ sky = SubResource("Sky_dvd8y")
 
 [node name="Ballastgrayboxlevel" type="Node3D"]
 
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.018, 0, 34.248)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(26.1439, 0, 0, 0, 0.999999, 0, 0, 0, 21.3186, -2.25821, 11.7441, 5.02324)
+size = Vector3(1.95752, 24.4883, 2.46423)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(25.8617, 0, 0, 0, 0.989207, 0, 0, 0, 21.0885, -2.50506, 5.37345, 5.25431)
+operation = 2
+size = Vector3(1.86407, 46.8134, 2.34457)
+
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(14.7425, 0, 0, 0, 0.999735, 0, 0, 0, 27.8162, -5.78095, -0.243557, 68.3118)
+transform = Transform3D(14.7425, 0, 0, 0, 0.999735, 0, 0, 0, 27.8162, 0.441399, -0.243557, 38.7084)
 use_collision = true
-size = Vector3(4.99232, 0.512756, 4.01384)
-material = ExtResource("1_tbt6e")
-
-[node name="CSGBox3D4" type="CSGBox3D" parent="."]
-transform = Transform3D(6.01933, 0, 0, 0, 0.955913, 0, 0, 0, 19.3566, 12.8371, 24.3535, 32.7785)
-use_collision = true
-size = Vector3(4.41725, 3.15834, 1.44816)
-material = ExtResource("1_tbt6e")
-
-[node name="openingroomCGSCombiner" type="CSGCombiner3D" parent="."]
-use_collision = true
-
-[node name="CSGMesh3D2" type="CSGMesh3D" parent="openingroomCGSCombiner"]
-transform = Transform3D(25.4236, 0, 0, 0, 1.63105, 0, 0, 0, 25.4236, 0, 1.30925, 0)
-mesh = SubResource("CylinderMesh_qc3iw")
-material = ExtResource("1_tbt6e")
-
-[node name="CSGMesh3D" type="CSGMesh3D" parent="openingroomCGSCombiner/CSGMesh3D2"]
-transform = Transform3D(0.945741, 0, 0, 0, 2.55771, 0, 0, 0, 0.938816, 0, -0.957496, 0)
-operation = 2
-mesh = SubResource("CylinderMesh_qc3iw")
-material = ExtResource("1_tbt6e")
-
-[node name="CSGBox3D" type="CSGBox3D" parent="openingroomCGSCombiner/CSGMesh3D2"]
-transform = Transform3D(0.0799907, 0, -0.0344535, 0, 1.73433, 0, 0.0128096, 0, 0.215149, -0.0612168, -0.0691388, 0.47018)
-operation = 2
-size = Vector3(1, 1, 0.301331)
-material = ExtResource("1_tbt6e")
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="openingroomCGSCombiner/CSGMesh3D2"]
-transform = Transform3D(0.0800543, 0, 0.0333679, 0, 1.73433, 0, -0.012406, 0, 0.21532, 0.105312, -0.0691388, 0.46007)
-operation = 2
-size = Vector3(1, 1, 0.301331)
+size = Vector3(9.70389, 0.512756, 1.88534)
 material = ExtResource("1_tbt6e")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="."]
@@ -72,478 +41,28 @@ use_collision = true
 size = Vector3(1.95197, 0.512756, 0.941345)
 material = ExtResource("1_tbt6e")
 
-[node name="room1A" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.7869, 0, 31.3028)
-
-[node name="room1Awalls" type="CSGCombiner3D" parent="room1A"]
-transform = Transform3D(1, 0, 0, 0, 1.6828, 0, 0, 0, 1, 0, -0.427926, 0)
-use_collision = true
-
-[node name="CSGMesh3D2" type="CSGMesh3D" parent="room1A/room1Awalls"]
-transform = Transform3D(11.5186, 0, 0, 0, 9.45503, 0, 0, 0, 75.325, 0, 4.20277, 22.8836)
-mesh = SubResource("BoxMesh_pkspj")
-material = ExtResource("1_tbt6e")
-
-[node name="CSGMesh3D2" type="CSGMesh3D" parent="room1A/room1Awalls/CSGMesh3D2"]
-transform = Transform3D(1.0867, 0, 0, 0, 1.4635, 0, 0, 0, 0.685232, -0.778513, -0.216598, 0.116758)
-mesh = SubResource("BoxMesh_qyfmv")
-material = ExtResource("1_tbt6e")
-
-[node name="CSGMesh3D" type="CSGMesh3D" parent="room1A/room1Awalls/CSGMesh3D2/CSGMesh3D2"]
-transform = Transform3D(0.919095, 0, 0, 0, 1.76636, 0, 0, 0, 0.890735, 0.0554514, -0.0342058, 0.0201999)
-operation = 2
-mesh = SubResource("BoxMesh_qyfmv")
-material = ExtResource("1_tbt6e")
-
-[node name="CSGMesh3D" type="CSGMesh3D" parent="room1A/room1Awalls/CSGMesh3D2"]
-transform = Transform3D(0.821636, 0, 0, 0, 1.60781, 0, 0, 0, 0.956311, 0, -0.102253, -0.0074659)
-operation = 2
-mesh = SubResource("BoxMesh_qyfmv")
-material = ExtResource("1_tbt6e")
-
-[node name="CSGBox3D" type="CSGBox3D" parent="room1A/room1Awalls/CSGMesh3D2"]
-transform = Transform3D(0.214809, 0, 0, 0, 0.262033, 0, 0, 0, 0.385048, 0.187022, 0.253004, 0.458517)
-operation = 2
-size = Vector3(1, 0.742065, 0.318848)
-material = ExtResource("1_tbt6e")
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="room1A/room1Awalls/CSGMesh3D2"]
-transform = Transform3D(0.214809, 0, 0, 0, 0.262033, 0, 0, 0, 0.385048, 0.187022, 0.226056, -0.497258)
-operation = 2
-size = Vector3(1, 0.742065, 0.107788)
-material = ExtResource("1_tbt6e")
-
-[node name="CSGMesh3D3" type="CSGMesh3D" parent="room1A/room1Awalls/CSGMesh3D2"]
-transform = Transform3D(0.675086, 0, 0, 0, 2.58507, 0, 0, 0, 0.590504, -0.430671, -0.266659, 0.146567)
-operation = 2
-mesh = SubResource("BoxMesh_qyfmv")
-material = ExtResource("1_tbt6e")
-
-[node name="CSGBox3D4" type="CSGBox3D" parent="room1A/room1Awalls/CSGMesh3D2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.71232, 0, 0.254917)
-size = Vector3(1.01953, 1, 0.439728)
-material = ExtResource("1_tbt6e")
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="room1A/room1Awalls/CSGMesh3D2/CSGBox3D4"]
-transform = Transform3D(0.214809, 0, 0, 0, 0.262033, 0, 0, 0, 0.385048, -0.192634, -0.0950137, 0.222584)
-operation = 2
-size = Vector3(1, 0.822205, 0.318848)
-material = ExtResource("1_tbt6e")
-
-[node name="CSGBox3D3" type="CSGBox3D" parent="room1A/room1Awalls/CSGMesh3D2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.60099, -0.0490723, 0.258686)
-operation = 2
-size = Vector3(1, 0.901855, 0.362427)
-material = ExtResource("1_tbt6e")
-
-[node name="CSGBox3D" type="CSGBox3D" parent="room1A/room1Awalls"]
-transform = Transform3D(6.56409, 0, 0, 0, 0.849897, 0, 0, 0, 6.56409, 1.98689, 4.12163, -0.405676)
-material_override = ExtResource("1_tbt6e")
-size = Vector3(1.27856, 1, 0.534302)
-material = ExtResource("2_qusny")
-
-[node name="CSGBox3D5" type="CSGBox3D" parent="room1A/room1Awalls"]
-transform = Transform3D(6.56409, 0, 0, 0, 0.626888, 0, 0, 0, 6.56409, 1.98689, 4.65876, 15.896)
-material_override = ExtResource("1_tbt6e")
-size = Vector3(1.27856, 1, 0.534302)
-material = ExtResource("2_qusny")
-
-[node name="CSGBox3D7" type="CSGBox3D" parent="room1A/room1Awalls"]
-transform = Transform3D(6.56409, 0, 0, 0, 0.626888, 0, 0, 0, 6.56409, 1.98689, 6.85054, 24.3435)
-material_override = ExtResource("1_tbt6e")
-size = Vector3(1.27856, 1, 0.534302)
-material = ExtResource("2_qusny")
-
-[node name="CSGBox3D12" type="CSGBox3D" parent="room1A/room1Awalls"]
-transform = Transform3D(6.56409, 0, 0, 0, 0.579269, 2.50943, 0, -0.239657, 6.06548, 1.18712, 7.58585, 44.2328)
-material_override = ExtResource("1_tbt6e")
-size = Vector3(0.614868, 0.394531, 0.534302)
-material = ExtResource("2_qusny")
-
-[node name="CSGBox3D13" type="CSGBox3D" parent="room1A/room1Awalls"]
-transform = Transform3D(6.56409, 0, 0, 0, 0.626888, 0, 0, 0, 6.56409, 2.13182, 8.45355, 57.1178)
-material_override = ExtResource("1_tbt6e")
-size = Vector3(0.845642, 2.45935, 0.534302)
-material = ExtResource("2_qusny")
-
-[node name="CSGBox3D14" type="CSGBox3D" parent="room1A/room1Awalls"]
-transform = Transform3D(6.2479, 0.0326372, 0, -2.01272, 0.101313, 0, 0, 0, 6.56409, -1.93009, 6.40798, 52.9645)
-material_override = ExtResource("1_tbt6e")
-size = Vector3(0.204514, 2.45935, 0.3526)
-material = ExtResource("2_qusny")
-
-[node name="CSGBox3D9" type="CSGBox3D" parent="room1A/room1Awalls"]
-transform = Transform3D(6.56409, 0, 0, 0, 0.626888, 0, 0, 0, 6.56409, -1.09123, 2.28102, 33.7954)
-material_override = ExtResource("1_tbt6e")
-size = Vector3(2.21643, 8.39301, 0.534302)
-material = ExtResource("2_qusny")
-
-[node name="CSGMesh3D" type="CSGMesh3D" parent="room1A/room1Awalls/CSGBox3D9"]
-transform = Transform3D(0.0468255, 0, 0.0316028, 0, 1.95718, 0, -0.0617015, 0, 0.0239835, 0.204121, 4.71665, -0.0219154)
-mesh = SubResource("PrismMesh_2w8x8")
-
-[node name="CSGMesh3D2" type="CSGMesh3D" parent="room1A/room1Awalls/CSGBox3D9"]
-transform = Transform3D(0.0468255, 0, 0.0316028, 0, 1.95718, 0, -0.0617015, 0, 0.0239835, 0.327355, 4.71665, -0.0318508)
-mesh = SubResource("PrismMesh_2w8x8")
-
-[node name="CSGMesh3D3" type="CSGMesh3D" parent="room1A/room1Awalls/CSGBox3D9"]
-transform = Transform3D(0.0468255, 0, 0.0316028, 0, 1.95718, 0, -0.0617015, 0, 0.0239835, 0.456121, 4.71665, -0.0371799)
-mesh = SubResource("PrismMesh_2w8x8")
-
-[node name="CSGMesh3D4" type="CSGMesh3D" parent="room1A/room1Awalls/CSGBox3D9"]
-transform = Transform3D(0.0468255, 0, 0.0316028, 0, 1.95718, 0, -0.0617015, 0, 0.0239835, 0.599026, 4.71665, -0.041235)
-mesh = SubResource("PrismMesh_2w8x8")
-
-[node name="CSGMesh3D5" type="CSGMesh3D" parent="room1A/room1Awalls/CSGBox3D9"]
-transform = Transform3D(0.0468255, 0, 0.0316028, 0, 1.95718, 0, -0.0617015, 0, 0.0239835, 0.091778, 4.71665, -0.0302305)
-mesh = SubResource("PrismMesh_2w8x8")
-
-[node name="CSGMesh3D6" type="CSGMesh3D" parent="room1A/room1Awalls/CSGBox3D9"]
-transform = Transform3D(0.0468255, 0, 0.0316028, 0, 1.95718, 0, -0.0617015, 0, 0.0239835, -0.056201, 4.71665, -0.00885105)
-mesh = SubResource("PrismMesh_2w8x8")
-
-[node name="CSGMesh3D7" type="CSGMesh3D" parent="room1A/room1Awalls/CSGBox3D9"]
-transform = Transform3D(0.0468255, 0, 0.0316028, 0, 1.95718, 0, -0.0617015, 0, 0.0239835, -0.202695, 4.71665, 9.82285e-05)
-mesh = SubResource("PrismMesh_2w8x8")
-
-[node name="CSGMesh3D8" type="CSGMesh3D" parent="room1A/room1Awalls/CSGBox3D9"]
-transform = Transform3D(0.0468255, 0, 0.0316028, 0, 1.95718, 0, -0.0617015, 0, 0.0239835, -0.37779, 4.71665, -0.00451565)
-mesh = SubResource("PrismMesh_2w8x8")
-
-[node name="CSGMesh3D9" type="CSGMesh3D" parent="room1A/room1Awalls/CSGBox3D9"]
-transform = Transform3D(0.0468255, 0, 0.0316028, 0, 1.95718, 0, -0.0617015, 0, 0.0239835, -0.521779, 4.71665, -0.0175371)
-mesh = SubResource("PrismMesh_2w8x8")
-
-[node name="CSGMesh3D10" type="CSGMesh3D" parent="room1A/room1Awalls/CSGBox3D9"]
-transform = Transform3D(0.0468255, 0, 0.0316028, 0, 1.95718, 0, -0.0617015, 0, 0.0239835, -0.674005, 4.71665, -0.0195999)
-mesh = SubResource("PrismMesh_2w8x8")
-
-[node name="CSGMesh3D11" type="CSGMesh3D" parent="room1A/room1Awalls/CSGBox3D9"]
-transform = Transform3D(0.0468255, 0, 0.0316028, 0, 1.95718, 0, -0.0617015, 0, 0.0239835, -0.893329, 4.71665, -0.00717258)
-mesh = SubResource("PrismMesh_2w8x8")
-
-[node name="CSGMesh3D12" type="CSGMesh3D" parent="room1A/room1Awalls/CSGBox3D9"]
-transform = Transform3D(0.0468255, 0, 0.0316028, 0, 1.95718, 0, -0.0617015, 0, 0.0239835, 0.753973, 4.71665, -0.0267305)
-mesh = SubResource("PrismMesh_2w8x8")
-
-[node name="CSGBox3D" type="CSGBox3D" parent="room1A/room1Awalls/CSGBox3D9"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.294324, 0.519713, 0)
-operation = 2
-size = Vector3(1.26221, 4.81458, 1)
-material = ExtResource("2_qusny")
-
-[node name="CSGBox3D10" type="CSGBox3D" parent="room1A/room1Awalls"]
-transform = Transform3D(6.56409, 0, 0, 0, 0.626888, 0, 0, 0, 6.56409, -5.32264, 1.21302, 43.4093)
-size = Vector3(0.946442, 4.98569, 0.0239868)
-material = ExtResource("2_qusny")
-
-[node name="CSGMesh3D13" type="CSGMesh3D" parent="room1A/room1Awalls/CSGBox3D10"]
-transform = Transform3D(0.0251893, 0, 0.0316028, 0, 1.95718, 0, -0.0331917, 0, 0.0239835, -0.356438, 2.86292, -0.0126858)
-mesh = SubResource("PrismMesh_2w8x8")
-
-[node name="CSGMesh3D14" type="CSGMesh3D" parent="room1A/room1Awalls/CSGBox3D10"]
-transform = Transform3D(0.0251893, 0, 0.0316028, 0, 1.95718, 0, -0.0331917, 0, 0.0239835, -0.125851, 2.59326, 0.05373)
-mesh = SubResource("PrismMesh_2w8x8")
-
-[node name="CSGMesh3D15" type="CSGMesh3D" parent="room1A/room1Awalls/CSGBox3D10"]
-transform = Transform3D(0.0251893, 0, 0.0316028, 0, 1.95718, 0, -0.0331917, 0, 0.0239835, 0.0700731, 2.86292, -0.0049448)
-mesh = SubResource("PrismMesh_2w8x8")
-
-[node name="CSGMesh3D16" type="CSGMesh3D" parent="room1A/room1Awalls/CSGBox3D10"]
-transform = Transform3D(0.0251893, 0, 0.0316028, 0, 1.95718, 0, -0.0331917, 0, 0.0239835, 0.151756, 2.82865, 0.00664139)
-mesh = SubResource("PrismMesh_2w8x8")
-
-[node name="CSGMesh3D17" type="CSGMesh3D" parent="room1A/room1Awalls/CSGBox3D10"]
-transform = Transform3D(0.0251893, 0, 0.0316028, 0, 1.95718, 0, -0.0331917, 0, 0.0239835, 0.248081, 2.82865, 0.00397778)
-mesh = SubResource("PrismMesh_2w8x8")
-
-[node name="CSGMesh3D18" type="CSGMesh3D" parent="room1A/room1Awalls/CSGBox3D10"]
-transform = Transform3D(0.0251893, 0, 0.0316028, 0, 1.95718, 0, -0.0331917, 0, 0.0239835, 0.334678, 2.82865, -0.00929642)
-mesh = SubResource("PrismMesh_2w8x8")
-
-[node name="CSGMesh3D19" type="CSGMesh3D" parent="room1A/room1Awalls/CSGBox3D10"]
-transform = Transform3D(0.0251893, 0, 0.0316028, 0, 1.95718, 0, -0.0331917, 0, 0.0239835, 0.423277, 2.82865, -0.000328064)
-mesh = SubResource("PrismMesh_2w8x8")
-
-[node name="CSGBox3D11" type="CSGBox3D" parent="room1A/room1Awalls"]
-transform = Transform3D(6.56409, 0, 0, 0, 0.626888, 0, 0, 0, 6.56409, -21.9822, 0.995378, 55.4551)
-material_override = ExtResource("1_tbt6e")
-size = Vector3(0.647049, 4.07644, 0.595772)
-material = ExtResource("2_qusny")
-
-[node name="CSGBox3D4" type="CSGBox3D" parent="room1A/room1Awalls"]
-transform = Transform3D(6.56409, 0, 0, 0, 0.433522, 0, 0, 0, 6.56409, -4.15903, 7.64957, 5.41902)
-material_override = ExtResource("1_tbt6e")
-size = Vector3(3.15115, 6.1554, 1.22781)
-material = ExtResource("1_tbt6e")
-
-[node name="CSGBox3D8" type="CSGBox3D" parent="room1A/room1Awalls"]
-transform = Transform3D(6.56409, 0, 0, 0, 0.433522, 0, 0, 0, 6.56409, -4.15903, 8.99543, 23.3947)
-material_override = ExtResource("1_tbt6e")
-size = Vector3(3.15115, 0.596375, 11.5611)
-material = ExtResource("1_tbt6e")
-
-[node name="CSGBox3D3" type="CSGBox3D" parent="room1A/room1Awalls"]
-transform = Transform3D(6.56409, 0, 0, 0, 0.849897, 0, 0, 0, 6.56409, -4.24928, 8.82747, -0.737463)
-material_override = ExtResource("1_tbt6e")
-size = Vector3(3.17865, 3.98273, 0.794312)
-material = ExtResource("1_tbt6e")
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="room1A/room1Awalls"]
-transform = Transform3D(6.56409, 0, 0, 0, 0.849897, 0, 0, 0, 5.68257, -0.0691996, 4.75514, -12.664)
-material_override = ExtResource("1_tbt6e")
-size = Vector3(1.48462, 1, 0.578857)
-material = ExtResource("2_qusny")
-
-[node name="CSGBox3D18" type="CSGBox3D" parent="room1A"]
-transform = Transform3D(2.60635, 0, 0.00274468, 0, 2.50338, 0, -0.0549593, 0, 0.130162, -1.23982, 0.564949, -1.24084)
-use_collision = true
-size = Vector3(1, 0.638184, 2.10901)
-material = ExtResource("1_tbt6e")
-
-[node name="room1B" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.7194, 0, 31.3028)
-
-[node name="room1Bwalls" type="CSGCombiner3D" parent="room1B"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.32434, 0, 0)
-use_collision = true
-
-[node name="CSGMesh3D2" type="CSGMesh3D" parent="room1B/room1Bwalls"]
-transform = Transform3D(25.4236, 0, 0, 0, 12.9171, 0, 0, 0, 25.4236, 1.47391, 11.8377, 2.10818)
-mesh = SubResource("CylinderMesh_qc3iw")
-material = ExtResource("1_tbt6e")
-
-[node name="CSGMesh3D" type="CSGMesh3D" parent="room1B/room1Bwalls/CSGMesh3D2"]
-transform = Transform3D(0.945741, 0, 0, 0, 1.4954, 0, 0, 0, 0.938816, 0, -0.196414, 0)
-operation = 2
-mesh = SubResource("CylinderMesh_qc3iw")
-material = ExtResource("1_tbt6e")
-
-[node name="CSGBox3D" type="CSGBox3D" parent="room1B/room1Bwalls/CSGMesh3D2"]
-transform = Transform3D(0.0799907, 0, -0.0344536, 0, 1.73433, 0, 0.0128096, 0, 0.21515, -0.0612168, 0.651629, 0.47018)
-operation = 2
-size = Vector3(1, 0.168823, 0.301331)
-material = ExtResource("1_tbt6e")
-
-[node name="CSGBox3D3" type="CSGBox3D" parent="room1B/room1Bwalls/CSGMesh3D2"]
-transform = Transform3D(0.0810054, 0, 0.0022969, 0, 1.73433, 0, -0.000854043, 0, 0.21788, -0.0103316, -0.738249, -0.488253)
-operation = 2
-size = Vector3(1.53564, 0.228394, 0.301331)
-material = ExtResource("1_tbt6e")
-
-[node name="CSGMesh3D2" type="CSGMesh3D" parent="room1B/room1Bwalls/CSGMesh3D2"]
-transform = Transform3D(0.686425, 0, 0, 0, 0.375332, 0, 0, 0, 0.686425, 0, -0.587235, 0.579225)
-mesh = SubResource("CylinderMesh_ml0ef")
-material = ExtResource("1_tbt6e")
-
-[node name="CSGMesh3D3" type="CSGMesh3D" parent="room1B/room1Bwalls/CSGMesh3D2/CSGMesh3D2"]
-transform = Transform3D(0.876073, 0, 0, 0, 1.56946, 0, 0, 0, 0.876073, 0, 0, 0)
-operation = 2
-mesh = SubResource("CylinderMesh_ml0ef")
-material = ExtResource("1_tbt6e")
-
-[node name="CSGMesh3D" type="CSGMesh3D" parent="room1B/room1Bwalls/CSGMesh3D2/CSGMesh3D2"]
-transform = Transform3D(0.796892, 0, 0, 0, 2.45016, 0, 0, 0, 1, 0, 0.0602644, -0.41431)
-operation = 2
-mesh = SubResource("BoxMesh_6hnvb")
-material = ExtResource("1_tbt6e")
-
-[node name="CSGBox3D5" type="CSGBox3D" parent="room1B/room1Bwalls/CSGMesh3D2/CSGMesh3D2"]
-transform = Transform3D(0.782277, 0, 0, 0, 4.00189, 0, 0, 0, 0.707589, 0.0586766, -0.5116, 0.627916)
-operation = 2
-size = Vector3(0.218262, 0.196014, 0.725098)
-material = ExtResource("1_tbt6e")
-
-[node name="CSGMesh3D3" type="CSGMesh3D" parent="room1B/room1Bwalls/CSGMesh3D2"]
-transform = Transform3D(0.585196, 0, 0, 0, 0.46194, 0, 0, 0, 0.585196, 0, -0.587235, 0.579226)
-operation = 2
-mesh = SubResource("CylinderMesh_ml0ef")
-material = ExtResource("1_tbt6e")
-
-[node name="CSGMesh3D4" type="CSGMesh3D" parent="room1B/room1Bwalls/CSGMesh3D2"]
-transform = Transform3D(0.681038, 0, 0, 0, 0.0452513, 0, 0, 0, 0.683491, 0, -0.167834, 0.579226)
-mesh = SubResource("CylinderMesh_ml0ef")
-material = ExtResource("1_tbt6e")
-
-[node name="CSGMesh3D3" type="CSGMesh3D" parent="room1B/room1Bwalls/CSGMesh3D2/CSGMesh3D4"]
-transform = Transform3D(1.45714, 0, 0, 0, 22.0777, 0, 0, 0, 1.39489, -2.77162e-05, 3.72705, -0.847343)
-operation = 2
-mesh = SubResource("CylinderMesh_qc3iw")
-material = ExtResource("1_tbt6e")
-
-[node name="CSGBox3D" type="CSGBox3D" parent="room1B"]
-transform = Transform3D(2.60635, 0, 0.00854272, 0, 1, 0, -0.0549593, 0, 0.405125, -2.47156, 0, -4.85503)
-material_override = ExtResource("2_qusny")
-use_collision = true
-size = Vector3(1, 1, 4.48535)
-material = ExtResource("1_tbt6e")
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="room1B"]
-transform = Transform3D(2.60635, 0, 0.00854272, 0, 1.81482, 0, -0.0549593, 0, 0.405125, -0.845017, 0.750155, 1.26447)
-use_collision = true
-size = Vector3(1, 1, 1.14404)
-material = ExtResource("2_qusny")
-
-[node name="CSGBox3D3" type="CSGBox3D" parent="room1B"]
-transform = Transform3D(2.60635, 0, 0.053239, 0, 1.81482, 0, -0.0549593, 0, 2.52477, 0.451544, 0.622464, 17.477)
-material_override = ExtResource("2_qusny")
-use_collision = true
-size = Vector3(1, 1, 1.14404)
-material = ExtResource("1_tbt6e")
-
-[node name="CSGBox3D24" type="CSGBox3D" parent="room1B"]
-transform = Transform3D(4.93901, 0, 0.053239, 0, 0.863307, 0, -0.104147, 0, 2.52477, -10.3473, 4.17551, 17.7047)
-material_override = ExtResource("2_qusny")
-use_collision = true
-size = Vector3(1, 1, 1.14404)
-material = ExtResource("1_tbt6e")
-
-[node name="CSGBox3D25" type="CSGBox3D" parent="room1B"]
-transform = Transform3D(2.85397, 0, 2.06128, 0, 0.863307, 0, -4.0323, 0, 1.45892, 3.4068, 3.86582, 20.924)
-use_collision = true
-size = Vector3(1, 1, 1.14404)
-material = ExtResource("2_qusny")
-
-[node name="CSGBox3D23" type="CSGBox3D" parent="room1B"]
-transform = Transform3D(2.60635, 0, 0.053239, 0, 1.81482, 0, -0.0549593, 0, 2.52477, 1.45942, -0.260146, 14.6528)
-material_override = ExtResource("2_qusny")
-use_collision = true
-size = Vector3(1, 1, 1.14404)
-material = ExtResource("1_tbt6e")
-
-[node name="CSGBox3D14" type="CSGBox3D" parent="room1B"]
-transform = Transform3D(2.60635, 0, 0.00854272, 0, 1.81482, 0, -0.0549593, 0, 0.405125, -6.8005, 0.514146, 1.39005)
-use_collision = true
-size = Vector3(1, 1, 1.14404)
-material = ExtResource("2_qusny")
-
-[node name="CSGBox3D15" type="CSGBox3D" parent="room1B"]
-transform = Transform3D(2.60635, 0, 0.00854272, 0, 1.81482, 0, -0.0549593, 0, 0.405125, -3.05632, -0.0434288, 4.76592)
-material_override = ExtResource("2_qusny")
-use_collision = true
-size = Vector3(1, 1, 1.14404)
-material = ExtResource("1_tbt6e")
-
-[node name="CSGBox3D4" type="CSGBox3D" parent="room1B"]
-transform = Transform3D(1.41157, 0, 0.00528032, 0, 1.02278, 0, -0.0297652, 0, 0.250411, 3.92503, 3.4143, -1.46727)
-material_override = ExtResource("2_qusny")
-use_collision = true
-size = Vector3(1, 1, 4.48535)
-material = ExtResource("1_tbt6e")
-
-[node name="CSGBox3D11" type="CSGBox3D" parent="room1B"]
-transform = Transform3D(0.777727, 0, 0.209041, 0, 1.02278, 0, -1.17836, 0, 0.137968, 4.02032, 2.37688, -1.34643)
-material_override = ExtResource("2_qusny")
-use_collision = true
-size = Vector3(1, 1, 4.48535)
-material = ExtResource("1_tbt6e")
-
-[node name="CSGBox3D12" type="CSGBox3D" parent="room1B"]
-transform = Transform3D(1.39537, 0, 0.0381882, 0, 1.02278, 0, -0.215267, 0, 0.247538, 4.02032, 1.3187, -1.34643)
-use_collision = true
-size = Vector3(1, 1, 4.48535)
-material = ExtResource("2_qusny")
-
-[node name="CSGBox3D13" type="CSGBox3D" parent="room1B"]
-transform = Transform3D(1.25143, 0, 0.115966, 0, 1.02278, 0, -0.653703, 0, 0.222003, 4.02032, 0.28798, -1.34643)
-use_collision = true
-size = Vector3(1, 1, 4.48535)
-material = ExtResource("2_qusny")
-
-[node name="CSGBox3D5" type="CSGBox3D" parent="room1B"]
-transform = Transform3D(2.60635, 0, 0.00854272, 0, 1, 0, -0.0549593, 0, 0.405125, 4.05132, 3.4143, 4.52219)
-use_collision = true
-size = Vector3(1, 1, 13.3248)
-material = ExtResource("2_qusny")
-
-[node name="CSGBox3D10" type="CSGBox3D" parent="room1B"]
-transform = Transform3D(2.57852, 0, 0.00854272, 0, 0.574412, 0, -0.0543723, 0, 0.405125, 4.09709, 6.04608, 3.47174)
-use_collision = true
-size = Vector3(1, 1, 7)
-material = ExtResource("2_qusny")
-
-[node name="CSGBox3D6" type="CSGBox3D" parent="room1B"]
-transform = Transform3D(2.60635, 0, 0.00854272, 0, 1, 0, -0.0549593, 0, 0.405125, 0.624447, 4.60573, 5.36261)
-material_override = ExtResource("2_qusny")
-use_collision = true
-size = Vector3(1, 1, 3.19757)
-material = ExtResource("1_tbt6e")
-
-[node name="CSGBox3D8" type="CSGBox3D" parent="room1B"]
-transform = Transform3D(2.60635, 0, 0.00854272, 0, 0.487315, 0, -0.0549593, 0, 0.405125, -4.23927, 8.94584, 9.90902)
-material_override = ExtResource("2_qusny")
-use_collision = true
-size = Vector3(1.79736, 1, 10.7268)
-material = ExtResource("1_tbt6e")
-
-[node name="CSGBox3D16" type="CSGBox3D" parent="room1B"]
-transform = Transform3D(2.60635, 0, 0.00854272, 0, 0.487315, 0, -0.0549593, 0, 0.405125, 2.85734, 17.1233, 0.323153)
-use_collision = true
-size = Vector3(0.728636, 1, 3.02258)
-material = ExtResource("2_qusny")
-
-[node name="CSGBox3D19" type="CSGBox3D" parent="room1B"]
-transform = Transform3D(1.47254, 0, 0.00292003, 0, 0.487315, 0, -0.0310509, 0, 0.138478, -14.1268, 20.5372, 2.41956)
-use_collision = true
-size = Vector3(1.79736, 1, 17.1805)
-material = ExtResource("2_qusny")
-
-[node name="CSGBox3D21" type="CSGBox3D" parent="room1B"]
-transform = Transform3D(1.44548, 0, 0.0602456, 0, 0.161489, 0, -0.333609, 0, 0.261036, -11.5476, 16.6446, 4.18329)
-use_collision = true
-size = Vector3(1.79736, 1, 3.42004)
-material = ExtResource("2_qusny")
-
-[node name="CSGBox3D22" type="CSGBox3D" parent="room1B"]
-transform = Transform3D(1.35334, 0, 0.0546577, 0, 0.487315, 0, -0.581215, 0, 0.127268, -11.8261, 15.0694, 5.0853)
-use_collision = true
-size = Vector3(1.79736, 1, 16.1036)
-material = ExtResource("2_qusny")
-
-[node name="CSGBox3D26" type="CSGBox3D" parent="room1B"]
-transform = Transform3D(1.47127, 0, 0.00644979, 0, 3.26134, 0, -0.0685854, 0, 0.138358, -9.9072, 21.8374, 11.8515)
-use_collision = true
-size = Vector3(4.71521, 0.846222, 46.8501)
-material = ExtResource("2_qusny")
-
-[node name="CSGBox3D27" type="CSGBox3D" parent="room1B"]
-transform = Transform3D(1.47127, 0, 0.00644979, 0, 3.26134, 0, -0.0685854, 0, 0.138358, -3.34034, 23.7085, 11.5453)
-use_collision = true
-size = Vector3(4.71521, 0.846222, 46.8501)
-material = ExtResource("2_qusny")
-
-[node name="CSGBox3D17" type="CSGBox3D" parent="room1B"]
-transform = Transform3D(2.60635, 0, 0.00854272, 0, 0.487315, 0, -0.0549593, 0, 0.405125, -4.18828, 18.1613, 12.3271)
-use_collision = true
-size = Vector3(1.79736, 1, 6.41125)
-material = ExtResource("2_qusny")
-
-[node name="CSGBox3D18" type="CSGBox3D" parent="room1B"]
-transform = Transform3D(2.60635, 0, 0.00854272, 0, 0.487315, 0, -0.0549593, 0, 0.405125, -6.23578, 19.5059, 12.3703)
-use_collision = true
-size = Vector3(0.226195, 6.51843, 6.41125)
-material = ExtResource("2_qusny")
-
-[node name="CSGBox3D7" type="CSGBox3D" parent="room1B"]
-transform = Transform3D(1.74985, 0, 0.118944, 0, 2.28294, 0, -1.93239, 0, 0.107708, -8.23307, 0.385986, 7.71956)
-use_collision = true
-size = Vector3(1.12371, 0.541138, 33.1822)
-material = ExtResource("2_qusny")
-
-[node name="CSGBox3D9" type="CSGBox3D" parent="room1B"]
-transform = Transform3D(0.0236093, -0.22316, 0.18019, -2.98228, -0.0464275, 1.62981e-09, 0.118708, -1.12201, -0.0358387, -7.78469, 6.50757, -2.71033)
-use_collision = true
-size = Vector3(4.80231, 0.541138, 3.19757)
-material = ExtResource("2_qusny")
-
 [node name="PlayerCombatTest" parent="." instance=ExtResource("2_qs1kf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.3818, 7.92985, 18.7679)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.509165, 0.148117, 15.0111)
 
 [node name="CollisionShape3D" parent="PlayerCombatTest" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.863529, 0.0114632)
 
+[node name="firstPersonCamera" parent="PlayerCombatTest/PlayerCharacterPrefab" index="0"]
+transform = Transform3D(-1, -5.35447e-09, 5.93637e-08, 0, 0.995957, 0.089833, -5.96047e-08, 0.089833, -0.995957, 0, 1.49504, -0.0335484)
+
 [node name="BoneAttachment3D" parent="PlayerCombatTest/PlayerCharacterPrefab/pc_arms_rig_v6/PC_rig/Skeleton3D" index="0"]
 transform = Transform3D(0.253773, -0.0456788, 0.963334, 0.89963, 0.370151, -0.21944, -0.347512, 0.924879, 0.135401, -0.513488, 1.48135, 0.336686)
+
+[node name="Camera3D" parent="PlayerCombatTest/SubViewport" index="0"]
+visible = false
+
+[node name="CanvasLayer" type="CanvasLayer" parent="PlayerCombatTest"]
+visible = false
+
+[node name="TextureRect" type="TextureRect" parent="PlayerCombatTest/CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = SubResource("ViewportTexture_oqm3e")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_u2l3j")
