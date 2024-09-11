@@ -15,3 +15,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.863529, 0.0114639)
 shape = SubResource("CapsuleShape3D_pg6wf")
 
 [node name="PlayerCharacterPrefab" parent="." instance=ExtResource("3_b72vo")]
+
+[node name="SubViewport" type="SubViewport" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="SubViewport"]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, -8.21748, 1.36832, -5.55598)
+rotation_edit_mode = 2

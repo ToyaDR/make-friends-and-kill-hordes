@@ -4,13 +4,15 @@ using System;
 public partial class PlayerCharacter : CharacterBody3D
 {
 	private Camera3D FirstPersonCamera;
-	// private Camera3D DebugCamera;
+	private Camera3D DebugCamera;
 
 	public float gravity = ProjectSettings.GetSetting("physics/3d/default_gravity").AsSingle();
 	private const float Speed = 5.0f;
 	private const float JumpHorizontalSpeed = 2.0f;
 	private const float LookSpeed = 0.001f;
 	private const float JumpHeight = 1f;
+	private bool DebugToggle = false;
+	private CanvasLayer DebugCanvas;
 
 	private float RotationX = 0.0f;
 	private float RotationY = 0.0f;
@@ -44,8 +46,17 @@ public partial class PlayerCharacter : CharacterBody3D
 		Sword = GetNode<Node3D>("PlayerCharacterPrefab/pc_arms_rig_v6/PC_rig/Skeleton3D/BoneAttachment3D");
 		interactionRayCast = GetNode<RayCast3D>("PlayerCharacterPrefab/firstPersonCamera/RayCast3D");
 		interactionRayCast.CollideWithBodies = true;
+		
+		DebugCanvas = GetNode<CanvasLayer>("CanvasLayer");
+		DebugToggle = true; 
+		DebugCanvas.Visible = false;
+		DebugCamera = GetNode<Camera3D>("SubViewport/Camera3D");
 
-		// DebugCamera = GetNode<Camera3D>("SubViewport/Camera3D");
+		if(DebugToggle)
+		{
+			DebugCamera.Visible = true;
+			DebugCanvas.Visible = true;
+		}
 	}
 
 	public override void _Ready()
@@ -248,9 +259,12 @@ public partial class PlayerCharacter : CharacterBody3D
 		HandleMovement(delta);
 		HandleInteraction();
 
-		// Transform3D debugCameraTransform = Transform;
-		// debugCameraTransform.Origin = new Vector3(Transform.Origin.X + 10.0f, Transform.Origin.Y, Transform.Origin.Z);
-		// debugCameraTransform.Basis = new Basis(new Vector3(0, 0, -1), new Vector3(0, 1, 0), new Vector3(1, 0, 0));
-		// DebugCamera.Transform = debugCameraTransform;
+		if(DebugToggle)
+		{
+			Transform3D debugCameraTransform = Transform;
+			debugCameraTransform.Origin = new Vector3(Transform.Origin.X + 3.0f, Transform.Origin.Y, Transform.Origin.Z);
+			debugCameraTransform.Basis = new Basis(new Vector3(0, 0, -1), new Vector3(0, 1, 0), new Vector3(1, 0, 0));
+			DebugCamera.Transform = debugCameraTransform;
+		}
 	}
 }
