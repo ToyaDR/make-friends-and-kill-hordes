@@ -7,7 +7,7 @@ public partial class PlayerCharacter : CharacterBody3D
 	private Camera3D DebugCamera;
 
 	public float gravity = ProjectSettings.GetSetting("physics/3d/default_gravity").AsSingle();
-	private const float Speed = 5.0f;
+	private const float Speed = 10.0f;
 	private const float JumpHorizontalSpeed = 2.0f;
 	private const float LookSpeed = 0.001f;
 	private const float JumpHeight = 1f;
@@ -36,23 +36,30 @@ public partial class PlayerCharacter : CharacterBody3D
 	private Vector3 hookPoint;
 	private bool isGrappling;
 
+	AnimationPlayer animationPlayer;
+	private bool takeDamage = false;
+
 	public void ReadyPlayerCharacter()
 	{
+		animationPlayer = GetNode<AnimationPlayer>("pc_arms_rig_v6/AnimationPlayer");
+		animationPlayer.SpeedScale = 1.5f;
+		takeDamage = true;
+
 		Input.MouseMode = Input.MouseModeEnum.Captured;
-		FirstPersonCamera = GetNode<Camera3D>("PlayerCharacterPrefab/firstPersonCamera");
+		FirstPersonCamera = GetNode<Camera3D>("firstPersonCamera");
 		hitPoints = new HitPoints(100);
-		hitPointsBar = GetNode<HitPointsBar>("PlayerCharacterPrefab/HitPointsBar");
+		hitPointsBar = GetNode<HitPointsBar>("HitPointsBar");
 		hitPointsBar.InitHitPointsBars(hitPoints);
-		Sword = GetNode<Node3D>("PlayerCharacterPrefab/pc_arms_rig_v6/PC_rig/Skeleton3D/BoneAttachment3D");
-		interactionRayCast = GetNode<RayCast3D>("PlayerCharacterPrefab/firstPersonCamera/RayCast3D");
+		Sword = GetNode<Node3D>("pc_arms_rig_v6/PC_rig/Skeleton3D/BoneAttachment3D");
+		interactionRayCast = GetNode<RayCast3D>("firstPersonCamera/RayCast3D");
 		interactionRayCast.CollideWithBodies = true;
-		
+
 		DebugCanvas = GetNode<CanvasLayer>("CanvasLayer");
-		DebugToggle = true; 
+		DebugToggle = true;
 		DebugCanvas.Visible = false;
 		DebugCamera = GetNode<Camera3D>("SubViewport/Camera3D");
 
-		if(DebugToggle)
+		if (DebugToggle)
 		{
 			DebugCamera.Visible = true;
 			DebugCanvas.Visible = true;
@@ -259,12 +266,32 @@ public partial class PlayerCharacter : CharacterBody3D
 		HandleMovement(delta);
 		HandleInteraction();
 
-		if(DebugToggle)
+		SwapItem();
+		if (DebugToggle)
 		{
 			Transform3D debugCameraTransform = Transform;
 			debugCameraTransform.Origin = new Vector3(Transform.Origin.X + 3.0f, Transform.Origin.Y, Transform.Origin.Z);
 			debugCameraTransform.Basis = new Basis(new Vector3(0, 0, -1), new Vector3(0, 1, 0), new Vector3(1, 0, 0));
 			DebugCamera.Transform = debugCameraTransform;
+		}
+
+		if (Mathf.RoundToInt(delta) % 1000 == 0 && HPBar.HitPointsValue.CurrentHitPoints > 50 && takeDamage)
+		{
+			TakeDamage(1);
+		}
+		if (Input.IsActionJustPressed("action"))
+		{
+			if (CurrentItem == "Sword")
+			{
+				animationPlayer.Play("swordSwing");
+			}
+
+			if (CurrentItem == "Heal")
+			{
+				animationPlayer.Play("healingSpell");
+				takeDamage = false;
+				HPBar.ReceiveHealing(25);
+			}
 		}
 	}
 }
