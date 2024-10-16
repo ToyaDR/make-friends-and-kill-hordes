@@ -5,7 +5,12 @@ public partial class Interactable : StaticBody3D
 {
 	public void Hover(Label Prompter)
 	{
-		Prompter.Text = "Press Y to Interact";
+		Prompter.Text = "Press F to Interact";
+	}
+	public virtual void PushButton()
+	{
+		GD.Print("Please Implement PushButton");
+		//signal to the ElevatorPlaform to raise
 	}
 	public void LeaveHover(Label Prompter)
 	{
