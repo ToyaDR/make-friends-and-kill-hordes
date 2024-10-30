@@ -9,6 +9,7 @@ public class SpellsLoader
   private static Godot.Collections.Dictionary<string, Variant> wordsDict;
   private static Godot.Collections.Dictionary<string, Variant> spellsDict;
   private static System.Collections.Generic.Dictionary<string, Array<string>> spellToWordsDict;
+  private static System.Collections.Generic.Dictionary<string, string> wordIdToNameDict;
 
   private static void PrintDictionary<TKey, TValue>(System.Collections.Generic.Dictionary<TKey, TValue> dict)
   {
@@ -27,7 +28,7 @@ public class SpellsLoader
     wordsDict = (Godot.Collections.Dictionary<string, Variant>)Json.ParseString(wordsFileAsText);
     spellsDict = (Godot.Collections.Dictionary<string, Variant>)Json.ParseString(spellsFileAsText);
 
-    System.Collections.Generic.Dictionary<string, string> wordIdToNameDict = wordsDict.Keys.Aggregate(new System.Collections.Generic.Dictionary<string, string>() { }, (acc, word) =>
+    wordIdToNameDict = wordsDict.Keys.Aggregate(new System.Collections.Generic.Dictionary<string, string>() { }, (acc, word) =>
     {
       Godot.Collections.Dictionary<string, Variant> wordAttributes = (Godot.Collections.Dictionary<string, Variant>)wordsDict.GetValueOrDefault(word);
 
@@ -35,14 +36,13 @@ public class SpellsLoader
       acc.Add(wordId, word);
       return acc;
     });
-    PrintDictionary(wordIdToNameDict);
+    // PrintDictionary(wordIdToNameDict);
 
     spellToWordsDict = spellsDict.Keys.Aggregate(new System.Collections.Generic.Dictionary<string, Array<string>>() { }, (acc, spell) =>
     {
       Godot.Collections.Dictionary<string, Variant> spellAttributes = (Godot.Collections.Dictionary<string, Variant>)spellsDict.GetValueOrDefault(spell);
 
       Array<string> wordsInSpell = (Array<string>)spellAttributes.GetValueOrDefault("words");
-
 
       acc.Add(spell, wordsInSpell);
       return acc;
@@ -51,9 +51,14 @@ public class SpellsLoader
     // PrintDictionary(spellToWordsDict);
   }
 
-  // public static string[] GetWordsForSpell(string spellId)
-  // {
-  //   return;
-  //   // return (string[])spellToWordsDict.GetValueOrDefault(spellId);
-  // }
+  public static Array<string> GetWordsForSpell(string spellId)
+  {
+    return spellToWordsDict.GetValueOrDefault(spellId);
+  }
+
+  public static Array<string> GetWordNamesForSpell(string spellId)
+  {
+    return (Array<string>)spellToWordsDict.GetValueOrDefault(spellId)
+      .Select(word => wordIdToNameDict.GetValueOrDefault(word));
+  }
 }
