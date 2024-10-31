@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://13gp7pl0tbmt"]
+[gd_scene load_steps=19 format=3 uid="uid://13gp7pl0tbmt"]
 
 [ext_resource type="Material" uid="uid://7xnxfp5n847g" path="res://environments/grayboxResources/grayboxcheckers.tres" id="1_tbt6e"]
 [ext_resource type="Script" path="res://environments/ElevatorPlatform.cs" id="2_nmec5"]
@@ -51,10 +51,10 @@ length = 3.0
 tracks/0/type = "position_3d"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".")
+tracks/0/path = NodePath("..")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, -0.669755, -6.03211, 32.9224, 3, 1, -0.84959, -22.9195, 32.347)
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 3, 1, 0, -13.5668, 0)
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ogn55"]
 _data = {
@@ -63,6 +63,15 @@ _data = {
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8ntpj"]
 albedo_color = Color(0.996078, 0, 0.262745, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_keyvv"]
+albedo_color = Color(0.741176, 0.470588, 0.0823529, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2ljko"]
+albedo_color = Color(0.219608, 0.611765, 0.541176, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rmgca"]
+albedo_color = Color(0.486275, 0.439216, 1, 1)
 
 [node name="Ballastgrayboxlevel" type="Node3D"]
 
@@ -204,6 +213,7 @@ material = ExtResource("1_tbt6e")
 transform = Transform3D(-0.999456, 0, -0.032998, 0, 1, 0, 0.032998, 0, -0.999456, -0.841156, 4.60286, 32.3985)
 use_collision = true
 script = ExtResource("2_nmec5")
+metadata/AnimationRun = "UpandDown"
 
 [node name="CSGCylinder3D5" type="CSGCylinder3D" parent="ElevatorPlatform"]
 transform = Transform3D(23.4987, 0, 0, 0, 4.77607, 0, 0, 0, 23.4987, 0.228199, 1.10129, 1.12711)
@@ -230,10 +240,11 @@ operation = 2
 size = Vector3(4.5835, 12.373, 14.789)
 material = ExtResource("1_tbt6e")
 
-[node name="ElevatorPlatform" type="AnimationPlayer" parent="ElevatorPlatform"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ElevatorPlatform"]
 libraries = {
 "": SubResource("AnimationLibrary_3qaes")
 }
+metadata/AnimationRun = "UpandDown"
 
 [node name="CSGCombiner3D4" type="CSGCombiner3D" parent="."]
 transform = Transform3D(0.0664632, 0.022708, -0.99753, 0.119269, 0.992392, 0.0305376, 0.990635, -0.121004, 0.0632493, 0.216523, 42.7297, 33.5918)
@@ -300,12 +311,17 @@ environment = SubResource("Environment_u2l3j")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
 transform = Transform3D(0.998596, 0.00466395, -0.0527577, 0.0504531, 0.219266, 0.97436, 0.0161123, -0.975654, 0.218723, 0, 10.146, 13.7862)
 
-[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="."]
-transform = Transform3D(52.1298, 0, 0, 0, 9.37893, 0, 0, 0, 52.1298, -0.84959, -22.9195, 32.347)
+[node name="waterLevel" type="CSGCombiner3D" parent="."]
+script = ExtResource("2_nmec5")
+metadata/AnimationRun = "waterLevelLower"
+
+[node name="water" type="CSGCylinder3D" parent="waterLevel"]
+transform = Transform3D(52.1298, 0, 0, 0, 9.37893, 0, 0, 0, 52.1298, -0.669755, -6.03211, 32.9224)
 sides = 64
 material = ExtResource("3_75tdr")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CSGCylinder3D4"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="waterLevel"]
+root_node = NodePath("../water")
 libraries = {
 "": SubResource("AnimationLibrary_ogn55")
 }
@@ -547,18 +563,36 @@ material = ExtResource("3_75tdr")
 [node name="Interactable" parent="." instance=ExtResource("4_yusyx")]
 transform = Transform3D(1.9882, 0, 0, 0, 1.59836, 0, 0, 0, 1, -2.13341, 22.092, 52.9235)
 script = ExtResource("5_5yv13")
+metadata/LiftPath = NodePath("../ElevatorPlatform")
 
 [node name="MeshInstance3D" parent="Interactable" index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_8ntpj")
 
+[node name="Interactable2" parent="." instance=ExtResource("4_yusyx")]
+transform = Transform3D(1.9882, 0, 0, 0, 1.59836, 0, 0, 0, 1, -6.47497, 22.092, 52.9235)
+script = ExtResource("5_5yv13")
+metadata/LiftPath = NodePath("../waterLevel")
+
+[node name="MeshInstance3D" parent="Interactable2" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_keyvv")
+
 [node name="Door" parent="." instance=ExtResource("4_yusyx")]
 transform = Transform3D(1.9882, 0, 0, 0, 1.59836, 0, 0, 0, 1, 4.83734, 22.092, 52.9235)
 script = ExtResource("7_oicjm")
-metadata/ScenePath = "res://environments/BallastDungeon/ballastminiboss.tscn"
+metadata/ScenePath = "res://environments/hub/rooms/camp.tscn"
 
 [node name="MeshInstance3D" parent="Door" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.510621, 0)
-surface_material_override/0 = SubResource("StandardMaterial3D_8ntpj")
+surface_material_override/0 = SubResource("StandardMaterial3D_2ljko")
+
+[node name="Door2" parent="." instance=ExtResource("4_yusyx")]
+transform = Transform3D(1.9882, 0, 0, 0, 1.59836, 0, 0, 0, 1, 1.73522, 22.092, 53.168)
+script = ExtResource("7_oicjm")
+metadata/ScenePath = "res://environments/BallastDungeon/ballastminiboss.tscn"
+
+[node name="MeshInstance3D" parent="Door2" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.510621, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_rmgca")
 
 [node name="Lights" type="Node3D" parent="."]
 
@@ -574,4 +608,6 @@ spot_angle = 14.7337
 spot_angle_attenuation = 0.0473661
 
 [editable path="Interactable"]
+[editable path="Interactable2"]
 [editable path="Door"]
+[editable path="Door2"]

@@ -11,7 +11,8 @@ public partial class PlatformActivationButton : Interactable
 	public override void _Ready()
 	{
 		// elevatorPlatform = GetNode<ElevatorPlatform>("root/Ballastgrayboxlevel/ElevatorPlatform");
-		elevatorPlatform = GetParent().GetNode<ElevatorPlatform>("ElevatorPlatform");
+		string elevatorPath = (string)GetMeta("LiftPath");
+		elevatorPlatform = GetNode<ElevatorPlatform>(elevatorPath);
 		
 	}
 
