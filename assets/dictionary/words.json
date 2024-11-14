@@ -1,0 +1,16 @@
+{
+  "god": {
+    "id": "6e2d3480-3142-4e88-86a0-6154fa239a39",
+    "spells": [
+        "0397d5fa-63de-438e-8d0c-3948b474998d"
+    ],
+    "runePath": ""
+  },
+  "warrior": {
+    "id": "a9303b7b-cf20-4554-8ed5-ff5c66847ea6",
+    "spells": [
+        "0397d5fa-63de-438e-8d0c-3948b474998d"
+    ],
+    "runePath": ""
+  }
+}
