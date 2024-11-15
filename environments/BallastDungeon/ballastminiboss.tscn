@@ -1,0 +1,79 @@
+[gd_scene load_steps=6 format=3 uid="uid://bw7v81u24l7i1"]
+
+[ext_resource type="Material" uid="uid://7xnxfp5n847g" path="res://environments/grayboxResources/grayboxcheckers.tres" id="1_x7odw"]
+[ext_resource type="PackedScene" uid="uid://cf3rf8u3fxy3j" path="res://characters/player/playerCharacter_prefab_v2.tscn" id="2_13juy"]
+[ext_resource type="PackedScene" uid="uid://dspqf4lecesac" path="res://environments/Interactable.tscn" id="3_6lt8k"]
+[ext_resource type="Script" path="res://environments/DoorOpener.cs" id="4_bknbx"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_shan4"]
+albedo_color = Color(0.486275, 0.439216, 1, 1)
+
+[node name="Ballastminiboss" type="Node3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(23.9644, 0, 0, 0, 1, 0, 0, 0, 4.46539, 1.2579, 0, -0.40199)
+use_collision = true
+size = Vector3(2.74854, 1, 15.1006)
+material = ExtResource("1_x7odw")
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="."]
+transform = Transform3D(43.2127, 0, 0, 0, 12.7534, 0, 0, 0, 43.2127, 0, -6.69672, 0)
+use_collision = true
+sides = 64
+material = ExtResource("1_x7odw")
+
+[node name="walls" type="CSGCombiner3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.14862, 0)
+use_collision = true
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="walls"]
+transform = Transform3D(61.6072, 0, 0, 0, 33.9049, 0, 0, 0, 61.6072, 0, 24.0383, 0)
+sides = 64
+material = ExtResource("1_x7odw")
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="walls"]
+transform = Transform3D(59.8005, 0, 0, 0, 33.9049, 0, 0, 0, 59.8005, 0, 24.0383, 0)
+operation = 2
+sides = 64
+material = ExtResource("1_x7odw")
+
+[node name="PlayerCharacterPrefab" parent="." instance=ExtResource("2_13juy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0270276, 6.27521, -19.6689)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.833442, 0.552606, 0, -0.552606, 0.833442, 0, 8.62271, 0)
+
+[node name="Door2" parent="." instance=ExtResource("3_6lt8k")]
+transform = Transform3D(5.53475, 0, 0.0111604, 0, 9.45221, 0, -0.06714, 0, 0.920018, 0.456129, 26.8557, 29.5854)
+script = ExtResource("4_bknbx")
+metadata/ScenePath = "res://environments/BallastDungeon/ballastgrayboxlevel.tscn"
+
+[node name="MeshInstance3D" parent="Door2" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_shan4")
+
+[node name="CSGCombiner3D14" type="CSGCombiner3D" parent="."]
+transform = Transform3D(-3.47362, 0.043862, 1.21245, -0.119179, 0.306231, -1.64567, -1.29704, -0.145607, -3.09584, 17.18, 4.53173, -7.05024)
+use_collision = true
+
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="CSGCombiner3D14"]
+transform = Transform3D(24.4798, 0, -9.53674e-07, 3.8147e-06, 6.04676, 7.62939e-06, 1.90735e-06, 1.49012e-08, 24.4798, 0.756922, 4.39729, -4.49)
+radius = 0.405654
+height = 0.904284
+sides = 64
+material = ExtResource("1_x7odw")
+
+[node name="CSGCylinder3D6" type="CSGCylinder3D" parent="CSGCombiner3D14"]
+transform = Transform3D(18.7105, 0, 4.29153e-06, 1.90735e-06, 5.21632, 0, -4.29153e-06, 0, 18.7105, 0.603628, 5.57347, -4.73754)
+operation = 2
+radius = 0.342583
+height = 2.21229
+sides = 64
+material = ExtResource("1_x7odw")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D14"]
+transform = Transform3D(25.108, 0.241818, 17.8133, 0.238657, 7.59138, -2.02567, -17.8385, 0.441914, 25.0454, 8.4234, 6.14982, -6.88855)
+operation = 1
+size = Vector3(0.582275, 1.92969, 1.07196)
+material = ExtResource("1_x7odw")
+
+[editable path="Door2"]

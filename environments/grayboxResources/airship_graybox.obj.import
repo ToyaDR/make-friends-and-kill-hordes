@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dehhllvht6ljf"
+path="res://.godot/imported/airship_graybox.obj-2afe6d7edadad6075f42897a8357f68b.mesh"
+
+[deps]
+
+files=["res://.godot/imported/airship_graybox.obj-2afe6d7edadad6075f42897a8357f68b.mesh"]
+
+source_file="res://environments/grayboxResources/airship_graybox.obj"
+dest_files=["res://.godot/imported/airship_graybox.obj-2afe6d7edadad6075f42897a8357f68b.mesh", "res://.godot/imported/airship_graybox.obj-2afe6d7edadad6075f42897a8357f68b.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

@@ -29,6 +29,7 @@ public partial class PlayerCharacter : CharacterBody3D
 	public HitPointsBar HPBar { get => hitPointsBar; set => hitPointsBar = value; }
 
 	private Node3D Sword;
+	private Label Prompter;
 
 	private RayCast3D interactionRayCast;
 	private GodotObject hoveredObject;
@@ -53,6 +54,7 @@ public partial class PlayerCharacter : CharacterBody3D
 		Sword = GetNode<Node3D>("pc_arms_rig_v6/PC_rig/Skeleton3D/BoneAttachment3D");
 		interactionRayCast = GetNode<RayCast3D>("firstPersonCamera/RayCast3D");
 		interactionRayCast.CollideWithBodies = true;
+		Prompter = GetNode<Label>("firstPersonCamera/RayCast3D/Prompt");
 
 		DebugCanvas = GetNode<CanvasLayer>("CanvasLayer");
 		DebugToggle = true;
@@ -244,20 +246,38 @@ public partial class PlayerCharacter : CharacterBody3D
 
 	public void HandleInteraction()
 	{
-		GodotObject interactable = interactionRayCast.GetCollider();
-		if (interactable != null && interactable is GrapplePoint)
+		
+		GodotObject godotObject = interactionRayCast.GetCollider();
+		if (godotObject != null)
 		{
-			hoveredObject = interactable;
-			((GrapplePoint)hoveredObject).Hover();
+			hoveredObject = godotObject;
+
+			if (godotObject is GrapplePoint)
+			{
+				((GrapplePoint)hoveredObject).Hover();
+			}
+			if (godotObject is Interactable)
+			{
+				//hovering over an  object will prompt "Press Y to Interact"
+				((Interactable)hoveredObject).Hover(Prompter);
+				if(Input.IsActionPressed("interact")==true)
+				{
+					((Interactable)hoveredObject).PushButton();
+				}			
+			}
 		}
 
-		if (interactable == null && hoveredObject != null)
+		if (godotObject == null)
 		{
 			if (hoveredObject is GrapplePoint)
 			{
 				((GrapplePoint)hoveredObject).LeaveHover();
 			}
-			hoveredObject = null;
+			if (hoveredObject is Interactable)
+			{
+				((Interactable)hoveredObject).LeaveHover(Prompter);
+			}
+				hoveredObject = null;
 		}
 	}
 
