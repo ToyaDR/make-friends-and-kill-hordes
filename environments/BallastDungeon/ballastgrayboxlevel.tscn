@@ -74,7 +74,7 @@ albedo_color = Color(0.486275, 0.439216, 1, 1)
 [node name="Ballastgrayboxlevel" type="Node3D"]
 
 [node name="PlayerCharacterPrefab" parent="." instance=ExtResource("2_prdf1")]
-transform = Transform3D(-0.868951, 0, -0.494898, 0, 1, 0, 0.494898, 0, -0.868951, 8.36937, 22.0644, 53.4901)
+transform = Transform3D(-0.868951, 0, -0.494898, 0, 1, 0, 0.494898, 0, -0.868951, 8.36937, 43.626, 53.4901)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_u2l3j")
@@ -508,6 +508,9 @@ shadow_bias = 0.09
 spot_range = 112.536
 spot_angle = 14.7337
 spot_angle_attenuation = 0.0473661
+
+[connection signal="PushButtonSignal" from="Interactable" to="ElevatorPlatform" method="LiftUp"]
+[connection signal="PushButtonSignal" from="Interactable2" to="waterLevel" method="LiftUp"]
 
 [editable path="Interactable"]
 [editable path="Interactable2"]

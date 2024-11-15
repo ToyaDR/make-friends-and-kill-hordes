@@ -3,7 +3,6 @@ using System;
 
 public partial class PlatformActivationButton : Interactable
 {
-
 	ElevatorPlatform elevatorPlatform;
 	AnimationPlayer animationPlayer;
 
@@ -13,17 +12,11 @@ public partial class PlatformActivationButton : Interactable
 		// elevatorPlatform = GetNode<ElevatorPlatform>("root/Ballastgrayboxlevel/ElevatorPlatform");
 		string elevatorPath = (string)GetMeta("LiftPath");
 		elevatorPlatform = GetNode<ElevatorPlatform>(elevatorPath);
-		
-	}
-
-	public override void PushButton()
-	{
-		elevatorPlatform.LiftUp();
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		
+
 	}
 }

@@ -246,7 +246,7 @@ public partial class PlayerCharacter : CharacterBody3D
 
 	public void HandleInteraction()
 	{
-		
+
 		GodotObject godotObject = interactionRayCast.GetCollider();
 		if (godotObject != null)
 		{
@@ -260,10 +260,10 @@ public partial class PlayerCharacter : CharacterBody3D
 			{
 				//hovering over an  object will prompt "Press Y to Interact"
 				((Interactable)hoveredObject).Hover(Prompter);
-				if(Input.IsActionPressed("interact")==true)
+				if (Input.IsActionPressed("interact") == true)
 				{
 					((Interactable)hoveredObject).PushButton();
-				}			
+				}
 			}
 		}
 
@@ -277,7 +277,7 @@ public partial class PlayerCharacter : CharacterBody3D
 			{
 				((Interactable)hoveredObject).LeaveHover(Prompter);
 			}
-				hoveredObject = null;
+			hoveredObject = null;
 		}
 	}
 
